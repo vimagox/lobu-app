@@ -287,6 +287,16 @@ ul.sub-menu {
 
 /*End Drpdown Menu CSS*/
 
+.u-list-inline {
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+
+.list-inline-item {
+  display: inline-block;
+}
+
 /* Navbar Toggle */
 
 .navbar-toggle {
@@ -930,9 +940,9 @@ img.mfp-img {
    color: #2d3038;
 }
 
-/* Blog Section */
+/* Bizs Section */
 
-.blog-section .entry-post {
+.bizs-section .entry-post {
     margin-bottom: 30px;
     overflow: hidden;
 }
@@ -991,7 +1001,7 @@ img.mfp-img {
     transition: all 900ms;
 }
 
-.blog-section .entry-post:hover .time a {
+.bizs-section .entry-post:hover .time a {
     border-radius: 0%;
 }
 

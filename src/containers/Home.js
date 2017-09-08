@@ -1,12 +1,30 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {StyleSheet,css} from 'aphrodite'
 import {colors} from '../constants/Colors'
 import {loadRegions} from '../actions'
 import Container from '../components/Container'
 import RegionList from '../components/region/List'
+import RegionItem from '../components/region/Item'
+import BusinessList from '../components/business/List'
+import MobileHeader from '../components/mobile/Header'
+import {upToSmall} from '../constants/Media'
+import {StyleSheet,css} from 'aphrodite'
+import Masonry from '../components/business/Masonry'
 
 const styles = StyleSheet.create({
+  mobile: {
+    display: 'none',
+    [upToSmall]: {
+      display: 'block',
+      padding: '1em 0'
+    }
+  },
+  desktop: {
+    display: 'block',
+    [upToSmall]: {
+      display: 'none',
+    }
+  }
 })
 
 class Home extends React.Component {
@@ -16,9 +34,26 @@ class Home extends React.Component {
 
   render() {
     const regions = this.props.regions
+    const mode = this.props.mode
     return (
+      <div>
       <div className="container">
-        {regions && <RegionList list={regions} color={colors[0]}/>}
+        <div className={css(styles.desktop)}>
+          {regions && <RegionList list={regions} color={colors[0]}/>}
+        </div>
+
+        <div className={css(styles.mobile)}>
+          <MobileHeader/>
+          {regions && <div className={css(styles.regions)}>
+            { mode === 'regions' && <div className={css(styles.column)}>
+              {Object.keys(regions).map((k,i) => (
+                <RegionItem key={'region'+i} r={regions[k]}/>
+              ))}
+            </div> }
+          </div> }
+          { mode === 'bizs' && <BusinessList/>}
+        </div>
+      </div>
       </div>
     )
   }
@@ -26,7 +61,8 @@ class Home extends React.Component {
 
 const mapStateToProps = (store) => {
   return {
-    regions: store.regions
+    regions: store.regions,
+    mode: store.mode
   }
 }
 

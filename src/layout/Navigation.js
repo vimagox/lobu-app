@@ -4,6 +4,7 @@ import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {store} from '../store'
 import Logo from '../components/Logo'
+import {colors} from '../constants/Colors'
 
 const empty = () => {
   return (
@@ -23,11 +24,10 @@ class Navigation extends React.Component {
     const biz = this.props.business
     return (
       <div className="container">
-          <div id="navigation" className="menu-two"
-              style={{position: 'fixed', top:0, width: '100%', zIndex: 2000}}>
+          <div id="navigation" className="menu-two g-pos-fix g-z-index-9999 g-width-100vw">
               <div className="navbar">
                   <div className="navbar-header">
-                      <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                      <button style={{display: 'none'}} type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
                           <span className="sr-only">Toggle navigation</span>
                           <span className="icon-bar"></span>
                           <span className="icon-bar"></span>

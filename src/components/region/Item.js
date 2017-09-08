@@ -4,6 +4,7 @@ import {withRouter} from 'react-router-dom'
 import {loadCity} from '../../actions'
 import {StyleSheet,css} from 'aphrodite'
 import {colors} from '../../constants/Colors'
+import {upToSmall} from '../../constants/Media'
 
 const styles = StyleSheet.create({
   label: {
@@ -12,6 +13,12 @@ const styles = StyleSheet.create({
     lineHeight: '1em',
     ':hover': {
       color: colors[8]
+    },
+    [upToSmall]: {
+      width: '100%',
+      border: '1px solid #ddd',
+      lineHeight: '2em',
+      padding: '.5em 1em'
     }
   }
 })
@@ -32,7 +39,8 @@ class RegionItem extends React.Component {
   render() {
     const r = this.props.r
     return (
-      <div className="col-sm-12 col-md-3" style={{padding: '5px'}}>
+      <div className="col-sm-12 col-md-3"
+        style={{padding: '5px'}}>
         <div onClick={this.selectRegion.bind(this, r)}
           className={css(styles.label)}>{r.name}</div>
       </div>

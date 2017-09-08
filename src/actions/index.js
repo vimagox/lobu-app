@@ -9,9 +9,17 @@ const setCity = city => ({type: types.SET_CITY, city: city})
 const setBusiness = (region, city, biz) => ({type: types.SET_BUSINESS, region: region, city: city, business: biz})
 const tempImage = image => ({type: types.SET_TEMP_IMAGE, image: image})
 
+export async function resetCountry(){ store.dispatch({type: 'RESET_COUNTRY'}) }
+export async function resetRegion(){ store.dispatch({type: 'RESET_REGION'}) }
+export async function resetCity(){ store.dispatch({type: 'RESET_CITY'}) }
+export async function resetBiz(){ store.dispatch({type: 'RESET_BUSINESS'}) }
 
 export async function hideBanner() {
   store.dispatch({type: types.HIDE_BANNER})
+}
+
+export async function loadMode(mode) {
+  store.dispatch({type: types.SET_MODE, mode: mode})
 }
 
 export async function loadRegions() {
@@ -41,4 +49,13 @@ export async function loadCity(path, cityUid) {
   const city = cities[cityUid]
   store.dispatch(setCity(city))
   return city
+}
+
+export async function loadBusiness(biz) {
+  const path = biz.location.region
+  const region = store.getState().region || (await loadRegion(path))
+  const cities = store.getState().cities || (await loadCities(path))
+  const city = cities[biz.location.city]
+
+  store.dispatch(setBusiness(region, city, biz))
 }

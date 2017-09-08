@@ -2,8 +2,36 @@ import React from 'react'
 import {withRouter} from 'react-router-dom'
 import {colors} from '../../constants/Colors'
 import {StyleSheet,css} from 'aphrodite'
+import Template from './Template'
+import {atLeastSmall, atLeastMediumBig, atLeastBig, atLeastHuge} from '../../constants/Media'
 
 const styles = StyleSheet.create({
+  box: {
+    width: '100%',
+    cursor: 'pointer',
+    height: '364px',
+    paddingTop: '3em',
+    margin: '0 1em',
+    marginBottom: '30px',
+    // border: '3px solid blue',
+    [atLeastSmall]: {
+      // border: '3px solid cyan',
+      height: '324px',
+    },
+    [atLeastMediumBig]: {
+      // border: '3px solid magenta',
+      height: '324px',
+    },
+    [atLeastHuge]: {
+      display: 'flex',
+      flexGrow: 1,
+      width: '320px',
+      height: '340px',
+      margin: '0 1em',
+      overflow: 'hidden',
+      // border: '3px solid red',
+    }
+  },
   title1: {
     paddingTop: '.5em',
     fontSize: '2em',
@@ -30,7 +58,7 @@ const styles = StyleSheet.create({
     color: '#ddd',
     textAlign: 'center',
     paddingTop: '.5em',
-  }
+  },
 })
 
 class Ad extends React.Component {
@@ -38,23 +66,20 @@ class Ad extends React.Component {
     this.props.history.push('/signup')
   }
   render() {
-    const  color = colors[Math.floor((Math.random() * 10) + 1)]
+    const color = colors[Math.floor((Math.random() * 10) + 1)]
     return (
-      <div className="col-sm-4">
-          <div onClick={this.signup.bind(this)}
-              className="entry-post" style={{cursor: 'pointer',
-                backgroundColor: color}}>
-              <div className="post-content"
-                  style={{maxWidth: '360px', height: '301px', padding: '0 1em 1em 1em',
-                  }}>
-                  <div className="entry-title">
-                     <h2 className={css(styles.title1)}>Sign up</h2>
-                     <h2 className={css(styles.title2)}>your Business</h2>
-                     <div className={css(styles.subtitle)}>FREE TRIAL</div>
-                     <div className={css(styles.footer)} style={{color: colors[this.props.time]}}>No credit card neeeded</div>
-                 </div>
-              </div>
+      <div className={css(styles.box)}
+          style={{backgroundColor: color}}
+          onClick={this.signup.bind(this)}>
+
+        <div className={css(styles.content)}>
+          <div className="entry-title">
+            <h2 className={css(styles.title1)}>Sign up</h2>
+            <h2 className={css(styles.title2)}>your Business</h2>
+            <div className={css(styles.subtitle)}>FREE TRIAL</div>
+            <div className={css(styles.footer)} style={{color: colors[this.props.time]}}>No credit card needed</div>
           </div>
+        </div>
       </div>
     )
   }

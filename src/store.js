@@ -6,7 +6,7 @@ import * as types from './constants/ActionTypes'
 
 
 export const reducer = (state = {
-    banner: false,
+    banner: true,
     country: {id: 'us', name: 'United States'},
     regions: null,
     region: null,
@@ -14,7 +14,8 @@ export const reducer = (state = {
     city: null,
     business: null,
     tempImage: null,
-    step: 1
+    step: 1,
+    mode: 'bizs'
   }, action) => {
   switch (action.type) {
     case types.HIDE_BANNER: return {...state, banner: false, region: null, city: null, business: null}
@@ -24,6 +25,7 @@ export const reducer = (state = {
     case types.RESET_BUSINESS: return { ...state, businesses: null, business: null}
     case types.SET_TEMP_IMAGE: return { ...state, tempImage: action.image }
     case types.SET_STEP: return { ...state, step: action.step }
+    case types.SET_MODE: return { ...state, mode: action.mode }
     case types.SET_COUNTRY: return { ...state,
       country: {id: 'us', name: 'United States'},
       region: null,
@@ -37,12 +39,14 @@ export const reducer = (state = {
       country: {id: 'us', name: 'United States'},
       region: action.region,
       city: null,
-      business: null
+      business: null,
+      mode: 'bizs'
     }
     case types.SET_CITY: return { ...state,
       country: {id: 'us', name: 'United States'},
       city: action.city,
-      business: null
+      business: null,
+      mode: 'bizs'
     }
     case types.SET_LOCATION: return { ...state,
         business: action.business,
