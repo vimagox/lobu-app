@@ -41,7 +41,7 @@ class Item extends React.Component {
           </div>
           <div className="post-content">
             <div className={"time time"+this.props.time}>
-              <a href="#" style={{backgroundColor: colors[b.color]}}>B <span>TX</span></a>
+              <a style={{backgroundColor: colors[b.color]}}>B <span>TX</span></a>
             </div>
 
             <div className="entry-title">

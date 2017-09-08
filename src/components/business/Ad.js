@@ -2,8 +2,7 @@ import React from 'react'
 import {withRouter} from 'react-router-dom'
 import {colors} from '../../constants/Colors'
 import {StyleSheet,css} from 'aphrodite'
-import Template from './Template'
-import {atLeastSmall, atLeastMediumBig, atLeastBig, atLeastHuge} from '../../constants/Media'
+import {atLeastSmall, atLeastMediumBig, atLeastHuge} from '../../constants/Media'
 
 const styles = StyleSheet.create({
   box: {

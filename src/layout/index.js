@@ -4,7 +4,7 @@ import {connect} from 'react-redux'
 import DesktopBanner from '../components/banner/Desktop'
 import MobileBanner from '../components/banner/Mobile'
 import Navigation from './Navigation'
-import Footer from './Footer'
+// import Footer from './Footer'
 import {StyleSheet,css} from 'aphrodite'
 import {upToSmall} from '../constants/Media'
 

@@ -1,7 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {StyleSheet,css} from 'aphrodite'
-import {colors} from '../../constants/Colors'
 import RegionItem from './Item'
 import BusinessList from '../business/List'
 import {upToSmall} from '../../constants/Media'
@@ -65,7 +64,7 @@ class RegionList extends React.Component {
               <h1 className={css(styles.title)}>{title} Businesses</h1>
             </div>
           </div>
-           
+
           <BusinessList/>
         </div>
     )

@@ -1,5 +1,5 @@
 import React from 'react'
-import {withRouter, Link} from 'react-router-dom'
+import {withRouter} from 'react-router-dom'
 import {store} from '../store'
 import {StyleSheet,css} from 'aphrodite'
 import {upToSmall, upToMedium, upToMediumBig} from '../constants/Media'

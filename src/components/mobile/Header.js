@@ -25,12 +25,12 @@ class Header extends React.Component {
           </div>
           <div>
           <img src="/favicon.jpg"
+              alt="lobu"
               onClick={this.setMode.bind(this, 'bizs')}
               style={{ height: '2.2em',
                     marginTop: '-.7em',
-                    xfilter: 'grayscale(100%)',
-                  color: '#d6d6d6',
-                  opacity: mode === 'regions' ? .25 : 1}}/>
+                    color: '#d6d6d6',
+                    opacity: mode === 'regions' ? .25 : 1}}/>
           <FontAwesome name="map-pin"  size="2x"
               onClick={this.setMode.bind(this, 'regions')}
               style={{marginLeft: '.75em',

@@ -1,7 +1,5 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import Container from '../Container'
-import {color3} from '../../constants/Colors'
 import {StyleSheet,css} from 'aphrodite'
 import Item from './Item'
 import Ad from './Ad'

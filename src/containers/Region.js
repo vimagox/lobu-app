@@ -40,7 +40,6 @@ class Region extends React.Component {
 
   render() {
     const region = this.props.region
-    const city = this.props.city
     const cities = this.props.cities
     const mode = this.props.mode
     return (

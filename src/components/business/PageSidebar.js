@@ -10,7 +10,7 @@ export default class PageSidebar extends React.Component {
         <aside id="sidebar" className="widget-area" style={{}}>
           <div className="widget widget_categories" style={{marginTop: '2em'}}>
             <h3 className="widget_title">Contact</h3>
-            <div xclassName="section-title">
+            <div>
               <div>{b.contact.name}</div>
               <div>
                 <div>{b.contact.email}</div>

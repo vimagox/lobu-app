@@ -7,7 +7,6 @@ const setRegion = region => ({type: types.SET_REGION, region: region})
 const setCities = cities => ({type: types.SET_CITIES, cities: cities})
 const setCity = city => ({type: types.SET_CITY, city: city})
 const setBusiness = (region, city, biz) => ({type: types.SET_BUSINESS, region: region, city: city, business: biz})
-const tempImage = image => ({type: types.SET_TEMP_IMAGE, image: image})
 
 export async function resetCountry(){ store.dispatch({type: 'RESET_COUNTRY'}) }
 export async function resetRegion(){ store.dispatch({type: 'RESET_REGION'}) }

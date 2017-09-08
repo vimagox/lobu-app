@@ -4,13 +4,7 @@ import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {store} from '../store'
 import Logo from '../components/Logo'
-import {colors} from '../constants/Colors'
 
-const empty = () => {
-  return (
-    <a><div style={{width: '2em'}}>&nbsp;</div></a>
-  )
-}
 
 class Navigation extends React.Component {
   resetCountry(){ store.dispatch({type: 'RESET_COUNTRY'}) }

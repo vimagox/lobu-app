@@ -16,7 +16,7 @@ const biz1 = {
     city: "El Paso, TX",
     // zipcode:  "79922",
     phone: "(915) 320 2836",
-    email: "sales@onlinebedroomsets.com"
+    email: "sales@casafurniture.co"
   },
   location: {
     region: '/tx',
