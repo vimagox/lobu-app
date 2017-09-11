@@ -20,6 +20,7 @@ const styles = StyleSheet.create({
   },
   desktop: {
     display: 'block',
+    minHeight: '100vh',
     [upToSmall]: {
       display: 'none',
     }

@@ -25,7 +25,7 @@ const businesses = (region, city) => {
   // if(region.uid === 'tx' && city.uid === 'el') {
     return [
       {
-        uid: 'casafurniture',
+        uid: 'casa',
         name: 'Casa Furniture',
         title: 'Wholesale Bedroom Sets',
         site: 'casafurniture.com',

@@ -3,6 +3,9 @@ import { Switch, Route } from 'react-router-dom'
 import Home              from './containers/Home'
 import Region            from './containers/Region'
 import Business          from './containers/Business'
+import Signup            from './containers/Signup'
+import Membership        from './containers/Membership'
+import Faq               from './containers/Faq'
 import {states}          from './constants/States'
 
 export default ( ) => (
@@ -11,6 +14,9 @@ export default ( ) => (
     { states.map((s, index) => (
         <Route key={'route'+index} component={Region} path={'/'+s.id} exact/>
     )) }
+    <Route component={Signup} path="/business" exact/>
+    <Route component={Membership} path="/customer" exact/>
+    <Route component={Faq} path="/faq" exact/>
     <Route component={Business}/>
   </Switch>
 )

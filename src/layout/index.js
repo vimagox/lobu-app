@@ -4,7 +4,7 @@ import {connect} from 'react-redux'
 import DesktopBanner from '../components/banner/Desktop'
 import MobileBanner from '../components/banner/Mobile'
 import Navigation from './Navigation'
-// import Footer from './Footer'
+import Footer from './Footer'
 import {StyleSheet,css} from 'aphrodite'
 import {upToSmall} from '../constants/Media'
 
@@ -26,22 +26,26 @@ const styles = StyleSheet.create({
   }
 })
 
+const re = /(\/business|\/customer|\/faq)/
+
 class Layout extends React.Component {
   render() {
-    const banner = this.props.banner
-    const root = this.props.location.pathname === '/'
+    const path = this.props.location.pathname
+    const showBanner = path === '/' && this.props.banner
     return (
       <div className="main-wrapper home-two">
-        {root && banner && <div className={css(styles.mobile)}><MobileBanner/></div>}
-        {root && banner && <div className={css(styles.desktop)}><DesktopBanner/></div>}
-        {!(root && banner) && <div>
+        {showBanner && <div className={css(styles.mobile)}><MobileBanner/></div>}
+        {showBanner && <div className={css(styles.desktop)}><DesktopBanner/></div>}
+        {!showBanner && <div>
           <Navigation/>
           <div style={{height: '5em'}}/>
           <div id="main-content" className={css(styles.main)}>
             {this.props.children}
           </div>
         </div>}
-
+        {!re.test(path) && <div className={(showBanner)? 'g-pos-fix g-bottom-0' : ''}>
+          <Footer/>
+        </div>}
       </div>
     )
   }

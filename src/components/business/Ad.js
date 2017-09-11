@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
 
 class Ad extends React.Component {
   signup() {
-    this.props.history.push('/signup')
+    this.props.history.push('/business')
   }
   render() {
     const color = colors[Math.floor((Math.random() * 10) + 1)]

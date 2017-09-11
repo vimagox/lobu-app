@@ -7,7 +7,7 @@ import {loadBusiness} from '../actions'
 const biz1 = {
   name: 'Casa Furniture',
   title: 'Wholesale Bedroom Sets',
-  subtitle: 'High quality and modern bedroom sets at affordable prices. Contact us today with your business inquiries.',
+  subtitle: 'High quality and modern bedroom sets at wholesale prices. Contact us today with your business inquiries.',
   logo: 'cf.png',
   imgHeight: '11em',
   contact: {
@@ -93,7 +93,7 @@ class Business extends React.Component {
 
   componentWillMount() {
     if(!this.props.business) {
-      if(this.props.location.pathname === '/casafurniture') {
+      if(this.props.location.pathname === '/casa') {
         this.setState({biz: biz1})
         loadBusiness(biz1)
       }
