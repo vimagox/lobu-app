@@ -3,32 +3,73 @@ import {connect} from 'react-redux'
 import {StyleSheet,css} from 'aphrodite'
 import RegionItem from './Item'
 import BusinessList from '../business/List'
-import {upToSmall} from '../../constants/Media'
+import {upToXS, upToSM, upToMD, upToLG, upToXL} from '../../constants/Media'
 
 const styles = StyleSheet.create( {
   page: {
-    padding: '2em 2em 0em 2em',
-    [upToSmall]: {
+    // border: '1px solid #ddd',
+    marginTop: '1.5em',
+    [upToXL]: {
+      marginTop: '1em',
+      // border: '1px solid blue',
+    },
+    [upToLG]: {
+      marginTop: '1.5em',
+      // border: '1px solid orange',
+    },
+    [upToMD]: {
+      marginTop: '1em',
+      // border: '1px solid cyan',
+    },
+    [upToSM]: {
+      // border: '1px solid magenta',
+      display: 'none',
+    },
+    [upToXS]: {
       width: '100%',
       padding: 0
     }
   },
   regions: {
-    margin: '-2em 0 3em 0',
     display: 'flex',
     flexFlow: 'row',
-    [upToSmall]: {
+    [upToXS]: {
       display: 'none'
     }
+  },
+  columns: {
+    columnCount: 6,
+    // border: '1px solid black',
+    [upToXL]: {
+      // border: '1px solid yellow',
+      columnCount: 5
+    },
+    [upToLG]: {
+      // border: '1px solid cyan',
+      columnCount: 4
+    },
+    [upToMD]: {
+      marginTop: '1em',
+      // border: '1px solid magenta',
+      columnCount: 4
+    },
+    [upToSM]: {
+      // border: '1px solid red',
+    },
+    [upToXS]: {
+      // border: '1px solid blue',
+    },
   },
   title: {
     color: '#d6d6d6',
     fontSize: '2.4em',
     paddingBottom: '.5em',
     borderBottom: '1px solid #ddd',
+    // textAlign: 'right'
   },
   bizstitle: {
-    [upToSmall]: {
+    margin: '3em 0',
+    [upToXS]: {
       display: 'none'
     }
   }
@@ -43,30 +84,31 @@ class RegionList extends React.Component {
     const city = this.props.city
     const title = city ? city.name + ', '+region.name : region ? region.name : 'United States'
     return (
-        <div className={css(styles.page)}>
+      <div className={css(styles.page)}>
 
-          {!city && regionKeys.length > 1 &&
+        {!city && regionKeys.length > 1 &&
             <div className={css(styles.bizstitle)}>
-              <div className="section-title">
-            <h1 className={css(styles.title)}>{title}</h1>
-          </div></div> }
+              <div>
+                <h1 className={css(styles.title)}>{title}</h1>
+              </div>
+            </div> }
 
-          {!city && regionKeys.length > 1 && <div className={css(styles.regions)}>
-            <div className={css(styles.column)}>
+        {!city && regionKeys.length > 1 && <div className={css(styles.regions)}>
+            <div className={css(styles.columns)}>
               {regionKeys.map((k,i) => (
                 <RegionItem key={'region'+i} r={regions[k]}/>
               ))}
             </div>
           </div>}
 
-          <div className={css(styles.bizstitle)}>
-            <div className="section-title" style={{marginBottom: '2.5em'}}>
-              <h1 className={css(styles.title)}>{title} Businesses</h1>
-            </div>
+        <div className={css(styles.bizstitle)}>
+          <div>
+            <h1 className={css(styles.title)}>{title} Businesses</h1>
           </div>
-
-          <BusinessList/>
         </div>
+
+        <BusinessList/>
+      </div>
     )
   }
 }

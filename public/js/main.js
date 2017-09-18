@@ -16,12 +16,6 @@
 //Mobile Toggle Control
 // -------------------------------------------------------------
 
-$(function(){
-    var navMain = $(".collapse");
-    navMain.on("click", "a", null, function () {
-        navMain.collapse('hide');
-    });
-});
 
 // -------------------------------------------------------------
 // Counter
@@ -134,26 +128,33 @@ $(function(){
 //
 // };
 
+// $(function(){
+//     var navMain = $(".collapse");
+//     navMain.on("click", "a", null, function () {
+//         navMain.collapse('hide');
+//     });
+// });
+
 // -------------------------------------------------------------
 //  Sticky Nav
 // -------------------------------------------------------------
-(function () {
-    function menuToggle(){
-        var windowWidth = $(window).width();
-        if(windowWidth > 991 ){
-            $(window).on('scroll', function(){
-                if( $(window).scrollTop()>525 ){
-                    $('.home-two .navbar').addClass('container navbar-fixed-top animated fadeInDown');
-                    $("#main-content").css('margin-top', '80px')
-                    $("#home-banner").hide()
-                } else {
-                    // $('.home-two .navbar').removeClass('navbar-fixed-top animated fadeInDown');
-                };
-            });
-        }else{
-            // $('.home-two .navbar').addClass('navbar-fixed-top');
-        };
-    }
-
-    menuToggle();
-}());
+// (function () {
+//     function menuToggle(){
+//         var windowWidth = $(window).width();
+//         if(windowWidth > 991 ){
+//             $(window).on('scroll', function(){
+//                 if( $(window).scrollTop()>525 ){
+//                     $('.home-two .navbar').addClass('container navbar-fixed-top animated fadeInDown');
+//                     $("#main-content").css('margin-top', '80px')
+//                     $("#home-banner").hide()
+//                 } else {
+//                     // $('.home-two .navbar').removeClass('navbar-fixed-top animated fadeInDown');
+//                 };
+//             });
+//         }else{
+//             // $('.home-two .navbar').addClass('navbar-fixed-top');
+//         };
+//     }
+//
+//     menuToggle();
+// }());

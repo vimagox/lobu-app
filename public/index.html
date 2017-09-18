@@ -8,6 +8,14 @@
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
 
     <!-- CSS -->
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans%3A400%2C300%2C500%2C600%2C700%7CPlayfair+Display%7CRoboto%7CRaleway%7CSpectral%7CRubik">
+    <link rel="stylesheet" href="%PUBLIC_URL%/css/simple-line-icons.css">
+    <link rel="stylesheet" href="%PUBLIC_URL%/css/font-awesome.min.css">
+    <link rel="stylesheet" href="%PUBLIC_URL%/css/icon-etlinefont.css">
+    <link rel="stylesheet" href="%PUBLIC_URL%/css/icon-line-pro.css">
+    <link rel="stylesheet" href="%PUBLIC_URL%/css/icon-hs.css">
+    <link rel="stylesheet" href="%PUBLIC_URL%/css/animate.css">
+
     <link rel="stylesheet" href="%PUBLIC_URL%/css/bootstrap.min.css">
     <link rel="stylesheet" href="%PUBLIC_URL%/css/font-awesome.min.css">
     <link rel="stylesheet" href="%PUBLIC_URL%/css/magnific-popup.css">
@@ -16,11 +24,14 @@
     <link rel="stylesheet" href="%PUBLIC_URL%/css/tabs.css">
     <link rel="stylesheet" href="%PUBLIC_URL%/css/buttons.css">
     <link rel="stylesheet" href="%PUBLIC_URL%/css/accordion.css">
+    <link rel="stylesheet" href="%PUBLIC_URL%/css/core.css">
+    <link rel="stylesheet" href="%PUBLIC_URL%/css/components.css">
     <link rel="stylesheet" href="%PUBLIC_URL%/css/globals.css">
     <link rel="stylesheet" href="%PUBLIC_URL%/css/navigation.css">
     <link rel="stylesheet" href="%PUBLIC_URL%/css/plans.css">
     <link rel="stylesheet" href="%PUBLIC_URL%/css/responsive.css">
-
+    <link rel="stylesheet" href="%PUBLIC_URL%/css/custombox.min.css">
+    <link rel="stylesheet" href="%PUBLIC_URL%/css/slick.css">
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Sacramento" rel="stylesheet">
 
@@ -43,7 +54,56 @@
     </noscript>
     <div id="root"></div>
 
+    <div id="modalMarkup" className="text-left modal-demo g-width-95x g-height-95x g-bg-white g-color-black g-pa-20" style="display: none;"></div>
+
+    <script src="%PUBLIC_URL%/js/jquery.min.js"></script>
+    <script src="%PUBLIC_URL%/js/popper.min.js"></script>
     <script src="%PUBLIC_URL%/js/main.js"></script>
     <script src="%PUBLIC_URL%/js/tabs.js"></script>
+    <script src="%PUBLIC_URL%/js/appear.js"></script>
+    <script src="%PUBLIC_URL%/js/custombox.min.js"></script>
+
+    <script src="%PUBLIC_URL%/js/hs.core.js"></script>
+    <script src="%PUBLIC_URL%/js/hs.tabs.js"></script>
+    <script src="%PUBLIC_URL%/js/hs.go-to.js"></script>
+    <script src="%PUBLIC_URL%/js/hs.scrollbar.js"></script>
+    <script src="%PUBLIC_URL%/js/hs.modal-window.js"></script>
+    <script src="%PUBLIC_URL%/js/bootstrap.min.js"></script>
+
+    <script src="%PUBLIC_URL%/js/slick.js"></script>
+    <script src="%PUBLIC_URL%/js/hs.carousel.js"></script>
+
+    <script>
+      $(document).ready(function () {
+        $.HSCore.components.HSCarousel.init('.js-carousel');
+
+        $('#js-carousel-7').slick('setOption', 'responsive', [{
+          breakpoint: 992,
+          settings: {
+            slidesToShow: 3
+          }
+        }, {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 2
+          }
+        }, {
+          breakpoint: 554,
+          settings: {
+            slidesToShow: 1
+          }
+        }], true);
+      });
+    </script>
+
+    <script>
+      $(document).on('ready', function () {
+        $.HSCore.components.HSModalWindow.init('[data-modal-target]:not(.js-modal-markup)');
+
+        $( "#modal1Button" ).click(function() {
+          Custombox.modal.close();
+        });
+      });
+    </script>
   </body>
 </html>

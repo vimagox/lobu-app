@@ -19,3 +19,11 @@ export const upToSkinniest = '@media only screen and (max-width: 400px)'
 export const smallScreen = '@media (min-width: 768px)'
 export const mediumScreen = '@media (min-width: 992px)'
 export const bigScreen = '@media (min-width: 1200px)'
+
+
+
+export const upToXS = '@media only screen and (max-width : 320px)'
+export const upToSM = '@media only screen and (max-width : 480px)'
+export const upToMD = '@media only screen and (max-width : 768px)'
+export const upToLG = '@media only screen and (max-width : 992px)'
+export const upToXL = '@media only screen and (max-width : 1200px)'

@@ -4,7 +4,15 @@ import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {store} from '../store'
 import Logo from '../components/Logo'
+import {StyleSheet,css} from 'aphrodite'
+import {upToSmall} from '../constants/Media'
 
+const styles = StyleSheet.create({
+  section: {
+    paddingLeft: 0,
+    margin: '0 auto'
+  }
+})
 
 class Navigation extends React.Component {
   resetCountry(){ store.dispatch({type: 'RESET_COUNTRY'}) }
@@ -18,7 +26,9 @@ class Navigation extends React.Component {
     const biz = this.props.business
     return (
       <div className="container">
-          <div id="navigation" className="menu-two g-pos-fix g-z-index-9999 g-width-100vw">
+        <div className={css(styles.section)}>
+          <div id="navigation"
+              className="menu-two g-pos-fix g-z-index-9999 g-width-100vw">
               <div className="navbar">
                   <div className="navbar-header">
                       <button style={{display: 'none'}} type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
@@ -59,6 +69,7 @@ class Navigation extends React.Component {
                   </div>
               </div>
           </div>
+        </div>
       </div>
     )
   }

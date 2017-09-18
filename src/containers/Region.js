@@ -7,24 +7,21 @@ import BusinessList from '../components/business/List'
 import {loadRegion, loadCities} from '../actions'
 import {colors} from '../constants/Colors'
 import MobileHeader from '../components/mobile/Header'
-import {upToSmall} from '../constants/Media'
+import {upToXS,upToSM, upToMD, upToLG, upToXL} from '../constants/Media'
 import {StyleSheet,css} from 'aphrodite'
 
 
 const styles = StyleSheet.create({
   mobile: {
     display: 'none',
-    [upToSmall]: {
+    [upToXS]: {
       display: 'block',
       padding: '1em 0'
     }
   },
   desktop: {
     display: 'block',
-    minHeight: '100vh',
-    [upToSmall]: {
-      display: 'none',
-    }
+    minHeight: '90vh',
   }
 })
 

@@ -7,6 +7,7 @@ import Signup            from './containers/Signup'
 import Membership        from './containers/Membership'
 import Faq               from './containers/Faq'
 import {states}          from './constants/States'
+import Account           from './containers/Account'
 
 export default ( ) => (
   <Switch>
@@ -17,6 +18,7 @@ export default ( ) => (
     <Route component={Signup} path="/business" exact/>
     <Route component={Membership} path="/customer" exact/>
     <Route component={Faq} path="/faq" exact/>
+    <Route component={Account} path="/account" exact/>
     <Route component={Business}/>
   </Switch>
 )

@@ -9,17 +9,29 @@ import {StyleSheet,css} from 'aphrodite'
 import {upToSmall} from '../constants/Media'
 
 const styles = StyleSheet.create({
+  section: {
+    display:'flex', flexFlow: 'column', justifyContent: 'stretch',
+    minHeight: '100vh'
+  },
   main: {
-    marginBottom: '5em'
+    flexGrow: 1,
+    display: 'flex', flexFlow: 'column', justifyContent: 'stretch'
   },
   mobile: {
     display: 'none',
     [upToSmall]:{
-      display: 'block'
+      display: 'block',
     }
   },
   desktop: {
     display: 'block',
+    flexGrow: 1,
+    [upToSmall]: {
+      display: 'none'
+    }
+  },
+  footer: {
+    flexGrow: 0,
     [upToSmall]: {
       display: 'none'
     }
@@ -34,18 +46,21 @@ class Layout extends React.Component {
     const showBanner = path === '/' && this.props.banner
     return (
       <div className="main-wrapper home-two">
-        {showBanner && <div className={css(styles.mobile)}><MobileBanner/></div>}
-        {showBanner && <div className={css(styles.desktop)}><DesktopBanner/></div>}
-        {!showBanner && <div>
-          <Navigation/>
-          <div style={{height: '5em'}}/>
-          <div id="main-content" className={css(styles.main)}>
-            {this.props.children}
+        <div className={css(styles.section)}>
+          {showBanner && <div className={css(styles.mobile)}><MobileBanner/></div>}
+          {showBanner && <div className={css(styles.desktop)}><DesktopBanner/></div>}
+
+          {!showBanner && <div style={{flexGrow: 1}}>
+            <Navigation/>
+            <div style={{height: '5em'}}/>
+            <div id="main-content" className={css(styles.main)}>
+              {this.props.children}
+            </div>
+            </div>}
+          <div className={css(styles.footer)}>
+            <Footer/>
           </div>
-        </div>}
-        {!re.test(path) && <div className={(showBanner)? 'g-pos-fix g-bottom-0' : ''}>
-          <Footer/>
-        </div>}
+        </div>
       </div>
     )
   }

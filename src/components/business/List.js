@@ -2,6 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {StyleSheet,css} from 'aphrodite'
 import Item from './Item'
+import ItemSpacer from './ItemSpacer'
 import Ad from './Ad'
 
 const styles = StyleSheet.create({
@@ -58,6 +59,12 @@ class Businesses extends React.Component {
           <Ad/>
           <Item time={1} b={bizs[0]}/>
           <Item time={2} b={bizs[1]}/>
+          <Item time={1} b={bizs[0]}/>
+          <Item time={2} b={bizs[1]}/>
+          <Item time={1} b={bizs[0]}/>
+          <Item time={2} b={bizs[1]}/>
+          <Item time={2} b={bizs[1]}/>
+          <ItemSpacer/>
         </div>
 
         {more && <button className="btn btn-primary btn-block"

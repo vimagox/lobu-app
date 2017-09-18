@@ -8,10 +8,11 @@ const styles = StyleSheet.create({
   box: {
     width: '100%',
     cursor: 'pointer',
-    height: '364px',
-    paddingTop: '3em',
+    overflow: 'hidden',
+    paddingTop: '2em',
     margin: '0 1em',
     marginBottom: '30px',
+    opacity: .85,
     // border: '3px solid blue',
     [atLeastSmall]: {
       // border: '3px solid cyan',
@@ -25,14 +26,17 @@ const styles = StyleSheet.create({
       display: 'flex',
       flexGrow: 1,
       width: '320px',
-      height: '340px',
+      height: '364px',
       margin: '0 1em',
       overflow: 'hidden',
       // border: '3px solid red',
+    },
+    ':hover': {
+      opacity: 1
     }
   },
   title1: {
-    paddingTop: '.5em',
+    paddingTop: '.25em',
     fontSize: '2em',
     textTransform: 'uppercase',
     lineHeight: '1em',
@@ -73,8 +77,8 @@ class Ad extends React.Component {
 
         <div className={css(styles.content)}>
           <div className="entry-title">
-            <h2 className={css(styles.title1)}>Sign up</h2>
-            <h2 className={css(styles.title2)}>your Business</h2>
+            <h2 className={css(styles.title1)}>Sign up your</h2>
+            <h2 className={css(styles.title2)}>Local Business</h2>
             <div className={css(styles.subtitle)}>FREE TRIAL</div>
             <div className={css(styles.footer)} style={{color: colors[this.props.time]}}>No credit card needed</div>
           </div>

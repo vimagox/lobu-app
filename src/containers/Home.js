@@ -36,7 +36,7 @@ class Home extends React.Component {
     const regions = this.props.regions
     const mode = this.props.mode
     return (
-      <div>
+    <div>
       <div className="container">
         <div className={css(styles.desktop)}>
           {regions && <RegionList list={regions} color={colors[0]}/>}
@@ -54,7 +54,7 @@ class Home extends React.Component {
           { mode === 'bizs' && <BusinessList/>}
         </div>
       </div>
-      </div>
+    </div>
     )
   }
 }

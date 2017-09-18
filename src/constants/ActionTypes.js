@@ -1,5 +1,6 @@
 export const SET_APP      = 'SET_APP'
 export const SET_MODE     = 'SET_MODE'
+export const SET_MODAL    = 'SET_MODAL'
 export const HIDE_BANNER  = 'HIDE_BANNER'
 
 export const SET_COUNTRY  = 'SET_COUNTRY'

@@ -50,7 +50,7 @@ export default class Desktop extends React.Component {
                 <div className="banner-content">
                   <div className="banner-info">
                     <h1>Welcome to</h1>
-                    <h2>Lo<span style={{color: colors[8]}}>B</span>u.<span style={{color:colors[2]}}>us</span></h2>
+                    <h2>lo<span style={{color: colors[8]}}>B</span>u.<span style={{color:colors[2]}}>us</span></h2>
                     <button
                       onClick={this.removeBanner.bind(this)}
                       className="btn btn-primary"

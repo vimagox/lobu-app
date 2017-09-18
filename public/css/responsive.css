@@ -640,3 +640,12 @@
 		height: 12%;
 	}
 }
+
+@media (max-width: 575px) {
+	.g-mt-10--xs {
+		margin-top: 10px;
+	}
+	.g-font-size-40--xs {
+		font-size: 26px;
+	}
+}

@@ -6,7 +6,8 @@ import * as types from './constants/ActionTypes'
 
 
 export const reducer = (state = {
-    banner: true,
+    banner: false,
+    modal: true,
     country: {id: 'us', name: 'United States'},
     regions: null,
     region: null,
@@ -26,6 +27,7 @@ export const reducer = (state = {
     case types.SET_TEMP_IMAGE: return { ...state, tempImage: action.image }
     case types.SET_STEP: return { ...state, step: action.step }
     case types.SET_MODE: return { ...state, mode: action.mode }
+    case types.SET_MODAL: return { ...state, modal: action.modal }
     case types.SET_COUNTRY: return { ...state,
       country: {id: 'us', name: 'United States'},
       region: null,

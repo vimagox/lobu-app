@@ -13,6 +13,10 @@ export async function resetRegion(){ store.dispatch({type: 'RESET_REGION'}) }
 export async function resetCity(){ store.dispatch({type: 'RESET_CITY'}) }
 export async function resetBiz(){ store.dispatch({type: 'RESET_BUSINESS'}) }
 
+export async function loadModal(value) {
+  store.dispatch({type: types.SET_MODAL, modal: value})
+}
+
 export async function hideBanner() {
   store.dispatch({type: types.HIDE_BANNER})
 }

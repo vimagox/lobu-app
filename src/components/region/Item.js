@@ -7,6 +7,10 @@ import {colors} from '../../constants/Colors'
 import {upToSmall} from '../../constants/Media'
 
 const styles = StyleSheet.create({
+  item: {
+    minWidth: '12em',
+    marginBottom: '3px'
+  },
   label: {
     cursor: 'pointer',
     fontWeight:'normal',
@@ -39,8 +43,7 @@ class RegionItem extends React.Component {
   render() {
     const r = this.props.r
     return (
-      <div className="col-sm-12 col-md-3"
-        style={{padding: '5px'}}>
+      <div className={css(styles.item)}>
         <div onClick={this.selectRegion.bind(this, r)}
           className={css(styles.label)}>{r.name}</div>
       </div>

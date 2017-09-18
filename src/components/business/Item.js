@@ -1,10 +1,18 @@
 import React from 'react'
 import {withRouter} from 'react-router-dom'
 import {colors} from '../../constants/Colors'
-import {StyleSheet,css} from 'aphrodite'
 import Template from './Template'
+import {upToXS, upToSM, upToMD, upToLG, upToXL} from '../../constants/Media'
+import {StyleSheet,css} from 'aphrodite'
+
 
 const styles = StyleSheet.create({
+  box: {
+    cursor: 'pointer',
+    border: '1px solid #ddd',
+    height: '26em',
+    marginBottom: '2em'
+  },
   title: {
     fontSize: '1.4em',
     lineHeight: '.5em'
@@ -28,15 +36,14 @@ class Item extends React.Component {
     const bgImg = 'url(/images/test/'+b.pic+')'
     return (
       <Template>
+      <div className={css(styles.box)}>
         <div onClick={this.selectBusiness.bind(this)}
-              className="entry-post"
-              style={{cursor: 'pointer', border: '1px solid #ddd'}}>
+            className="entry-post">
           <div className="entry-thumbnail"
-              style={{backgroundColor: 'red',
-                  backgroundImage: bgImg,
+              style={{backgroundImage: bgImg,
                   backgroundSize: 'cover',
                   overflow: 'hidden',
-                  minWidth: '390px', height:'161px'}}>
+                  minWidth: '390px', height:'200px'}}>
             <div className="thumbnail-oberlay"></div>
           </div>
           <div className="post-content">
@@ -52,6 +59,7 @@ class Item extends React.Component {
             </div>
           </div>
         </div>
+      </div>
       </Template>
     )
   }
