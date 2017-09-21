@@ -7,7 +7,8 @@ import Ad from './Ad'
 
 const styles = StyleSheet.create({
   regions: {
-    display: 'flex', flexFlow: 'row wrap', justifyContent: 'space-between',
+    display: 'flex', flexFlow: 'row wrap',
+    justifyContent: 'space-between',
     alignItems: 'flex-start',
     // border: '1px solid red',
     margin: '0 -1em'

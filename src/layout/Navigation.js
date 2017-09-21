@@ -24,6 +24,7 @@ class Navigation extends React.Component {
     const region = this.props.region
     const city = this.props.city
     const biz = this.props.business
+    const account = this.props.location.pathname === '/account'
     return (
       <div className="container">
         <div className={css(styles.section)}>
@@ -44,9 +45,9 @@ class Navigation extends React.Component {
                   <div className="collapse navbar-collapse">
                       <nav id="mainmenu" >
                         <ul className="nav navbar-nav">
-                          <li className="scroll">
+                          {!account && <li className="scroll">
                             <Link onClick={this.resetCountry.bind(this)} to="/">United States</Link>
-                          </li>
+                          </li> }
 
                           { region &&
                             <li className={"scroll "+ (city ? '' : 'current')}>

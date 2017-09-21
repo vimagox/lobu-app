@@ -75,6 +75,11 @@
 
     <script>
       $(document).ready(function () {
+
+        var height = $(window).height();
+        $(".menu-one .navbar-nav").innerHeight(height);
+
+
         $.HSCore.components.HSCarousel.init('.js-carousel');
 
         $('#js-carousel-7').slick('setOption', 'responsive', [{

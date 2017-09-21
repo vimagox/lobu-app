@@ -5,17 +5,20 @@ import BizSidebar from './PageSidebar'
 import Breadcrumbs from './PageBreadcrumbs'
 import Product from './Product'
 import {StyleSheet,css} from 'aphrodite'
-import {upToSmall} from '../../constants/Media'
+import {upToSM, upToMD} from '../../constants/Media'
 
 const styles = StyleSheet.create({
   logo: {
     margin: '2em 0 0 0',
-    [upToSmall]: {
+    [upToSM]: {
       textAlign: 'center'
     }
   },
   title: {
-    [upToSmall]: {
+    [upToMD]: {
+      fontSize:  '2em'
+    },
+    [upToSM]: {
       textAlign: 'center',
       fontSize:  '2.25em'
     }
@@ -23,7 +26,7 @@ const styles = StyleSheet.create({
   subtitle: {
     fontWeight: 'normal',
     color: '#ccc',
-    [upToSmall]: {
+    [upToSM]: {
       display: 'none'
     }
   },
@@ -32,14 +35,20 @@ const styles = StyleSheet.create({
     color: '#ccc',
     display: 'none',
     textAlign: 'center',
-    [upToSmall]: {
+    [upToSM]: {
       display: 'block'
     }
   },
   crumbs: {
     display: 'none',
-    [upToSmall]: {
+    [upToSM]: {
       display: 'block'
+    }
+  },
+  pageTitle: {
+    fontSize: '45px',
+    [upToMD]: {
+      fontSize: '28px',
     }
   }
 })
@@ -72,7 +81,7 @@ class Page extends React.Component {
                   </div>
                   <div className="col-sm-8" style={{marginTop: '2em'}}>
                       <div className="text-info">
-                          <h4 className="g-font-size-45">{b.title}</h4>
+                          <h4 className={css(styles.pageTitle)}>{b.title}</h4>
                           <p>{b.subtitle}</p>
                       </div>
                       <div className="portfolio-content">

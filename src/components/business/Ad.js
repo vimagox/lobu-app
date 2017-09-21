@@ -1,35 +1,33 @@
 import React from 'react'
 import {withRouter} from 'react-router-dom'
 import {colors} from '../../constants/Colors'
+import {upToXS, upToSM, upToMD, upToLG, upToXL} from '../../constants/Media'
 import {StyleSheet,css} from 'aphrodite'
-import {atLeastSmall, atLeastMediumBig, atLeastHuge} from '../../constants/Media'
 
 const styles = StyleSheet.create({
   box: {
-    width: '100%',
     cursor: 'pointer',
     overflow: 'hidden',
-    paddingTop: '2em',
-    margin: '0 1em',
-    marginBottom: '30px',
+    padding: '2em 1em',
     opacity: .85,
-    // border: '3px solid blue',
-    [atLeastSmall]: {
-      // border: '3px solid cyan',
-      height: '324px',
+    display: 'flex',
+    flexGrow: 1,
+    margin: '0 1em',
+    maxWidth: '360px',
+    height: '25em',
+    [upToXL]: {
+      maxWidth: '294px',
+      height: '23em',
     },
-    [atLeastMediumBig]: {
-      // border: '3px solid magenta',
-      height: '324px',
+    [upToLG]: {
+      maxWidth: '220px',
     },
-    [atLeastHuge]: {
-      display: 'flex',
-      flexGrow: 1,
-      width: '320px',
-      height: '364px',
-      margin: '0 1em',
-      overflow: 'hidden',
-      // border: '3px solid red',
+    [upToMD]: {
+      maxWidth: '220px',
+    },
+    [upToSM]: {
+      maxWidth: '100%',
+      marginBottom: '2em'
     },
     ':hover': {
       opacity: 1
@@ -49,7 +47,16 @@ const styles = StyleSheet.create({
     lineHeight: '1em',
     textAlign: 'center',
     color: '#fff',
-    paddingBottom: '.5em'
+    paddingBottom: '.5em',
+    [upToLG]: {
+      fontSize: '2.5em'
+    },
+    [upToMD]: {
+      fontSize: '2em'
+    },
+    [upToSM]: {
+      fontSize: '3em'
+    }
   },
   subtitle: {
     textAlign: 'center',

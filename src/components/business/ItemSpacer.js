@@ -5,23 +5,15 @@ import {StyleSheet,css} from 'aphrodite'
 
 const styles = StyleSheet.create({
   spacer: {
-    border: '1px solid #ddd',
+    // border: '1px solid #ddd',
     minWidth: '361px',
     height: '26em',
     margin: '0 1em',
     [upToXL]: {
-      marginRight: '5.5em',
-      minWidth: '394px',
-      border: '1px solid red'
+      minWidth: '300px',
     },
     [upToLG]: {
-      border: '1px solid cyan'
-    },
-    [upToMD]: {
-      border: '1px solid magenta'
-    },
-    [upToSM]: {
-      border: '1px solid blue'
+      minWidth: '220px',
     },
   }
 })

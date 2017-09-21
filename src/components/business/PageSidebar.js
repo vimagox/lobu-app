@@ -8,7 +8,7 @@ export default class PageSidebar extends React.Component {
     return (
       <div id="sidebar" className="col-sm-12" style={{padding: 0}}>
         <aside id="sidebar" className="widget-area" style={{}}>
-          <div className="widget widget_categories" style={{marginTop: '2em'}}>
+          <div className="widget widget_categories" style={{marginTop: '-1em'}}>
             <h3 className="widget_title">Contact</h3>
             <div>
               <div>{b.contact.name}</div>

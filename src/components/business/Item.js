@@ -9,9 +9,48 @@ import {StyleSheet,css} from 'aphrodite'
 const styles = StyleSheet.create({
   box: {
     cursor: 'pointer',
+    height: '25em',
     border: '1px solid #ddd',
-    height: '26em',
-    marginBottom: '2em'
+    maxWidth: '360px',
+    [upToXL]: {
+      height: '23em',
+    },
+    [upToLG]: {
+      maxWidth: '220px',
+      // border: '1px solid blue',
+    },
+    [upToMD]: {
+      // border: '1px solid red',
+      // maxWidth: '204px',
+      maxWidth: '220px',
+    },
+    [upToSM]: {
+      // border: '1px solid magenta',
+      minWidth: '100%'
+    }
+  },
+  image: {
+    position: 'relative',
+    zIndex: -1,
+    overflow: 'hidden',
+    backgroundSize: 'cover',
+    overflow: 'hidden',
+    minWidth: '390px',
+    height:'170px',
+    [upToXL]: {
+      minWidth: '290px',
+      maxWidth: '100%', height:'140px',
+    },
+    [upToLG]: {
+      minWidth: '220px', height: '140px'
+    },
+    [upToSM]: {
+      width: '100%',
+      height: '150px'
+    }
+  },
+  content: {
+    padding: '1em',
   },
   title: {
     fontSize: '1.4em',
@@ -39,14 +78,11 @@ class Item extends React.Component {
       <div className={css(styles.box)}>
         <div onClick={this.selectBusiness.bind(this)}
             className="entry-post">
-          <div className="entry-thumbnail"
-              style={{backgroundImage: bgImg,
-                  backgroundSize: 'cover',
-                  overflow: 'hidden',
-                  minWidth: '390px', height:'200px'}}>
+          <div className={css(styles.image)}
+              style={{backgroundImage: bgImg}}>
             <div className="thumbnail-oberlay"></div>
           </div>
-          <div className="post-content">
+          <div className={css(styles.content)}>
             <div className={"time time"+this.props.time}>
               <a style={{backgroundColor: colors[b.color]}}>B <span>TX</span></a>
             </div>
