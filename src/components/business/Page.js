@@ -10,6 +10,8 @@ import {upToSM, upToMD} from '../../constants/Media'
 const styles = StyleSheet.create({
   logo: {
     margin: '2em 0 0 0',
+    height: 'auto',
+    width: '240px',
     [upToSM]: {
       textAlign: 'center'
     }

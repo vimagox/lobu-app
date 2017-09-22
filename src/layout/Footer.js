@@ -13,7 +13,7 @@ class Footer extends React.Component {
         <div className="row">
         <div className="col-md-12 col-lg-4 g-mb-40">
           <h2 className="h6 g-color-white text-uppercase g-font-weight-700 g-mb-20">About Us</h2>
-          <p className="mb-0">Lobu is made by a small team of local business owners with a very simple idea: <span style={{fontSize:'1.2em', color: colors[4]}}> promote local products and services</span>. The pool of potential customers can be increased by promoting our local businesses in a shared platform. The customers of one business with a <span style={{fontSize: '1.2em', color: colors[2]}}>LOBU SITE</span> brings exposure for others and viceversa.</p>
+          <p className="mb-0">Lobu is made by a small team of local business owners with a simple purpose <span style={{fontSize:'1.2em', color: colors[4]}}> - promote local products and services -</span>. The promotion of a single business with a <span style={{fontSize: '1.2em', color: colors[2]}}>LOBU SITE</span> brings exposure for other businesses in the community and viceversa.</p>
         </div>
 
         <div className="col-md-6 col-lg-4">
@@ -27,11 +27,7 @@ class Footer extends React.Component {
                 </li>
                 <li className="d-flex g-mb-10">
                   <i className="fa fa-circle g-color-primary g-font-size-5 g-mt-10 g-mr-8"></i>
-                  <Link to="/customer" className="g-color-white-opacity-0_8 g-color-primary--hover">Sign up as a Potential Customer</Link>
-                </li>
-                <li className="d-flex g-mb-10">
-                  <i className="fa fa-circle g-color-primary g-font-size-5 g-mt-10 g-mr-8"></i>
-                  <Link to="/faq" className="g-color-white-opacity-0_8 g-color-primary--hover">{"FAQ's"}</Link>
+                  <Link to="/customer" className="g-color-white-opacity-0_8 g-color-primary--hover">Create Lobu Profile</Link>
                 </li>
                 <li className="d-flex g-mb-10">
                   <i className="fa fa-circle g-color-primary g-font-size-5 g-mt-10 g-mr-8"></i>
@@ -42,6 +38,10 @@ class Footer extends React.Component {
                   <i className="fa fa-circle g-color-primary g-font-size-5 g-mt-10 g-mr-8"></i>
                   <a target="_blank" href="https://sustainableconnections.org/why-buy-local/" className="g-color-white-opacity-0_8 g-color-primary--hover"
                             rel="noopener noreferrer">Why buy local?</a>
+                </li>
+                <li className="d-flex g-mb-10">
+                  <i className="fa fa-circle g-color-primary g-font-size-5 g-mt-10 g-mr-8"></i>
+                  <Link to="/faq" className="g-color-white-opacity-0_8 g-color-primary--hover">{"FAQ's"}</Link>
                 </li>
               </ul>
             </div>
@@ -54,7 +54,7 @@ class Footer extends React.Component {
               <div className="form-group g-mb-15">
                 <textarea className="form-control g-bg-black g-bg-black--focus g-color-white g-brd-white-opacity-0_1 g-brd-primary--focus g-resize-none rounded-0 g-py-12 g-px-15" rows="4" placeholder="Message"></textarea>
               </div>
-              <button className="btn btn-lg u-btn-primary text-uppercase g-font-size-14 rounded-0" type="submit">Send Message</button>
+              <button className="btn btn-lg u-btn-brown text-uppercase g-font-size-14 rounded-0" type="submit">Send Message</button>
             </form>
           </div>
         </div>

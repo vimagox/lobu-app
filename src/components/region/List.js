@@ -61,14 +61,10 @@ const styles = StyleSheet.create( {
     },
   },
   title: {
+    fontSize: '1.4em',
     color: '#d6d6d6',
-    fontSize: '2.4em',
-    paddingBottom: '.5em',
     borderBottom: '1px solid #ddd',
-    // textAlign: 'right'
-  },
-  bizstitle: {
-    margin: '3em 0',
+    margin: '1em 0',
     [upToXS]: {
       display: 'none'
     }
@@ -87,11 +83,8 @@ class RegionList extends React.Component {
       <div className={css(styles.page)}>
 
         {!city && regionKeys.length > 1 &&
-            <div className={css(styles.bizstitle)}>
-              <div>
-                <h1 className={css(styles.title)}>{title}</h1>
-              </div>
-            </div> }
+          <div className={css(styles.title)}>{title}</div>
+        }
 
         {!city && regionKeys.length > 1 && <div className={css(styles.regions)}>
             <div className={css(styles.columns)}>
@@ -101,11 +94,7 @@ class RegionList extends React.Component {
             </div>
           </div>}
 
-        <div className={css(styles.bizstitle)}>
-          <div>
-            <h1 className={css(styles.title)}>{title} Businesses</h1>
-          </div>
-        </div>
+        <div className={css(styles.title)}>{title} Businesses</div>
 
         <BusinessList/>
       </div>

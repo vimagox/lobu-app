@@ -290,15 +290,15 @@ export default class SiteSettings extends React.Component {
 
   <div className="g-mt-20 col-sm-5" style={{padding: '0 1em'}}>
     <div className="g-mb-20">
-      <ul style={{borderBottom: '2px solid '+colors[8]}}>
+      <ul style={{borderBottom: '2px solid '+colors[2]}}>
         <li onClick={this.setMenu.bind(this, 0)}
-          style={{userSelect: 'none', color: menu === 0  ? colors[8] : '#999'}}
+          style={{userSelect: 'none', color: menu === 0  ? colors[2] : '#999'}}
           className="g-cursor-pointer d-inline-block">General</li>
         <li onClick={this.setMenu.bind(this, 1)}
-          style={{userSelect: 'none', color: menu === 1  ? colors[8] : '#999'}}
+          style={{userSelect: 'none', color: menu === 1  ? colors[2] : '#999'}}
           className="g-cursor-pointer d-inline-block g-ml-10">Products</li>
         <li onClick={this.setMenu.bind(this, 2)}
-          style={{userSelect: 'none', color: menu === 2  ? colors[8] : '#999'}}
+          style={{userSelect: 'none', color: menu === 2  ? colors[2] : '#999'}}
           className="g-cursor-pointer d-inline-block g-ml-10">Services</li>
       </ul>
     </div>

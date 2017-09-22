@@ -110,7 +110,6 @@ const styles = StyleSheet.create({
   option2: {
     border: '1px solid #eee',
     padding: '.5em 1em',
-    height: '4.4em'
   },
   option: {
     border: '1px solid #eee',
@@ -172,9 +171,6 @@ export default class BusinessSettings extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      // name: localStorage.getItem('lobuname') || '',
-      // category: localStorage.getItem('lobucat') || '',
-      // domain: localStorage.getItem('lobudomain') || '',
       name: '',
       category: '',
       domain: '',
@@ -310,7 +306,8 @@ export default class BusinessSettings extends React.Component {
           </div>
 
 
-          <div className="w-100 g-mt-20" style={{border: '1px solid #ddd', padding: '1em 0', height: '18.5em'}}>
+          <div className="w-100 g-mt-20" style={{border: '1px solid #ddd', padding: '1em', display: 'block'}}>
+            <div className="row">
             <div className="col-sm-12">
               <div className="form-group g-mt-0">
                 <label for="exampleInputFile">Business Image</label>
@@ -334,6 +331,7 @@ export default class BusinessSettings extends React.Component {
                 </div>
               </div>
             </div>
+          </div>
           </div>
 
         </div>

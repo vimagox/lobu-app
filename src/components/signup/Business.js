@@ -9,12 +9,12 @@ class BusinessSignup extends React.Component {
 
   render() {
     return (
-      <div style={{flexGrow:1}}>
       <div className="row no-gutters g-mb-50">
 
-      <div className="col-lg-offset-1 col-md-6 col-lg-5 d-flex g-bg-black-opacity-0_9 g-pa-40 g-min-height-450">
-        <div className="align-self-center w-100" style={{marginTop: '-1em'}}>
-          <h2 className="text-left g-color-white text-uppercase g-font-weight-700 g-mb-50"> Have a
+      <div className="col-lg-offset-1 col-md-6 col-lg-5 d-flex g-bg-black-opacity-0_9 g-min-height-500"
+            style={{minHeight: '476px'}}>
+        <div className="align-self-center w-100" style={{marginTop: '-1.7em', padding: '0 30px'}}>
+          <h2 className="text-left g-color-white text-uppercase g-font-weight-700 g-mb-30"> Have a
             <span className="g-color-primary"> Business?</span>
           </h2>
 
@@ -33,7 +33,7 @@ class BusinessSignup extends React.Component {
             </div>
 
             <button
-              onClick={this.signup()}
+              onClick={this.signup.bind(this)}
               className="btn btn-md g-rounded-2 g-mt-30 u-btn-primary g-font-size-22 text-uppercase rounded-0 g-py-11 g-px-30">Signup my business</button>
 
             <div className="g-hidden-sm-up g-pt-40 g-color-secondary">
@@ -41,15 +41,14 @@ class BusinessSignup extends React.Component {
             </div>
           </form>
 
-
-
         </div>
       </div>
 
 
-      <div className="col-md-6 col-lg-5 d-flex g-bg-primary g-pa-40 g-min-height-450 g-hidden-xs-down">
+      <div className="col-md-6 col-lg-5 d-flex g-bg-primary g-px-40 g-hidden-xs-down"
+          style={{paddingTop: '22px', minHeight: '476px'}}>
         <div className="text-left">
-          <header className="u-heading-v8-2 g-mb-40">
+          <header className="u-heading-v8-2 g-mb-30">
             <h2 className="u-heading-v8__title g-color-white text-uppercase g-font-weight-700 g-mb-0">
               <span className="g-color-black-opacity-0_9">GAIN </span>
               Exposure
@@ -63,7 +62,6 @@ class BusinessSignup extends React.Component {
         </div>
       </div>
 
-      </div>
       </div>
     )
   }

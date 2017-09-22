@@ -5,7 +5,8 @@ import {upToSmall} from '../constants/Media'
 
 const styles = StyleSheet.create({
   section: {
-    flexGrow: 1,    
+    height: '720px',
+    overflow: 'hidden'
   }
 })
 

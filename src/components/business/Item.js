@@ -1,4 +1,5 @@
 import React from 'react'
+import {connect} from 'react-redux'
 import {withRouter} from 'react-router-dom'
 import {colors} from '../../constants/Colors'
 import Template from './Template'
@@ -9,11 +10,11 @@ import {StyleSheet,css} from 'aphrodite'
 const styles = StyleSheet.create({
   box: {
     cursor: 'pointer',
-    height: '25em',
+    height: '20em',
     border: '1px solid #ddd',
     maxWidth: '360px',
     [upToXL]: {
-      height: '23em',
+      // height: '23em',
     },
     [upToLG]: {
       maxWidth: '220px',
@@ -73,6 +74,7 @@ class Item extends React.Component {
   render() {
     const b = this.props.b
     const bgImg = 'url(/images/test/'+b.pic+')'
+    const region = this.props.region
     return (
       <Template>
       <div className={css(styles.box)}>
@@ -83,9 +85,9 @@ class Item extends React.Component {
             <div className="thumbnail-oberlay"></div>
           </div>
           <div className={css(styles.content)}>
-            <div className={"time time"+this.props.time}>
+            {!region && <div className={"time time"+this.props.time}>
               <a style={{backgroundColor: colors[b.color]}}>B <span>TX</span></a>
-            </div>
+            </div> }
 
             <div className="entry-title">
               <h2 className={css(styles.title)}>{b.name}</h2>
@@ -101,4 +103,10 @@ class Item extends React.Component {
   }
 }
 
-export default withRouter(Item)
+const mapStateToProps = (store) => {
+  return {
+    region: store.region
+  }
+}
+
+export default withRouter(connect(mapStateToProps)(Item))

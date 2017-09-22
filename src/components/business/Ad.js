@@ -1,4 +1,5 @@
 import React from 'react'
+import {connect} from 'react-redux'
 import {withRouter} from 'react-router-dom'
 import {colors} from '../../constants/Colors'
 import {upToXS, upToSM, upToMD, upToLG, upToXL} from '../../constants/Media'
@@ -8,16 +9,16 @@ const styles = StyleSheet.create({
   box: {
     cursor: 'pointer',
     overflow: 'hidden',
-    padding: '2em 1em',
+    padding: '1em',
     opacity: .85,
     display: 'flex',
     flexGrow: 1,
     margin: '0 1em',
     maxWidth: '360px',
-    height: '25em',
+    height: '20em',
     [upToXL]: {
       maxWidth: '294px',
-      height: '23em',
+      // height: '23em',
     },
     [upToLG]: {
       maxWidth: '220px',
@@ -77,6 +78,7 @@ class Ad extends React.Component {
   }
   render() {
     const color = colors[Math.floor((Math.random() * 10) + 1)]
+    const region = this.props.region
     return (
       <div className={css(styles.box)}
           style={{backgroundColor: color}}
@@ -95,4 +97,10 @@ class Ad extends React.Component {
   }
 }
 
-export default withRouter(Ad)
+const mapStateToProps = (store) => {
+  return {
+    region: store.region
+  }
+}
+
+export default withRouter(connect(mapStateToProps)(Ad))
