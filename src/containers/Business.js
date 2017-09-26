@@ -3,6 +3,8 @@ import {withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
 import Biz from '../components/business/Page'
 import {loadBusiness} from '../actions'
+import Spinner from '../components/Spinner'
+
 
 const biz1 = {
   name: 'Casa Furniture',
@@ -92,7 +94,8 @@ class Business extends React.Component {
   }
 
   componentWillMount() {
-    if(!this.props.business) {
+    console.log('will mount......')
+    // if(!this.props.business) {
       if(this.props.location.pathname === '/casa') {
         this.setState({biz: biz1})
         loadBusiness(biz1)
@@ -100,7 +103,7 @@ class Business extends React.Component {
       else if(this.props.location.pathname === '/rainbow') {
         this.setState({biz: biz2})
         loadBusiness(biz2)
-      }
+      // }
     }else {
       loadBusiness(biz1)
     }
@@ -113,6 +116,7 @@ class Business extends React.Component {
     const bizFound = region && city && biz
     return (
       <div className="container">
+        {!bizFound && <Spinner/>}
         {bizFound && <Biz b={biz}/>}
       </div>
     )

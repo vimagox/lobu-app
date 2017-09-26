@@ -10,24 +10,12 @@ import {StyleSheet,css} from 'aphrodite'
 const styles = StyleSheet.create({
   box: {
     cursor: 'pointer',
-    height: '20em',
     border: '1px solid #ddd',
-    maxWidth: '360px',
-    [upToXL]: {
-      // height: '23em',
-    },
-    [upToLG]: {
-      maxWidth: '220px',
-      // border: '1px solid blue',
-    },
-    [upToMD]: {
-      // border: '1px solid red',
-      // maxWidth: '204px',
-      maxWidth: '220px',
-    },
+    maxWidth: '220px',
+    marginBottom: '.5em',
     [upToSM]: {
-      // border: '1px solid magenta',
-      minWidth: '100%'
+      minWidth: '100%',
+      marginBottom: '1em',
     }
   },
   image: {
@@ -38,16 +26,8 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
     minWidth: '390px',
     height:'170px',
-    [upToXL]: {
-      minWidth: '290px',
-      maxWidth: '100%', height:'140px',
-    },
-    [upToLG]: {
-      minWidth: '220px', height: '140px'
-    },
-    [upToSM]: {
+    [upToMD]: {
       width: '100%',
-      height: '150px'
     }
   },
   content: {
@@ -61,7 +41,7 @@ const styles = StyleSheet.create({
     color: '#888'
   },
   footer: {
-    paddingTop: '.5em',
+    paddingTop: 0,
     textAlign: 'right',
   }
 })
@@ -76,8 +56,8 @@ class Item extends React.Component {
     const bgImg = 'url(/images/test/'+b.pic+')'
     const region = this.props.region
     return (
-      <Template>
-      <div className={css(styles.box)}>
+      <div className={css(styles.box)}
+           style={{height: region ? '22.5em' : '24.5em'}}>
         <div onClick={this.selectBusiness.bind(this)}
             className="entry-post">
           <div className={css(styles.image)}
@@ -98,7 +78,6 @@ class Item extends React.Component {
           </div>
         </div>
       </div>
-      </Template>
     )
   }
 }

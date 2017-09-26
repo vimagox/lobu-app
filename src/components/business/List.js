@@ -10,8 +10,7 @@ const styles = StyleSheet.create({
     display: 'flex', flexFlow: 'row wrap',
     justifyContent: 'space-between',
     alignItems: 'flex-start',
-    // border: '1px solid red',
-    margin: '0 -1em'
+    margin: 0
   },
   businesses: {
     margin: '-2em 0 3em 0',
@@ -65,6 +64,9 @@ class Businesses extends React.Component {
           <Item time={1} b={bizs[0]}/>
           <Item time={2} b={bizs[1]}/>
           <Item time={2} b={bizs[1]}/>
+          <ItemSpacer/>
+          <ItemSpacer/>
+          <ItemSpacer/>
           <ItemSpacer/>
         </div>
 

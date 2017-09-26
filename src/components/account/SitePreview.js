@@ -1,7 +1,14 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import {colors} from '../../constants/Colors'
+import {loadStage} from '../../actions'
 
 export default class SitePreview extends React.Component {
+
+  setStage(stage) {
+    loadStage(stage)
+  }
+
   render() {
     return (
       <div className="tab-content" style={{marginTop: '-2em'}}>
@@ -19,6 +26,7 @@ export default class SitePreview extends React.Component {
             </div>
           </div>
         </div>
+
       </div>
     )
   }

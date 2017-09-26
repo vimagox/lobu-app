@@ -57,9 +57,9 @@ class Layout extends React.Component {
               {this.props.children}
             </div>
             </div>}
-          <div className={css(styles.footer)}>
+          {path !== '/account' && <div className={css(styles.footer)}>
             <Footer/>
-          </div>
+          </div> }
         </div>
       </div>
     )

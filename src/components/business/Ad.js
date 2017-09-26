@@ -13,51 +13,60 @@ const styles = StyleSheet.create({
     opacity: .85,
     display: 'flex',
     flexGrow: 1,
-    margin: '0 1em',
-    maxWidth: '360px',
-    height: '20em',
-    [upToXL]: {
-      maxWidth: '294px',
-      // height: '23em',
-    },
-    [upToLG]: {
-      maxWidth: '220px',
-    },
+    margin: '0',
+    // maxWidth: '360px',
+    maxWidth: '220px',
+    // height: '22.5em',
+    // [upToXL]: {
+    //   maxWidth: '294px',
+    //   // height: '23em',
+    // },
+    // [upToLG]: {
+    //   maxWidth: '220px',
+    // },
     [upToMD]: {
-      maxWidth: '220px',
+      width: '100%',
+      minWidth: '100%',
+      marginBottom: '1em'
     },
-    [upToSM]: {
-      maxWidth: '100%',
-      marginBottom: '2em'
-    },
+    // [upToSM]: {
+    //   maxWidth: '100%',
+    //   marginBottom: '2em'
+    // },
     ':hover': {
       opacity: 1
     }
   },
+  content: {
+    width: '100%'
+  },
   title1: {
     paddingTop: '.25em',
-    fontSize: '2em',
+    fontSize: '1.5em',
     textTransform: 'uppercase',
     lineHeight: '1em',
     textAlign: 'center',
-    color: '#fff'
+    color: '#fff',
+    [upToMD]: {
+      fontSize: '2em'
+    }
   },
   title2: {
-    fontSize: '3em',
+    fontSize: '2em',
     textTransform: 'uppercase',
     lineHeight: '1em',
     textAlign: 'center',
     color: '#fff',
     paddingBottom: '.5em',
-    [upToLG]: {
-      fontSize: '2.5em'
-    },
+    // [upToLG]: {
+    //   fontSize: '2.5em'
+    // },
     [upToMD]: {
-      fontSize: '2em'
-    },
-    [upToSM]: {
       fontSize: '3em'
-    }
+    },
+    // [upToSM]: {
+    //   fontSize: '3em'
+    // }
   },
   subtitle: {
     textAlign: 'center',
@@ -81,11 +90,11 @@ class Ad extends React.Component {
     const region = this.props.region
     return (
       <div className={css(styles.box)}
-          style={{backgroundColor: color}}
+          style={{backgroundColor: color, height: region ? '22.5em' : '24.5em'}}
           onClick={this.signup.bind(this)}>
 
         <div className={css(styles.content)}>
-          <div className="entry-title">
+          <div className="entry-title g-mt-70">
             <h2 className={css(styles.title1)}>Sign up your</h2>
             <h2 className={css(styles.title2)}>Local Business</h2>
             <div className={css(styles.subtitle)}>FREE TRIAL</div>

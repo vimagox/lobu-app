@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
   box: {
     display: 'flex',
     flexGrow: 1,
-    width: '320px',
+    // width: '200px',
     margin: '0 1em 2em 1em',
     // border: '1px solid red',
     overflow: 'hidden',

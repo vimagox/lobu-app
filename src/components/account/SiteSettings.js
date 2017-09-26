@@ -1,24 +1,26 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import FontAwesome from 'react-fontawesome'
-import Checkbox from '../Checkbox'
 import BusinessCover from '../business/Cover'
 import {upToXS, upToSM, upToMD, upToLG, upToXL} from '../../constants/Media'
 import {StyleSheet,css} from 'aphrodite'
 import {colors} from '../../constants/Colors'
 import Template from '../business/Template'
-import Tabs from './Tabs'
 import Products from '../Products'
 import Modal from '../Modal'
+import ContactForm from './ContactForm'
+import ProductForm from './ProductForm'
+import ServiceForm from './ServiceForm'
+import ContactView from './ContactView'
+import ProductsView from './ProductsView'
+import ServicesView from './ServicesView'
+import PreviewView from './PreviewView'
+import InputComponent from '../form/InputComponent'
+import TextAreaComponent from '../form/TextAreaComponent'
+import {loadStage, loadField} from '../../actions'
 
 const styles = StyleSheet.create({
   template: {
-    // display: 'flex',
-    // flexGrow: 1,
-    // width: '100%',
-    // height: '24.5em',
-    // margin: '0 auto',
-    // border: '1px solid red',
     overflow: 'hidden',
     [upToXL]: {
       // border: '1px solid cyan',
@@ -173,11 +175,16 @@ export default class SiteSettings extends React.Component {
     }
   }
 
+  setStage(stage) {
+    loadStage(stage)
+  }
+
   handleChange = event => {
     this.setState({
       [event.target.id]: event.target.value
     })
     localStorage.setItem('lobu'+event.target.id, event.target.value)
+    loadField(event.target.id, event.target.value)
   }
 
   handleCheck = (id, value) => {
@@ -205,285 +212,69 @@ export default class SiteSettings extends React.Component {
     const product = this.state.product
     const menu = this.state.menu
     return (
+<div>
 <div className="row">
-  <div className="col-sm-7 g-mb-10">
-    <div className="g-pos-fix--sm">
-      <div className="g-pa-0" style={{marginTop: 0}}>
-        <div className="u-heading-v2-1--bottom g-mb-30">
-          <h2 className="u-heading-v2__title g-mb-10">Business Site</h2>
-          <h4 className="g-font-weight-200">Setup your business site</h4>
-        </div>
-      </div>
-    </div>
-
-    {menu === 0  && <div className="g-mt-60" style={{maxWidth: '30em'}}>
-
-      <div className="g-mb-30">
-        <img src="/img-temp/200x100/img1.png"/>
-      </div>
-
-
-      <div className="widget widget_categories" style={{marginTop: '1em'}}>
-        <h3 className="widget_title">Contact</h3>
-        <div>
-          <div>{this.state.contactName || 'Name'}</div>
-          <div>
-            <div>{this.state.contactEmail || 'Email'}</div>
-            <div><a href={`tel:${this.state.contactPhone}`}>{this.state.contactPhone || 'Phone'}</a></div>
-          </div>
-        </div>
-      </div>
-      <div className="g-mt-30 widget widget_categories" style={{marginTop: '-1em'}}>
-        <h3 className="widget_title">Social Networks</h3>
-
-      </div>
-    </div> }
-
-
-
-    {menu === 1  && <div className="g-mt-60">
-      <div className="text-info">
-        <h4>{this.state.title || 'Products Title'}</h4>
-        <p>{this.state.subtitle || 'Products Subtitle'}</p>
-      </div>
-      <hr/>
-      {[1].map((m,i) => (
-        <div key={"blo"+i} className="g-pt-40 g-cursor-pointer">
-          <div className="exprience">
-            <div className="exprience-image">
-              <img className="img-responsive" src="/images/blog/1.jpg" alt="Image"/>
-            </div>
-            <div className="exprience-info">
-              <h3>{this.state.productTitle || 'Product Title'}</h3>
-              <h5>{this.state.productSubtitle || 'Product Subtitle'}</h5>
-              <p>{this.state.productDescription || 'Product Description.'}</p>
-            </div>
-          </div>
-          <hr/>
-        </div>
-      ))}
-    </div> }
-
-    {menu === 2  && <div className="g-mt-60">
-      <div className="text-info">
-        <h4>{this.state.title || 'Services Title'}</h4>
-        <p>{this.state.subtitle || 'Services Subtitle'}</p>
-      </div>
-      <hr/>
-      {[1].map((m,i) => (
-        <div key={"blo"+i} className="g-pt-40 g-cursor-pointer">
-          <div className="exprience">
-            <div className="exprience-image">
-              <img className="img-responsive" src="/images/blog/1.jpg" alt="Image"/>
-            </div>
-            <div className="exprience-info">
-              <h3>{this.state.productTitle || 'Service Title'}</h3>
-              <h5>{this.state.productSubtitle || 'Service Subtitle'}</h5>
-              <p>{this.state.productDescription || 'Service Description.'}</p>
-            </div>
-          </div>
-          <hr/>
-        </div>
-      ))}
-    </div> }
+  <div className="col-sm-6">
+    {menu === 0  && <ContactView/>}
+    {menu === 1  && <ProductsView/>}
+    {menu === 2  && <ServicesView/>}
   </div>
 
-  <div className="g-mt-20 col-sm-5" style={{padding: '0 1em'}}>
+  <div className="col-sm-6" style={{padding: '0 1em'}}>
     <div className="g-mb-20">
-      <ul style={{borderBottom: '2px solid '+colors[2]}}>
-        <li onClick={this.setMenu.bind(this, 0)}
-          style={{userSelect: 'none', color: menu === 0  ? colors[2] : '#999'}}
-          className="g-cursor-pointer d-inline-block">General</li>
-        <li onClick={this.setMenu.bind(this, 1)}
-          style={{userSelect: 'none', color: menu === 1  ? colors[2] : '#999'}}
-          className="g-cursor-pointer d-inline-block g-ml-10">Products</li>
-        <li onClick={this.setMenu.bind(this, 2)}
-          style={{userSelect: 'none', color: menu === 2  ? colors[2] : '#999'}}
-          className="g-cursor-pointer d-inline-block g-ml-10">Services</li>
+
+      <ul className="nav u-nav-v1-1 u-nav-primary u-nav-rounded-5 g-brd-bottom--md g-brd-primary g-mb-20" role="tablist" data-target="nav-1-1-default-hor-left-rounded-underline" data-tabs-mobile-type="slide-up-down" data-btn-classes="btn btn-md btn-block u-btn-outline-primary g-mb-20">
+        <li className="nav-item" style={{display: 'inline-block'}}>
+          <a className={"g-cursor-pointer nav-link g-rounded-bottom-0 " + (menu===0 && 'active')}
+             onClick={this.setMenu.bind(this, 0)}>General</a>
+        </li>
+        <li className="nav-item" style={{display: 'inline-block'}}>
+          <a className={"g-cursor-pointer nav-link g-rounded-bottom-0 " + (menu===1 && 'active')}
+             onClick={this.setMenu.bind(this, 1)}>Products</a>
+        </li>
+        <li className="nav-item" style={{display: 'inline-block'}}>
+          <a className={"g-cursor-pointer nav-link g-rounded-bottom-0 " + (menu===2 && 'active')}
+             onClick={this.setMenu.bind(this, 2)}>Services</a>
+        </li>
       </ul>
+
     </div>
 
-    {menu === 0 && <div>
-
-
-        <div>
-          <div className="form-group g-mt-0">
-            <label for="exampleInputFile">Business Logo</label>
-            <div className={css(styles.option)} style={{height: '5em', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-              <input style={{width: '15em'}} type="file" className="form-control-file" id="exampleInputFile" aria-describedby="fileHelp"/>
-              <small id="fileHelp" className="form-text text-muted">Upload your logo or keep the image from your business card.</small>
-            </div>
-          </div>
-        </div>
-
-
-      <div style={{marginTop: '1em', border: '1px solid #ddd', padding: '1em', height: '17.5em', marginRight: 0}}>
-        <form>
-          <legend className="g-font-size-default">Business Contact</legend>
-          <div className="form-group g-mb-10">
-          <input
-            id='name'
-            onChange={this.handleChange}
-            className="form-control g-bg-gray-light-v5 g-brd-gray-light-v4 g-brd-secondary--focus rounded-0 g-pa-15"
-            style={{resize: 'none', color: this.state.title ? '#000' : '#aaa', fontWeight: this.state.title ? 'bold' : 'regular'}}
-            placeholder={this.state.title || "Contact Name"}/>
-          </div>
-        <div className="form-group g-mb-10">
-          <input
-            id='phone'
-            onChange={this.handleChange}
-            className="form-control g-bg-gray-light-v5 g-brd-gray-light-v4 g-brd-secondary--focus rounded-0 g-pa-15"
-            style={{resize: 'none', color: this.state.subtitle ? '#222' : '#aaa', fontWeight: this.state.subtitle ? 'bold' : 'regular'}}
-            placeholder={this.state.subtitle || "Contact Phone"}/>
-        </div>
-        <div className="form-group g-mb-10">
-          <input
-            id='email'
-            onChange={this.handleChange}
-            className="form-control g-bg-gray-light-v5 g-brd-gray-light-v4 g-brd-secondary--focus rounded-0 g-pa-15"
-            style={{resize: 'none', color: this.state.subtitle ? '#222' : '#aaa', fontWeight: this.state.subtitle ? 'bold' : 'regular'}}
-            placeholder={this.state.subtitle || "Contact Email"}/>
-        </div>
-
-        </form>
-      </div>
-
-      <div style={{marginTop: '1em', border: '1px solid #ddd', padding: '1em', height: '21.5em', marginRight: 0}}>
-        <form>
-          <legend className="g-font-size-default">Social Networks</legend>
-          <div className="form-group g-mb-10">
-          <input
-            id='twitter'
-            onChange={this.handleChange}
-            className="form-control g-bg-gray-light-v5 g-brd-gray-light-v4 g-brd-secondary--focus rounded-0 g-pa-15"
-            style={{resize: 'none', color: this.state.twitter ? '#000' : '#aaa', fontWeight: this.state.twitter ? 'bold' : 'regular'}}
-            placeholder={this.state.twitter || "Twitter"}/>
-          </div>
-        <div className="form-group g-mb-10">
-          <input
-            id='facebook'
-            onChange={this.handleChange}
-            className="form-control g-bg-gray-light-v5 g-brd-gray-light-v4 g-brd-secondary--focus rounded-0 g-pa-15"
-            style={{resize: 'none', color: this.state.facebook ? '#222' : '#aaa', fontWeight: this.state.facebook ? 'bold' : 'regular'}}
-            placeholder={this.state.facebook || "Facebook"}/>
-        </div>
-        <div className="form-group g-mb-10">
-          <input
-            id='instagram'
-            onChange={this.handleChange}
-            className="form-control g-bg-gray-light-v5 g-brd-gray-light-v4 g-brd-secondary--focus rounded-0 g-pa-15"
-            style={{resize: 'none', color: this.state.instagram ? '#222' : '#aaa', fontWeight: this.state.instagram ? 'bold' : 'regular'}}
-            placeholder={this.state.instagram || "Instagram"}/>
-        </div>
-        <div className="form-group g-mb-10">
-          <input
-            id='youtube'
-            onChange={this.handleChange}
-            className="form-control g-bg-gray-light-v5 g-brd-gray-light-v4 g-brd-secondary--focus rounded-0 g-pa-15"
-            style={{resize: 'none', color: this.state.youtube ? '#222' : '#aaa', fontWeight: this.state.youtube ? 'bold' : 'regular'}}
-            placeholder={this.state.youtube || "Youtube"}/>
-        </div>
-
-        </form>
-      </div>
-
-
+    <div className="tab-content">
+      {menu === 0 && <div>
+        <ContactForm/>
       </div> }
 
+      {menu === 1 && <div>
+        <div style={{border: '1px solid #ddd', padding: '1em', marginRight: 0}}>
+          <form>
+            <legend className="g-font-size-default">Title & Subtitle</legend>
+            <InputComponent id="productsTitle"
+                field="productsTitle" placeholder="Title"/>
+            <TextAreaComponent id="productsSubtitle"
+                field="productsSubtitle" placeholder="Subtitle"/>
+            <ProductForm/>
+          </form>
+        </div>
+      </div>}
 
-      {menu > 0 &&
-        <div>
-
-
-
+      {menu === 2 && <div>
         <div style={{border: '1px solid #ddd', padding: '1em', height: '14.75em', marginRight: 0}}>
           <form>
-          <legend className="g-font-size-default">Title & Subtitle</legend>
-          <div className="form-group g-mb-10">
-            <input
-              id='title'
-              onChange={this.handleChange}
-              className="form-control g-bg-gray-light-v5 g-brd-gray-light-v4 g-brd-secondary--focus rounded-0 g-pa-15"
-              style={{resize: 'none', color: this.state.title ? '#000' : '#aaa', fontWeight: this.state.title ? 'bold' : 'regular'}}
-              placeholder={this.state.title || "Title"}/>
-          </div>
-          <div className="form-group g-mb-10">
-            <textarea
-              id='subtitle'
-              onChange={this.handleChange}
-              className="form-control g-bg-gray-light-v5 g-brd-gray-light-v4 g-brd-secondary--focus rounded-0 g-pa-15"
-              style={{resize: 'none', color: this.state.subtitle ? '#222' : '#aaa', fontWeight: this.state.subtitle ? 'bold' : 'regular'}}
-              placeholder={this.state.subtitle || "Subtitle"}/>
-          </div>
-
+            <legend className="g-font-size-default">Title & Subtitle</legend>
+            <InputComponent id="servicesTitle"
+                field="servicesTitle" placeholder="Title"/>
+            <TextAreaComponent id="servicesSubtitle"
+                field="servicesSubtitle" placeholder="Subtitle"/>
           </form>
-          </div>
+        </div>
+        <ServiceForm/>
+      </div>}
+    </div>
 
-
-
-
-        <div style={{marginTop: '1em', border: '1px solid #ddd', padding: '1em', height: '35.75em', marginRight: 0}}>
-        <form>
-        <fieldset className="form-group g-mb-0">
-          <legend className="g-font-size-default">Add {menu === 1 ? 'Product' : 'Service'}</legend>
-        </fieldset>
-
-        <div className="form-group g-mb-10">
-          <input
-            id='productTitle'
-            onChange={this.handleChange}
-            className="form-control g-bg-gray-light-v5 g-brd-gray-light-v4 g-brd-secondary--focus rounded-0 g-pa-15"
-            type="text"
-            style={{resize: 'none', color: this.state.productTitle ? '#000' : '#aaa', fontWeight: this.state.productTitle ? 'bold' : 'regular'}}
-            placeholder={this.state.productTitle || "Title (Optional)"}/>
-        </div>
-        <div className="form-group g-mb-10">
-          <input
-            id='productSubtitle'
-            onChange={this.handleChange}
-            className="form-control g-bg-gray-light-v5 g-brd-gray-light-v4 g-brd-secondary--focus rounded-0 g-pa-15"
-            style={{resize: 'none', color: this.state.productSubtitle ? '#222' : '#aaa', fontWeight: this.state.productSubtitle ? 'bold' : 'regular'}}
-            placeholder={this.state.productSubtitle || "Subtitle (Optional)"}/>
-        </div>
-        <div className="form-group g-mb-10">
-          <textarea
-            id='productDescription'
-            onChange={this.handleChange}
-            className="form-control g-bg-gray-light-v5 g-brd-gray-light-v4 g-brd-secondary--focus rounded-0 g-pa-15"
-            style={{resize: 'none', color: this.state.productDescription ? '#222' : '#aaa', fontWeight: this.state.productDescription ? 'bold' : 'regular'}}
-            placeholder={this.state.productDescription || "Description (Optional)"}/>
-        </div>
-        <div className="form-group g-mb-10">
-          <div style={{display: 'flex'}}>
-            <div style={{fontSize: '1.2em', padding: '.75em .5em', lineHeight: '1.2em',
-              border: '1px solid #ddd', backgroundColor: '#efefef'}}>$</div>
-            <div><input
-            id='productPrice'
-            onChange={this.handleChange}
-            className="form-control g-bg-gray-light-v5 g-brd-gray-light-v4 g-brd-secondary--focus rounded-0 g-pa-15"
-            style={{resize: 'none', color: this.state.productPrice ? '#222' : '#aaa', fontWeight: this.state.productPrice ? 'bold' : 'regular'}}
-            placeholder={this.state.productPrice || "Price (Optional)"}/>
-            </div>
-          </div>
-        </div>
-        <div className="form-group g-mt-0">
-          <label for="exampleInputFile">Image</label>
-          <div className={css(styles.option)} style={{height: '5em', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-            <input style={{width: '15em'}} type="file" className="form-control-file" id="exampleInputFile" aria-describedby="fileHelp"/>
-            <small id="fileHelp" className="form-text text-muted">Upload any image that best represents your {product ?  "product" : "service"}.</small>
-          </div>
-        </div>
-        <div style={{textAlign: 'right'}}>
-          <a className="g-cursor-pointer btn btn-primary g-mt-10"
-             style={{textDecoration: 'underline'}}>
-             Add {menu === 1 ?  "Product" : "Service"}
-          </a>
-        </div>
-        </form>
-        </div>
-      </div>
-      }
   </div>
+</div>
+
 </div>
     )
   }
@@ -519,3 +310,21 @@ export default class SiteSettings extends React.Component {
 //       checked={!this.state.product}/> Service
 //   </label>
 // </div>
+
+
+
+// <ul style={{
+//       border: '2px solid '+colors[8],
+//       borderBottom: '2px solid '+colors[8],
+//       padding: '1em', borderRadius: '3px',
+//       backgroundColor: '#fff'}}>
+//   <li onClick={this.setMenu.bind(this, 0)}
+//     style={{userSelect: 'none', color: menu === 0  ? colors[8] : '#999'}}
+//     className="g-cursor-pointer d-inline-block">General</li>
+//   <li onClick={this.setMenu.bind(this, 1)}
+//     style={{userSelect: 'none', color: menu === 1  ? colors[8] : '#999'}}
+//     className="g-cursor-pointer d-inline-block g-ml-10">Products</li>
+//   <li onClick={this.setMenu.bind(this, 2)}
+//     style={{userSelect: 'none', color: menu === 2  ? colors[8] : '#999'}}
+//     className="g-cursor-pointer d-inline-block g-ml-10">Services</li>
+// </ul>

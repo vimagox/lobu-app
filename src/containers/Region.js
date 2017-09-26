@@ -9,19 +9,25 @@ import {colors} from '../constants/Colors'
 import MobileHeader from '../components/mobile/Header'
 import {upToXS,upToSM, upToMD, upToLG, upToXL} from '../constants/Media'
 import {StyleSheet,css} from 'aphrodite'
+import Spinner from '../components/Spinner'
 
 
 const styles = StyleSheet.create({
   mobile: {
     display: 'none',
-    [upToXS]: {
+    [upToSM]: {
       display: 'block',
-      padding: '1em 0'
+      width: '100%',
+      overflowX: 'hidden'
+      // padding: '1em 0'
     }
   },
   desktop: {
     display: 'block',
-    minHeight: '90vh',
+    minHeight: '100vh',
+    [upToSM]: {
+      display: 'none',
+    }
   }
 })
 
@@ -40,23 +46,34 @@ class Region extends React.Component {
     const region = this.props.region
     const cities = this.props.cities
     const mode = this.props.mode
+    console.log(mode)
+    console.log(region)
+    console.log(cities)
     return (
       <div className="container">
-        <div className={css(styles.desktop)}>
-          {region && cities && <RegionList list={cities} color={colors[0]}/>}
-        </div>
+        { !(region && cities) && <Spinner/> }
+        {region && cities && <div>
+          <div className={css(styles.desktop)}>
+            <RegionList list={cities} color={colors[0]}/>
+          </div>
 
-        <div className={css(styles.mobile)}>
-          <MobileHeader/>
-          {cities && <div className={css(styles.regions)}>
-            { mode === 'regions' && <div className={css(styles.column)}>
-              {Object.keys(cities).map((k,i) => (
-                <RegionItem key={'region'+i} r={cities[k]}/>
-              ))}
+          <div className={css(styles.mobile)}>
+            <div style={{position: 'fixed',zIndex:999,
+              marginTop: '-1em',
+                backgroundColor: '#fff', width: '100%', right: 0, padding: '1em 1em 0 1em'}}><MobileHeader/></div>
+            <div style={{height: '4em'}}/>
+            {!region && <Spinner/>}
+            {region && <div className={css(styles.regions)}>
+              { mode === 'regions' && <div className={css(styles.column)}>
+                {Object.keys(cities).map((k,i) => (
+                  <RegionItem key={'city'+i} r={cities[k]}/>
+                ))}
+              </div> }
             </div> }
-          </div> }
-          { mode === 'bizs' && <BusinessList/>}
-        </div>
+            { mode === 'bizs' && <BusinessList/>}
+          </div>
+
+        </div>}
 
       </div>
     )

@@ -3,6 +3,9 @@ export const SET_MODE     = 'SET_MODE'
 export const SET_MODAL    = 'SET_MODAL'
 export const HIDE_BANNER  = 'HIDE_BANNER'
 
+export const ADD_PRODUCT  = 'ADD_PRODUCT'
+export const ADD_SERVICE  = 'ADD_SERVICE'
+
 export const SET_COUNTRY  = 'SET_COUNTRY'
 
 export const SET_REGIONS  = 'SET_REGIONS'

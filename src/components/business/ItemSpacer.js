@@ -6,15 +6,16 @@ import {StyleSheet,css} from 'aphrodite'
 const styles = StyleSheet.create({
   spacer: {
     // border: '1px solid #ddd',
-    minWidth: '361px',
-    height: '26em',
-    margin: '0 1em',
-    [upToXL]: {
-      minWidth: '300px',
-    },
-    [upToLG]: {
-      minWidth: '220px',
-    },
+    minWidth: '220px',
+    maxWidth: '220px',
+    height: '1em',
+    // margin: '0 1em',
+    // [upToXL]: {
+    //   minWidth: '300px',
+    // },
+    // [upToLG]: {
+    //   minWidth: '220px',
+    // },
   }
 })
 

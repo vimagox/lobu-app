@@ -1,13 +1,12 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import FontAwesome from 'react-fontawesome'
-import Checkbox from '../Checkbox'
+import Checkbox from '../form/Checkbox'
 import BusinessCover from '../business/Cover'
 import {upToXS, upToSM, upToMD, upToLG, upToXL} from '../../constants/Media'
 import {StyleSheet,css} from 'aphrodite'
 import {colors} from '../../constants/Colors'
 import Template from '../business/Template'
-import Tabs from './Tabs'
 import Modal from '../Modal'
 
 const styles = StyleSheet.create({

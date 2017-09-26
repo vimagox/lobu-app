@@ -17,7 +17,7 @@ export default class Breadcrumbs extends React.Component {
               <Link to="/"
                 onClick={this.unloadRegion.bind(this)}
                 className={"g-font-size-20 u-link-v5 g-color-"+ (region ? 'main' : 'primary')}>
-                U.S.
+                US
               </Link>
               {region && <i className="fa fa-angle-right g-ml-10"></i>}
             </li>
