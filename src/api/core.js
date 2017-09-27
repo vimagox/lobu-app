@@ -7,7 +7,7 @@ const REGIONS_KEY = 'regions'
 const REGION_KEY = 'region'
 
 async function api() {
-  let app = store.getState().app
+  let app = store.getState().app.app
   if (!app) {
     app = (await fetch(config.api)).json()
     store.dispatch({type: types.SET_APP, app: app})

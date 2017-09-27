@@ -80,8 +80,8 @@ class Businesses extends React.Component {
 
 const mapStateToProps = store => {
   return {
-    region: store.region,
-    city: store.city
+    region: store.location.region,
+    city: store.location.city
   }
 }
 

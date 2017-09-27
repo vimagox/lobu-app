@@ -79,9 +79,9 @@ class Navigation extends React.Component {
 
 const mapStateToProps = (store) => {
   return {
-    region: store.region,
-    city: store.city,
-    business: store.business
+    region: store.location.region,
+    city: store.location.city,
+    business: store.app.business
   }
 }
 

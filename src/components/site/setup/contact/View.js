@@ -66,14 +66,14 @@ class ContactView extends React.Component {
 
 const mapStateToProps = (store) => {
   return {
-    name: store.contactName,
-    email: store.contactEmail,
-    phone: store.contactPhone,
-    twitter: store.twitterNet,
-    facebook: store.facebookNet,
-    instagram: store.instagramNet,
-    youtube: store.youtubeNet,
-    linkedin: store.linkedinNet
+    name: store.contact.name,
+    email: store.contact.email,
+    phone: store.contact.phone,
+    twitter: store.contact.twitterNet,
+    facebook: store.contact.facebookNet,
+    instagram: store.contact.instagramNet,
+    youtube: store.contact.youtubeNet,
+    linkedin: store.contact.linkedinNet
   }
 }
 

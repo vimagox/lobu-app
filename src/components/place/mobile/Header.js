@@ -1,20 +1,18 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import FontAwesome from 'react-fontawesome'
-import {loadMode} from '../../actions'
-import {colors} from '../../constants/Colors'
+import {loadMode} from '../../../actions'
+import {colors} from '../../../constants/Colors'
 import Breadcrumbs from './Breadcrumbs'
 import {StyleSheet,css} from 'aphrodite'
 
-
 const styles = StyleSheet.create({
-  xheader: {
+  header: {
     display:'flex', flexFlow: 'row',
     justifyContent: 'space-between',
     borderBottom: '1px solid #3c70b4',
   }
 })
-
 
 class Header extends React.Component {
   setMode(mode){
@@ -26,26 +24,28 @@ class Header extends React.Component {
     const region = this.props.region
     const city = this.props.city
     return (
-      <div style={{ height: region ? '8em' : '4em'}}>
+      <div style={{ height: region ? '5.8em' : '2.8em'}}>
         {region && <Breadcrumbs region={region} city={city}/>}
         <div >
-        <div className={css(styles.xheader)}>
+        <div className={css(styles.header)}>
           <div className="g-font-size-18 u-link-v5 g-color-primary g-pt-8">
-            {mode === 'bizs' ? 'Local Businesses' : region ? 'Businesses by City' : city ? '' : 'Businesses by State'}
+            {mode === 'bizs' ? 'Local Businesses' :
+                region ? 'Businesses by City' :
+                  city ? '' : 'Businesses by State'}
           </div>
           <div>
             <img src="/favicon.jpg"
               alt="lobu"
               onClick={this.setMode.bind(this, 'bizs')}
               style={{ height: '2.2em',
-                  marginTop: '-.7em',
+                  marginTop: city ? 0 : '-.7em',
                   color: '#d6d6d6',
                   opacity: mode === 'regions' ? .25 : 1}}/>
-            <FontAwesome name="map-pin"  size="2x"
+            {!city && <FontAwesome name="map-pin"  size="2x"
               onClick={this.setMode.bind(this, 'regions')}
               style={{marginLeft: '.75em',
                 color: colors[8],
-                opacity: mode === 'bizs' ? .25 : 1}}/>
+                opacity: mode === 'bizs' ? .25 : 1}}/>}
           </div>
         </div>
         </div>
@@ -54,12 +54,11 @@ class Header extends React.Component {
   }
 }
 
-
 const mapStateToProps = (store) => {
   return {
-    mode: store.mode,
-    region: store.region,
-    city: store.city
+    mode: store.location.mode,
+    region: store.location.region,
+    city: store.location.city
   }
 }
 

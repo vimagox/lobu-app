@@ -1,15 +1,18 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {withRouter} from 'react-router-dom'
-import {loadCity} from '../../actions'
 import {StyleSheet,css} from 'aphrodite'
 import {colors} from '../../constants/Colors'
-import {upToSmall} from '../../constants/Media'
+import {upToSM} from '../../constants/Media'
+import {loadCity} from '../../actions'
 
 const styles = StyleSheet.create({
   item: {
     minWidth: '12em',
-    marginBottom: '3px'
+    marginBottom: '3px',
+    [upToSM]: {
+      width: '100%'
+    }
   },
   label: {
     cursor: 'pointer',
@@ -18,7 +21,7 @@ const styles = StyleSheet.create({
     ':hover': {
       color: colors[8]
     },
-    [upToSmall]: {
+    [upToSM]: {
       width: '100%',
       border: '1px solid #ddd',
       lineHeight: '2em',
@@ -36,10 +39,6 @@ class RegionItem extends React.Component {
     }
   }
 
-  hasLobus(r) {
-    return r.name === 'Texas' || r.name === 'El Paso'
-  }
-
   render() {
     const r = this.props.r
     return (
@@ -53,7 +52,7 @@ class RegionItem extends React.Component {
 
 const mapStateToProps = (store) => {
   return {
-    region: store.region
+    region: store.location.region
   }
 }
 

@@ -1,24 +1,25 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import FontAwesome from 'react-fontawesome'
-import Modal from '../components/Modal'
+
 import {loadStage, loadModal} from '../actions'
 import {colors} from '../constants/Colors'
-import Popup from 'react-popup'
-import Accordion from '../components/Accordion'
-import Products from '../components/Products'
-import Menu from '../components/Menu'
+// import Modal from '../components/Modal'
+// import Popup from 'react-popup'
+// import Accordion from '../components/Accordion'
+// import Products from '../components/Products'
+// import Menu from '../components/Menu'
 import Spinner from '../components/Spinner'
 import AccountSettings from '../components/account/AccountSettings'
-import BusinessSettings from '../components/account/BusinessSettings'
-import SiteSettings from '../components/account/SiteSettings'
-import SitePreview from '../components/account/SitePreview'
+import CardSetup from '../components/site/setup/card'
+import SiteSetup from '../components/site/setup'
+import SitePreview from '../components/site/preview'
 import AccountNav from '../components/account/Nav'
 import {StyleSheet,css} from 'aphrodite'
 import AccountHeader from '../components/account/Header'
 import BusinessPage from '../components/business/Page'
 import {upToSM} from '../constants/Media'
-import {loadBusiness, loadRegion, loadCity} from '../actions'
+import {loadBusiness, loadRegion, loadCity, setField} from '../actions'
 
 
 const biz1 = {
@@ -97,7 +98,7 @@ class Account extends React.Component {
     if(value===2) {
       loadBusiness(biz1)
     }
-    loadStage(value)
+    setField('SET_STAGE', value)
   }
 
   render() {
@@ -111,112 +112,9 @@ class Account extends React.Component {
         <div>
           <div className="row">
             <div className="col-xs-12">
-              { stage === 0 &&
-                <div>
-                  <div className="container">
-                    <BusinessSettings/>
-                  </div>
-                  <div className="text-right" style={{
-                        marginTop: '2em',
-                        backgroundColor: '#000',
-                      }}>
-                    <div className="container">
-                      <div style={{
-                        float: 'right',
-                        position: 'relative',
-                        border: '1px solid #fff',
-                        padding: '.5em 1em',
-                        margin: '1.25em 0 1.25em 0',
-                        height: '3em',
-                        width: '9em'}}
-                        onClick={this.setStage.bind(this, 1)}
-                        className="g-cursor-pointer g-color-white">
-                          <div style={{display: 'inline-block', padding: '0 2em 0 0'}}>Setup Site</div>
-                          <FontAwesome name="arrow-right" size="2x"
-                            style={{position: 'absolute', right: '7px', top: '5px'}}/>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              }
-              { stage === 1 &&
-                <div>
-                  <div className="container">
-                    <SiteSettings/>
-                  </div>
-                  <div className="text-right" style={{
-                        backgroundColor: '#000'
-                      }}>
-                    <div className="container g-mt-30">
-                      <div style={{
-                        float: 'right',
-                        position: 'relative',
-                        border: '1px solid #fff',
-                        padding: '.5em 1em',
-                        margin: '1.25em 0 1.25em 0',
-                        height: '3em',
-                        width: '10em'}}
-                        onClick={this.setStage.bind(this, 2)}
-                        className="g-cursor-pointer g-color-white">
-                          <div style={{display: 'inline-block', padding: '0 2em 0 0'}}>Preview Site</div>
-                          <FontAwesome name="arrow-right" size="2x"
-                            style={{position: 'absolute', right: '7px', top: '5px'}}/>
-                      </div>
-                      <div style={{
-                        float: 'left',
-                        position: 'relative',
-                        border: '1px solid #fff',
-                        padding: '.5em 1em',
-                        margin: '1.25em 0 1.25em 0',
-                        height: '3em',
-                        width: '10em'}}
-                        onClick={this.setStage.bind(this, 0)}
-                        className="g-cursor-pointer g-color-white">
-                          <div style={{display: 'inline-block', padding: '0 0 0 2em'}}>Setup Card</div>
-                          <FontAwesome name="arrow-left" size="2x"
-                            style={{position: 'absolute', left: '7px', top: '5px'}}/>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              }
-              { stage === 2 &&
-                <div>
-                  <div className="container">
-                    {!this.props.b && <Spinner/>}
-                    {this.props.b && <BusinessPage/>}
-                  </div>
-                  <div className="text-right" style={{
-                        backgroundColor: '#000'
-                      }}>
-                    <div className="container">
-                      <div style={{
-                          float: 'right',
-                          position: 'relative',
-                          margin: '1.25em 0 1.25em 0',
-                        }}
-                        onClick={this.setStage.bind(this, 2)}
-                        className="btn btn-primary g-cursor-pointer text-center">
-                          <div style={{display: 'inline-block'}}>Publish Site</div>
-                      </div>
-                      <div style={{
-                        float: 'left',
-                        position: 'relative',
-                        border: '1px solid #fff',
-                        padding: '.5em 1em',
-                        margin: '1.25em 0 1.25em 0',
-                        height: '3em',
-                        width: '9em'}}
-                        onClick={this.setStage.bind(this, 1)}
-                        className="g-cursor-pointer g-color-white">
-                          <div style={{display: 'inline-block', padding: '0 0 0 2em'}}>Setup Site</div>
-                          <FontAwesome name="arrow-left" size="2x"
-                            style={{position: 'absolute', left: '7px', top: '5px'}}/>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              }
+              {stage === 0 && <CardSetup/>}
+              {stage === 1 && <SiteSetup/>}
+              {stage === 2 && <SitePreview/>}
             </div>
           </div>
         </div>
@@ -227,8 +125,8 @@ class Account extends React.Component {
 
 const mapStateToProps = (store) => {
   return {
-    stage: store.accountStage,
-    b: store.business
+    stage: store.account.stage,
+    b: store.location.business
   }
 }
 

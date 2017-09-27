@@ -39,9 +39,9 @@ class ContactForm extends React.Component {
 
 const mapStateToProps = (store) => {
   return {
-    name: store.contactName,
-    email: store.contactEmail,
-    phone: store.contactPhone
+    name: store.contact.name,
+    email: store.contact.email,
+    phone: store.contact.phone
   }
 }
 

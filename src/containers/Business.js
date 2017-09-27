@@ -114,6 +114,9 @@ class Business extends React.Component {
     const region = this.props.region
     const city = this.props.city
     const bizFound = region && city && biz
+    console.log(biz)
+    console.log(region)
+    console.log(city)
     return (
       <div className="container">
         {!bizFound && <Spinner/>}
@@ -125,8 +128,9 @@ class Business extends React.Component {
 
 const mapStateToProps = (store) => {
   return {
-    region: store.region,
-    city: store.city
+    business: store.app.business,
+    region: store.location.region,
+    city: store.location.city
   }
 }
 

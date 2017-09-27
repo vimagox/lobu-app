@@ -25,7 +25,7 @@ class ProductsView extends React.Component {
                     color: '#fff', opacity:  1, fontWeight: 'bold',
                     fontSize: '.85em', padding: '1em'}}>
                     <span style={{fontSize: '1.4em'}}>Product Image.</span><br/>
-                    Click here to upload.                    
+                    Click here to upload.
                 </div>
               </div>
               <div className="exprience-info">
@@ -46,11 +46,11 @@ class ProductsView extends React.Component {
 
 const mapStateToProps = (store) => {
   return {
-    productsTitle: store.productsTitle,
-    productsSubtitle: store.productsSubtitle,
-    title: store.productTitle,
-    subtitle: store.productSubtitle,
-    description: store.productDescription
+    productsTitle: store.product.sectionTitle,
+    productsSubtitle: store.product.sectionSubtitle,
+    title: store.product.title,
+    subtitle: store.product.subtitle,
+    description: store.product.description
   }
 }
 

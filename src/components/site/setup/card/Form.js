@@ -1,12 +1,12 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {StyleSheet,css} from 'aphrodite'
-import {colors} from '../../constants/Colors'
-import Checkbox from '../form/Checkbox'
-import InputComponent from '../form/InputComponent'
 import FontAwesome from 'react-fontawesome'
-import {upToXS, upToSM, upToMD, upToLG, upToXL} from '../../constants/Media'
-import {loadField} from '../../actions'
+import {StyleSheet,css} from 'aphrodite'
+import Checkbox from '../../../form/Checkbox'
+import InputComponent from '../../../form/InputComponent'
+import {colors} from '../../../../constants/Colors'
+import {upToXS, upToSM, upToMD, upToLG, upToXL} from '../../../../constants/Media'
+import {loadField} from '../../../../actions'
 import FileReaderInput, {uploadFile} from 'react-file-reader-input'
 
 
@@ -150,20 +150,20 @@ class CardForm extends React.Component {
         <form>
           <legend className="g-font-size-default">Business Card</legend>
           <InputComponent
-              id="businessName"
-              field="businessName"
+              id="name"
+              field="SET_NAME"
               value={this.props.name}
               placeholder={"Business Name. ie: Rainbow"}/>
           <InputComponent
-              id="businessCategory"
-              field="businessCategory"
+              id="category"
+              field="SET_CATEGORY"
               value={this.props.category}
               placeholder={"Business Category. ie: Face Painting"}/>
           <div style={{display: 'flex', flexFlow: 'row', justifyContent: 'stretch', padding: 0, margin: 0, height: '3.5em'}}>
             <div style={{flexGrow:0, lineHeight: '3.4em', fontSize: '1.1em', marginRight: '.25em'}}>{"https://lobu.us/"}</div>
               <InputComponent
-                  id="businessDomain"
-                  field="businessDomain"
+                  id="domain"
+                  field="SET_DOMAIN"
                   value={this.props.domain}
                   placeholder={"Lobu Domain. ie: rainbow"}
                   style={{flexGrow: 1}}/>
@@ -205,10 +205,10 @@ class CardForm extends React.Component {
 
 const mapStateToProps = (store) => {
   return {
-    name: store.businessName,
-    category: store.businessCategory,
-    domain: store.businessDomain,
-    color: store.businessColor
+    name: store.card.name,
+    category: store.card.category,
+    domain: store.card.domain,
+    color: store.card.color
   }
 }
 

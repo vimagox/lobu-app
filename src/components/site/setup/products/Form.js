@@ -38,10 +38,10 @@ class ProductForm extends React.Component {
 
 const mapStateToProps = (store) => {
   return {
-    title: store.productTitle,
-    subtitle: store.productSubtitle,
-    description: store.productDescription,
-    price: store.productPrice
+    title: store.product.sectionTitle,
+    subtitle: store.product.sectionSubtitle,
+    description: store.product.description,
+    price: store.product.price
   }
 }
 

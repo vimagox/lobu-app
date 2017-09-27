@@ -47,7 +47,7 @@ class Header extends React.Component {
 
 const mapStateToProps = (store) => {
   return {
-    stage: store.accountStage
+    stage: store.account.stage
   }
 }
 

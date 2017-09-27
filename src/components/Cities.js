@@ -2,7 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {withRouter} from 'react-router-dom'
 import {store} from '../store'
-import RegionList from './region/List'
+import Place from './place'
 import Container from './Container'
 import {color2} from '../constants/Colors'
 import {loadCities} from '../actions'
@@ -24,15 +24,15 @@ class Cities extends React.Component {
     const cities = this.props.cities
     return region &&
       <div className="container">
-        {cities && <RegionList list={cities} color={color2}/>}
+        {cities && <Place regions={cities} color={color2}/>}
       </div>
   }
 }
 
 const mapStateToProps = store => {
   return {
-    region: store.region,
-    cities: store.cities
+    region: store.location.region,
+    cities: store.location.cities
   }
 }
 

@@ -64,6 +64,9 @@ class Page extends React.Component {
     const b = this.props.b
     const region = this.props.region
     const city = this.props.city
+    console.log(b)
+    console.log(region)
+    console.log(city)
     return (
     <div id="portfolio" className="portfolio-section">
       {!(region && city) && <Spinner/>}
@@ -107,9 +110,9 @@ class Page extends React.Component {
 
 const mapStateToProps = store => {
   return {
-    b: store.business,
-    region: store.region,
-    city: store.city
+    b: store.location.business,
+    region: store.location.region,
+    city: store.location.city
   }
 }
 

@@ -6,11 +6,25 @@ export const locationReducer = (state = {
   region: null,
   cities: null,
   city: null,
+  business: null,
+  mode: 'bizs',
 }, action) => {
   switch (action.type) {
+    case types.SET_MOBILE_MODE: return { ...state, mode: action.mode }
     case types.RESET_COUNTRY: return { ...state, region: null, cities: null, city: null, businesses: null, business: null}
-    case types.RESET_REGION: return { ...state, region: null, city: null, businesses: null, business: null}
-    case types.RESET_CITY: return { ...state, city: null, businesses: null, business: null}
+    case types.RESET_REGION: return { ...state,
+      region: null,
+      city: null,
+      businesses: null,
+      business: null,
+      mode: 'regions'
+    }
+    case types.RESET_CITY: return { ...state,
+      city: null,
+      businesses: null,
+      business: null,
+      mode: 'regions'
+    }
     case types.SET_COUNTRY: return { ...state,
       country: {id: 'us', name: 'United States'},
       region: null,
@@ -33,6 +47,11 @@ export const locationReducer = (state = {
       business: null,
       mode: 'bizs'
     }
+    case types.RESET_BUSINESS: return { ...state, businesses: null, business: null}
+    case types.SET_BUSINESS: return { ...state,
+      business: action.business,
+      region: action.region,
+      city: action.city}
 
     default: return state
   }

@@ -37,10 +37,10 @@ class ServiceForm extends React.Component {
 
 const mapStateToProps = (store) => {
   return {
-    title: store.serviceTitle,
-    subtitle: store.serviceSubtitle,
-    description: store.serviceDescription,
-    price: store.servicePrice
+    title: store.service.title,
+    subtitle: store.service.subtitle,
+    description: store.service.description,
+    price: store.service.price
   }
 }
 

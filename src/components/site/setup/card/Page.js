@@ -1,17 +1,16 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import FontAwesome from 'react-fontawesome'
-import Checkbox from '../form/Checkbox'
-import BusinessCover from '../business/Cover'
-import {upToXS, upToSM, upToMD, upToLG, upToXL} from '../../constants/Media'
+// import BusinessCover from '../business/Cover'
+import {upToXS, upToSM, upToMD, upToLG, upToXL} from '../../../../constants/Media'
 import {StyleSheet,css} from 'aphrodite'
-import {colors} from '../../constants/Colors'
-import Template from '../business/Template'
-import Modal from '../Modal'
-import {loadStage} from '../../actions'
-import CardView from './CardView'
-import CardForm from './CardForm'
-import ImageUpload from '../form/ImageUpload'
+import {colors} from '../../../../constants/Colors'
+// import Template from '../business/Template'
+import Modal from '../../../Modal'
+import {loadStage} from '../../../../actions'
+import CardView from './View'
+import CardForm from './Form'
+// import ImageUpload from '../form/ImageUpload'
 // import cloudinary from 'cloudinary'
 // import CloudinaryField from 'cloudinary.models'
 // import cloudinary from 'cloudinary.models'
@@ -174,7 +173,7 @@ const styles = StyleSheet.create({
 })
 
 
-class BusinessSettings extends React.Component {
+class Page extends React.Component {
 
   constructor(props) {
     super(props)
@@ -243,13 +242,13 @@ class BusinessSettings extends React.Component {
 
 const mapStateToProps = (store) => {
   return {
-    name: store.businessName,
-    category: store.businessCategory,
-    domain: store.businessDomain
+    name: store.card.name,
+    category: store.card.category,
+    domain: store.card.domain
   }
 }
 
-export default connect(mapStateToProps)(BusinessSettings)
+export default connect(mapStateToProps)(Page)
 
 // <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a
 //   type specimen book.</p>

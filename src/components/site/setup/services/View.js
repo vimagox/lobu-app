@@ -39,11 +39,11 @@ class ServicesView extends React.Component {
 
 const mapStateToProps = (store) => {
   return {
-    servicesTitle: store.servicesTitle,
-    servicesSubtitle: store.servicesSubtitle,
-    title: store.serviceTitle,
-    subtitle: store.serviceSubtitle,
-    description: store.serviceDescription
+    servicesTitle: store.service.sectionTitle,
+    servicesSubtitle: store.service.sectionSubtitle,
+    title: store.service.title,
+    subtitle: store.service.subtitle,
+    description: store.service.description
   }
 }
 

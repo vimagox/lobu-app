@@ -68,7 +68,7 @@ class Layout extends React.Component {
 
 const mapStateToProps = (store) => {
   return {
-    banner: store.banner
+    banner: store.app.banner
   }
 }
 

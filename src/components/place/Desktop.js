@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {StyleSheet,css} from 'aphrodite'
-import RegionItem from './Item'
+import RegionItem from './RegionItem'
 import BusinessList from '../business/List'
 import {upToXS, upToSM, upToMD, upToLG, upToXL} from '../../constants/Media'
 
@@ -71,15 +71,16 @@ const styles = StyleSheet.create( {
   }
 })
 
-class RegionList extends React.Component {
+class DesktopPlace extends React.Component {
 
   render() {
-    const regions = this.props.list
+    const regions = this.props.regions
     const regionKeys = Object.keys(regions)
     const region = this.props.region
     const city = this.props.city
     const title = city ? city.name + ', '+region.name : region ? region.name : 'United States'
     return (
+      <div className="container">
       <div className={css(styles.page)}>
 
         {!city && regionKeys.length > 1 &&
@@ -98,14 +99,15 @@ class RegionList extends React.Component {
 
         <BusinessList/>
       </div>
+      </div>
     )
   }
 }
 
 const mapStateToProps = (store) => {
   return {
-    region: store.region,
-    city: store.city
+    region: store.location.region,
+    city: store.location.city
   }
 }
-export default connect(mapStateToProps)(RegionList)
+export default connect(mapStateToProps)(DesktopPlace)

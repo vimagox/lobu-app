@@ -1,5 +1,5 @@
 import React from 'react'
-import {fieldValue, loadField} from '../../actions'
+import {fieldValue, loadField, setField} from '../../actions'
 
 export default class InputComponent extends React.Component {
   constructor(props) {
@@ -13,7 +13,8 @@ export default class InputComponent extends React.Component {
     })
     localStorage.setItem('lobu'+event.target.id, event.target.value)
     if(this.props.field) {
-      loadField(this.props.field, event.target.value)
+      // loadField(this.props.field, event.target.value)
+      setField(this.props.field, event.target.value)
     }
   }
 

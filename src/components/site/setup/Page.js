@@ -8,13 +8,15 @@ import {colors} from '../../constants/Colors'
 import Template from '../business/Template'
 import Products from '../Products'
 import Modal from '../Modal'
-import ContactForm from './ContactForm'
-import ProductForm from './ProductForm'
-import ServiceForm from './ServiceForm'
-import ContactView from './ContactView'
-import ProductsView from './ProductsView'
-import ServicesView from './ServicesView'
+import GeneralForm from './general/Form'
+import ContactForm from './contact/Form'
+import ProductForm from './product/Form'
+import ServiceForm from './service/Form'
+import ContactView from './contact/View'
+import ProductsView from './products/View'
+import ServicesView from './services/View'
 import PreviewView from './PreviewView'
+import SiteView from './SiteView'
 import InputComponent from '../form/InputComponent'
 import TextAreaComponent from '../form/TextAreaComponent'
 import {loadStage, loadField} from '../../actions'
@@ -156,7 +158,7 @@ const styles = StyleSheet.create({
 })
 
 
-export default class SiteSettings extends React.Component {
+export default class Setup extends React.Component {
 
   constructor(props) {
     super(props)
@@ -215,9 +217,10 @@ export default class SiteSettings extends React.Component {
 <div>
 <div className="row">
   <div className="col-sm-6">
-    {menu === 0  && <ContactView/>}
-    {menu === 1  && <ProductsView/>}
-    {menu === 2  && <ServicesView/>}
+    {menu === 0  && <SiteView/>}
+    {menu === 1  && <ContactView/>}
+    {menu === 2  && <ProductsView/>}
+    {menu === 3  && <ServicesView/>}
   </div>
 
   <div className="col-sm-6" style={{padding: '0 1em'}}>
@@ -230,46 +233,25 @@ export default class SiteSettings extends React.Component {
         </li>
         <li className="nav-item" style={{display: 'inline-block'}}>
           <a className={"g-cursor-pointer nav-link g-rounded-bottom-0 " + (menu===1 && 'active')}
-             onClick={this.setMenu.bind(this, 1)}>Products</a>
+             onClick={this.setMenu.bind(this, 1)}>Contact</a>
         </li>
         <li className="nav-item" style={{display: 'inline-block'}}>
           <a className={"g-cursor-pointer nav-link g-rounded-bottom-0 " + (menu===2 && 'active')}
-             onClick={this.setMenu.bind(this, 2)}>Services</a>
+             onClick={this.setMenu.bind(this, 2)}>Products</a>
+        </li>
+        <li className="nav-item" style={{display: 'inline-block'}}>
+          <a className={"g-cursor-pointer nav-link g-rounded-bottom-0 " + (menu===3 && 'active')}
+             onClick={this.setMenu.bind(this, 3)}>Services</a>
         </li>
       </ul>
 
     </div>
 
     <div className="tab-content">
-      {menu === 0 && <div>
-        <ContactForm/>
-      </div> }
-
-      {menu === 1 && <div>
-        <div style={{border: '1px solid #ddd', padding: '1em', marginRight: 0}}>
-          <form>
-            <legend className="g-font-size-default">Title & Subtitle</legend>
-            <InputComponent id="productsTitle"
-                field="productsTitle" placeholder="Title"/>
-            <TextAreaComponent id="productsSubtitle"
-                field="productsSubtitle" placeholder="Subtitle"/>
-            <ProductForm/>
-          </form>
-        </div>
-      </div>}
-
-      {menu === 2 && <div>
-        <div style={{border: '1px solid #ddd', padding: '1em', height: '14.75em', marginRight: 0}}>
-          <form>
-            <legend className="g-font-size-default">Title & Subtitle</legend>
-            <InputComponent id="servicesTitle"
-                field="servicesTitle" placeholder="Title"/>
-            <TextAreaComponent id="servicesSubtitle"
-                field="servicesSubtitle" placeholder="Subtitle"/>
-          </form>
-        </div>
-        <ServiceForm/>
-      </div>}
+      {menu === 0 && <GeneralForm/>}
+      {menu === 1 && <ContactForm/>}
+      {menu === 2 && <ProductForm/>}
+      {menu === 3 && <ServiceForm/>}
     </div>
 
   </div>
@@ -328,3 +310,14 @@ export default class SiteSettings extends React.Component {
 //     style={{userSelect: 'none', color: menu === 2  ? colors[8] : '#999'}}
 //     className="g-cursor-pointer d-inline-block g-ml-10">Services</li>
 // </ul>
+
+
+// <div style={{border: '1px solid #ddd', padding: '1em', height: '14.75em', marginRight: 0}}>
+//   <form>
+//     <legend className="g-font-size-default">Title & Subtitle</legend>
+//     <InputComponent id="servicesTitle"
+//         field="servicesTitle" placeholder="Title"/>
+//     <TextAreaComponent id="servicesSubtitle"
+//         field="servicesSubtitle" placeholder="Subtitle"/>
+//   </form>
+// </div>

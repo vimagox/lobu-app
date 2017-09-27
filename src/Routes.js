@@ -19,6 +19,6 @@ export default ( ) => (
     <Route component={Membership} path="/customer" exact/>
     <Route component={Faq} path="/faq" exact/>
     <Route component={Account} path="/account" exact/>
-    <Route component={Business}/>
+    <Route component={Business}/>    
   </Switch>
 )

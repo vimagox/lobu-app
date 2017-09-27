@@ -84,7 +84,7 @@ class Item extends React.Component {
 
 const mapStateToProps = (store) => {
   return {
-    region: store.region
+    region: store.location.region
   }
 }
 

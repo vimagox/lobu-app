@@ -1,9 +1,9 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {StyleSheet,css} from 'aphrodite'
-import {colors} from '../../constants/Colors'
 import FontAwesome from 'react-fontawesome'
-import {upToXS, upToSM, upToMD, upToLG, upToXL} from '../../constants/Media'
+import {StyleSheet,css} from 'aphrodite'
+import {colors} from '../../../../constants/Colors'
+import {upToXS, upToSM, upToMD, upToLG, upToXL} from '../../../../constants/Media'
 import {Image, CloudinaryContext, Transformation} from 'cloudinary-react'
 
 const styles = StyleSheet.create({
@@ -207,11 +207,11 @@ class CardView extends React.Component {
 
 const mapStateToProps = (store) => {
   return {
-    image: store.cardImage,
-    name: store.businessName,
-    category: store.businessCategory,
-    domain: store.businessDomain,
-    color: store.businessColor
+    image: store.card.image,
+    name: store.card.name,
+    category: store.card.category,
+    domain: store.card.domain,
+    color: store.card.color
   }
 }
 
