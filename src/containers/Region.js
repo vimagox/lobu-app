@@ -33,7 +33,6 @@ class Region extends React.Component {
         loadCities(this.props.location.pathname)
       }
     }
-    loadCities(this.props.location.pathname)
   }
 
   render() {

@@ -2,7 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {colors} from '../../constants/Colors'
 import BizSidebar from './PageSidebar'
-import Breadcrumbs from './PageBreadcrumbs'
+import Breadcrumbs from '../place/mobile/Breadcrumbs'
 import Product from './Product'
 import {StyleSheet,css} from 'aphrodite'
 import {upToSM, upToMD} from '../../constants/Media'
@@ -47,7 +47,20 @@ const styles = StyleSheet.create({
   crumbs: {
     display: 'none',
     [upToSM]: {
-      display: 'block'
+      marginLeft: '-1em',
+      marginTop: '-1em',
+      paddingTop: '1em',
+      position: 'fixed',
+      width: '100%',
+      display: 'block',
+      backgroundColor: '#fff',
+      zIndex: 999,
+      borderBottom: '1px solid ' + colors[8],
+    }
+  },
+  spacer: {
+    [upToSM]: {
+      height: '3em',
     }
   },
   pageTitle: {
@@ -64,9 +77,6 @@ class Page extends React.Component {
     const b = this.props.b
     const region = this.props.region
     const city = this.props.city
-    console.log(b)
-    console.log(region)
-    console.log(city)
     return (
     <div id="portfolio" className="portfolio-section">
       {!(region && city) && <Spinner/>}
@@ -75,6 +85,7 @@ class Page extends React.Component {
           <div className={css(styles.crumbs)}>
             <Breadcrumbs region={region} city={city}/>
           </div>
+          <div className={css(styles.spacer)}/>
           <div className="row">
             <div className="col-sm-4">
               <div className={css(styles.logo)}>

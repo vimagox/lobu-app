@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
   }
 })
 
-class Home extends React.Component {
+class Home extends React.Component {  
   render() {
     const region = this.props.region
     const regions = this.props.regions
@@ -39,12 +39,11 @@ class Home extends React.Component {
               {Object.keys(regions).map((k,i) => (
                 <RegionItem key={'region'+i} r={regions[k]}/>
               ))}
-            </div> }
+            </div>}
         { mode === 'bizs' &&
           <div style={{marginTop: region ? '3em' : 0}}>
             <BusinessList/>
-          </div>
-        }
+          </div>}
       </div>
     )
   }

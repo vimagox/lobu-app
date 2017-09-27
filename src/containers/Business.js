@@ -94,7 +94,6 @@ class Business extends React.Component {
   }
 
   componentWillMount() {
-    console.log('will mount......')
     // if(!this.props.business) {
       if(this.props.location.pathname === '/casa') {
         this.setState({biz: biz1})
@@ -107,6 +106,8 @@ class Business extends React.Component {
     }else {
       loadBusiness(biz1)
     }
+
+    window.scrollTo(0, 0)
   }
 
   render() {
@@ -114,9 +115,6 @@ class Business extends React.Component {
     const region = this.props.region
     const city = this.props.city
     const bizFound = region && city && biz
-    console.log(biz)
-    console.log(region)
-    console.log(city)
     return (
       <div className="container">
         {!bizFound && <Spinner/>}

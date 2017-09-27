@@ -14,6 +14,7 @@ export const locationReducer = (state = {
     case types.RESET_COUNTRY: return { ...state, region: null, cities: null, city: null, businesses: null, business: null}
     case types.RESET_REGION: return { ...state,
       region: null,
+      cities: null,
       city: null,
       businesses: null,
       business: null,

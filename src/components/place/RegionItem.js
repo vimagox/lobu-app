@@ -37,6 +37,7 @@ class RegionItem extends React.Component {
     } else {
       loadCity('/'+this.props.region.uid, r.uid)
     }
+    window.scrollTo(0, 0)
   }
 
   render() {

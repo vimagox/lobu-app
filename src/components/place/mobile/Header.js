@@ -10,13 +10,14 @@ const styles = StyleSheet.create({
   header: {
     display:'flex', flexFlow: 'row',
     justifyContent: 'space-between',
-    borderBottom: '1px solid #3c70b4',
+    borderBottom: '1px solid ' + colors[8],
   }
 })
 
 class Header extends React.Component {
   setMode(mode){
     loadMode(mode)
+    window.scrollTo(0, 0)
   }
 
   render() {
