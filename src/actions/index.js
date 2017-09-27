@@ -23,7 +23,7 @@ export async function loadField(field, value) {
 }
 
 export async function setField(field, value) {
-  store.dispatch({type: field, value: value})
+  store.dispatch({type: 'SET_'+field.toUpperCase(), value: value})
 }
 
 export async function fieldValue(field) {

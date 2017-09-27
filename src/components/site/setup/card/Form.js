@@ -6,7 +6,7 @@ import Checkbox from '../../../form/Checkbox'
 import InputComponent from '../../../form/InputComponent'
 import {colors} from '../../../../constants/Colors'
 import {upToXS, upToSM, upToMD, upToLG, upToXL} from '../../../../constants/Media'
-import {loadField} from '../../../../actions'
+import {loadField, setField} from '../../../../actions'
 import FileReaderInput, {uploadFile} from 'react-file-reader-input'
 
 
@@ -115,22 +115,20 @@ const styles = StyleSheet.create({
 class CardForm extends React.Component {
 
   handleCheck = (id, value) => {
-    // this.setState({[id]: value})
+    setField(id, !this.props[id])
   }
 
   handleColor(id) {
-    // this.setState({color: id})
-    loadField('businessColor', id)
+    setField('color', id)
   }
 
   handleChange = (e, results) => {
-    console.log(results)
-     results.forEach(result => {
-       const [e, file] = result
-       console.log(e.target.result)
+    results.forEach(result => {
+      const [e, file] = result
+      console.log(e.target.result)
       //  this.props.dispatch(uploadFile(e.target.result));
-       console.log(`Successfully uploaded ${file.name}!`);
-     });
+      console.log(`Successfully uploaded ${file.name}!`);
+    });
   }
 
   // <FileReaderInput as="binary" id="my-file-input"
@@ -150,20 +148,17 @@ class CardForm extends React.Component {
         <form>
           <legend className="g-font-size-default">Business Card</legend>
           <InputComponent
-              id="name"
-              field="SET_NAME"
+              id="name" field="name"
               value={this.props.name}
               placeholder={"Business Name. ie: Rainbow"}/>
           <InputComponent
-              id="category"
-              field="SET_CATEGORY"
+              id="category" field="category"
               value={this.props.category}
               placeholder={"Business Category. ie: Face Painting"}/>
           <div style={{display: 'flex', flexFlow: 'row', justifyContent: 'stretch', padding: 0, margin: 0, height: '3.5em'}}>
             <div style={{flexGrow:0, lineHeight: '3.4em', fontSize: '1.1em', marginRight: '.25em'}}>{"https://lobu.us/"}</div>
               <InputComponent
-                  id="domain"
-                  field="SET_DOMAIN"
+                  id="domain" field="domain"
                   value={this.props.domain}
                   placeholder={"Lobu Domain. ie: rainbow"}
                   style={{flexGrow: 1}}/>
@@ -180,9 +175,9 @@ class CardForm extends React.Component {
           </div>
           <div>
             <div style={{display: 'flex', flexFlow: 'row', justifyContent: 'flex-start', marginLeft: '-1em'}}>
-              <Checkbox id="card" label="Credit Cards Ok" handleCheck={this.handleCheck}/>
-              <Checkbox id="bitcoin" label="Bitcoin Ok" handleCheck={this.handleCheck}/>
-              <Checkbox id="delivery" label="Delivery Service" handleCheck={this.handleCheck}/>
+              <Checkbox id="card" field="card" label="Credit Cards Ok" handleCheck={this.handleCheck}/>
+              <Checkbox id="bitcoin" field="bitcoin" label="Bitcoin Ok" handleCheck={this.handleCheck}/>
+              <Checkbox id="delivery" field="delivery" label="Delivery Service" handleCheck={this.handleCheck}/>
             </div>
           </div>
 
@@ -208,7 +203,10 @@ const mapStateToProps = (store) => {
     name: store.card.name,
     category: store.card.category,
     domain: store.card.domain,
-    color: store.card.color
+    color: store.card.color,
+    card: store.card.card,
+    bitcoin: store.card.bitcoin,
+    delivery: store.card.delivery
   }
 }
 

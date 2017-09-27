@@ -98,7 +98,7 @@ class Account extends React.Component {
     if(value===2) {
       loadBusiness(biz1)
     }
-    setField('SET_STAGE', value)
+    setField('stage', value)
   }
 
   render() {

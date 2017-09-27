@@ -19,7 +19,7 @@ import PreviewView from './PreviewView'
 import SiteView from './SiteView'
 import InputComponent from '../form/InputComponent'
 import TextAreaComponent from '../form/TextAreaComponent'
-import {loadStage, loadField} from '../../actions'
+import {loadStage, loadField, setField} from '../../actions'
 
 const styles = StyleSheet.create({
   template: {
@@ -175,10 +175,6 @@ export default class Setup extends React.Component {
       contactEmail: '',
       contactPhone: ''
     }
-  }
-
-  setStage(stage) {
-    loadStage(stage)
   }
 
   handleChange = event => {

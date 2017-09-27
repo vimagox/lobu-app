@@ -1,4 +1,5 @@
 import React from 'react'
+import {setField} from '../../actions'
 
 
 export default class Checkbox extends React.Component{
@@ -12,6 +13,9 @@ export default class Checkbox extends React.Component{
     const value = !this.state.checked
     this.setState({checked: value})
     this.props.handleCheck(this.props.id, value)
+    if(this.props.field) {
+      setField(this.props.field, value)
+    }
   }
 
   render() {

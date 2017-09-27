@@ -1,11 +1,12 @@
 import React from 'react'
 import FontAwesome from 'react-fontawesome'
 import CardPage from './Page'
+import {setField} from '../../../../actions'
 
 
 export default class CardSetup extends React.Component {
   setStage(value){
-
+    setField('stage', value)
   }
 
   render() {

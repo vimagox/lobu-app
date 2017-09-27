@@ -180,9 +180,9 @@ class CardView extends React.Component {
 
               <div className={css(styles.content)}>
                 <div style={{position:'absolute', left: '1em', bottom: '1em'}}>
-                  <FontAwesome name="truck" style={{transform: 'scaleX(-1)', marginRight: '1em', color: '#999'}}/>
-                  <FontAwesome name="bitcoin" style={{marginRight: '1em', color: '#999'}}/>
-                  <FontAwesome name="credit-card" style={{marginRight: '1em', color: '#999'}}/>
+                  {this.props.delivery && <FontAwesome name="truck" style={{transform: 'scaleX(-1)', marginRight: '1em', color: '#999'}}/>}
+                  {this.props.bitcoin && <FontAwesome name="bitcoin" style={{marginRight: '1em', color: '#999'}}/>}
+                  {this.props.card && <FontAwesome name="credit-card" style={{marginRight: '1em', color: '#999'}}/>}
                 </div>
                 <div className={"time time"+this.props.time}>
                   <a style={{backgroundColor: colors[color]}}>B <span>{'STATE'}</span></a>
@@ -211,7 +211,10 @@ const mapStateToProps = (store) => {
     name: store.card.name,
     category: store.card.category,
     domain: store.card.domain,
-    color: store.card.color
+    color: store.card.color,
+    card: store.card.card,
+    bitcoin: store.card.bitcoin,
+    delivery: store.card.delivery
   }
 }
 
