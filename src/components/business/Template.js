@@ -1,6 +1,6 @@
 import React from 'react'
 import {StyleSheet,css} from 'aphrodite'
-import {upToXS, upToSM, upToMD, upToLG, upToXL} from '../../constants/Media'
+import {upToSM, upToMD, upToLG, upToXL} from '../../constants/Media'
 
 
 const styles = StyleSheet.create({

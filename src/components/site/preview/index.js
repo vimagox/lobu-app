@@ -2,8 +2,13 @@ import React from 'react'
 import FontAwesome from 'react-fontawesome'
 import Business from '../../business/Page'
 import Spinner from '../../Spinner'
+import {form} from '../../../actions'
 
 export default class Preview extends React.Component {
+  setStage(stage) {
+    form.setField('stage', stage)
+  }
+
   render() {
     return (
       <div>

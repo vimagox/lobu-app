@@ -2,7 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {withRouter} from 'react-router-dom'
 import {colors} from '../../constants/Colors'
-import {upToXS, upToSM, upToMD, upToLG, upToXL} from '../../constants/Media'
+import {upToMD} from '../../constants/Media'
 import {StyleSheet,css} from 'aphrodite'
 
 const styles = StyleSheet.create({

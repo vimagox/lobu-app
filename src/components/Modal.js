@@ -1,7 +1,7 @@
 import React from 'react'
-import {connect} from 'react-redux'
-import FontAwesome from 'react-fontawesome'
-import {loadModal} from '../actions'
+// import {connect} from 'react-redux'
+// import FontAwesome from 'react-fontawesome'
+// import {loadModal} from '../actions'
 
 
 export default class Modal extends React.Component {

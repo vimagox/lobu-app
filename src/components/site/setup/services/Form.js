@@ -1,17 +1,17 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import FormComponent from '../form/FormComponent'
-import InputComponent from '../form/InputComponent'
-import TextAreaComponent from '../form/TextAreaComponent'
-import PriceComponent from '../form/PriceComponent'
-import ImageComponent from '../form/ImageComponent'
-import ButtonComponent from '../form/ButtonComponent'
-import {addService} from '../../actions'
+import FormComponent from '../../../form/FormComponent'
+import InputComponent from '../../../form/InputComponent'
+import TextAreaComponent from '../../../form/TextAreaComponent'
+import PriceComponent from '../../../form/PriceComponent'
+// import ImageComponent from '../../../form/ImageComponent'
+import ButtonComponent from '../../../form/ButtonComponent'
+import {account} from '../../../../actions'
 
 class ServiceForm extends React.Component {
 
   handleAddService() {
-    addService({
+    account.addService({
       title: this.props.title,
       subtitle: this.props.subtitle,
       description: this.props.description,

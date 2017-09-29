@@ -2,11 +2,11 @@ import React from 'react'
 import {connect} from 'react-redux'
 import Place from '../components/place'
 import Spinner from '../components/Spinner'
-import {loadRegions} from '../actions'
+import {country} from '../actions'
 
 class Home extends React.Component {
   componentWillMount() {
-    loadRegions()
+    country.loadRegions()
   }
 
   render() {

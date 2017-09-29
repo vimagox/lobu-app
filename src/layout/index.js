@@ -1,8 +1,7 @@
 import React from 'react'
 import {withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
-import DesktopBanner from '../components/banner/Desktop'
-import MobileBanner from '../components/banner/Mobile'
+import Banner from './banner'
 import Navigation from './Navigation'
 import Footer from './Footer'
 import {StyleSheet,css} from 'aphrodite'
@@ -17,19 +16,6 @@ const styles = StyleSheet.create({
     flexGrow: 1,
     display: 'flex', flexFlow: 'column', justifyContent: 'stretch'
   },
-  mobile: {
-    display: 'none',
-    [upToSmall]:{
-      display: 'block',
-    }
-  },
-  desktop: {
-    display: 'block',
-    flexGrow: 1,
-    [upToSmall]: {
-      display: 'none'
-    }
-  },
   footer: {
     flexGrow: 0,
     [upToSmall]: {
@@ -38,7 +24,7 @@ const styles = StyleSheet.create({
   }
 })
 
-const re = /(\/business|\/customer|\/faq)/
+// const re = /(\/business|\/customer|\/faq)/
 
 class Layout extends React.Component {
   render() {
@@ -47,15 +33,14 @@ class Layout extends React.Component {
     return (
       <div className="main-wrapper home-two">
         <div className={css(styles.section)}>
-          {showBanner && <div className={css(styles.mobile)}><MobileBanner/></div>}
-          {showBanner && <div className={css(styles.desktop)}><DesktopBanner/></div>}
+          {showBanner && <Banner/>}
 
           {!showBanner && <div style={{flexGrow: 1}}>
             <Navigation/>
             <div style={{height: '5em'}}/>
-            <div id="main-content" className={css(styles.main)}>
-              {this.props.children}
-            </div>
+              <div id="main-content" className={css(styles.main)}>
+                {this.props.children}
+              </div>
             </div>}
           {path !== '/account' && <div className={css(styles.footer)}>
             <Footer/>

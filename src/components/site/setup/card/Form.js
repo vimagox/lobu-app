@@ -1,13 +1,13 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import FontAwesome from 'react-fontawesome'
+// import FontAwesome from 'react-fontawesome'
 import {StyleSheet,css} from 'aphrodite'
 import Checkbox from '../../../form/Checkbox'
 import InputComponent from '../../../form/InputComponent'
 import {colors} from '../../../../constants/Colors'
-import {upToXS, upToSM, upToMD, upToLG, upToXL} from '../../../../constants/Media'
-import {loadField, setField} from '../../../../actions'
-import FileReaderInput, {uploadFile} from 'react-file-reader-input'
+import {upToSM, upToMD, upToLG, upToXL} from '../../../../constants/Media'
+import {form} from '../../../../actions'
+// import FileReaderInput, {uploadFile} from 'react-file-reader-input'
 
 
 const styles = StyleSheet.create({
@@ -16,7 +16,6 @@ const styles = StyleSheet.create({
     zIndex: -1,
     overflow: 'hidden',
     backgroundSize: 'cover',
-    overflow: 'hidden',
     minWidth: '390px',
     height:'170px',
     [upToXL]: {
@@ -115,11 +114,11 @@ const styles = StyleSheet.create({
 class CardForm extends React.Component {
 
   handleCheck = (id, value) => {
-    setField(id, !this.props[id])
+    form.setField(id, !this.props[id])
   }
 
   handleColor(id) {
-    setField('color', id)
+    form.setField('color', id)
   }
 
   handleChange = (e, results) => {
@@ -151,28 +150,12 @@ class CardForm extends React.Component {
               id="name" field="name"
               value={this.props.name}
               placeholder={"Business Name. ie: Rainbow"}/>
+          <div style={{fontWeight: 'bold', color: 'red', margin: '-.5em 0 .5em 0'}}>Enter your business name</div>
           <InputComponent
               id="category" field="category"
               value={this.props.category}
               placeholder={"Business Category. ie: Face Painting"}/>
-          <div style={{display: 'flex', flexFlow: 'row', justifyContent: 'stretch', padding: 0, margin: 0, height: '3.5em'}}>
-            <div style={{flexGrow:0, lineHeight: '3.4em', fontSize: '1.1em', marginRight: '.25em'}}>{"https://lobu.us/"}</div>
-              <InputComponent
-                  id="domain" field="domain"
-                  value={this.props.domain}
-                  placeholder={"Lobu Domain. ie: rainbow"}
-                  style={{flexGrow: 1}}/>
-              <div className={css(styles.checkAvailability)}>
-                <div><FontAwesome name="check" size="2x"/></div>
-                <div style={{marginTop: '-1em'}}>
-                  <a className="" style={{
-                    lineHeight: '3.4em',
-                    fontSize: '.75em',
-                    textDecoration: 'underline !important',
-                    color: '#222'}}>Check Availability</a>
-                </div>
-            </div>
-          </div>
+          <div style={{fontWeight: 'bold', color: 'red', margin: '-.5em 0 .5em 0'}}>Enter your business category</div>
           <div>
             <div style={{display: 'flex', flexFlow: 'row', justifyContent: 'flex-start', marginLeft: '-1em'}}>
               <Checkbox id="card" field="card" label="Credit Cards Ok" handleCheck={this.handleCheck}/>

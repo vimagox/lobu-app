@@ -1,17 +1,17 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import FormComponent from '../form/FormComponent'
-import InputComponent from '../form/InputComponent'
-import TextAreaComponent from '../form/TextAreaComponent'
-import PriceComponent from '../form/PriceComponent'
-import ImageComponent from '../form/ImageComponent'
-import ButtonComponent from '../form/ButtonComponent'
-import {addProduct} from '../../actions'
+import FormComponent from '../../../form/FormComponent'
+import InputComponent from '../../../form/InputComponent'
+import TextAreaComponent from '../../../form/TextAreaComponent'
+import PriceComponent from '../../../form/PriceComponent'
+// import ImageComponent from '../../../form/ImageComponent'
+import ButtonComponent from '../../../form/ButtonComponent'
+import {account} from '../../../../actions'
 
 class ProductForm extends React.Component {
 
   handleAddProduct() {
-    addProduct({
+    account.addProduct({
       title: this.props.title,
       subtitle: this.props.subtitle,
       description: this.props.description,
@@ -21,8 +21,7 @@ class ProductForm extends React.Component {
 
   render() {
     return (
-<div>
-<legend className="g-font-size-default">Add Product</legend>
+<FormComponent legend="Add Product">
   <InputComponent id="title" placeholder="Title (optional)" field="productTitle"/>
   <InputComponent id="subtitle" placeholder="Subtitle (optional)" field="productSubtitle"/>
   <TextAreaComponent id="description" placeholder="Description (optional)" field="productDescription"/>
@@ -31,7 +30,7 @@ class ProductForm extends React.Component {
   </div>
   <ButtonComponent onClick={this.handleAddProduct.bind(this)}
       text="Add Product"/>
-</div>
+</FormComponent>
     )
   }
 }

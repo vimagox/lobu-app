@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import FontAwesome from 'react-fontawesome'
-import {loadMode} from '../../../actions'
+import {app} from '../../../actions'
 import {colors} from '../../../constants/Colors'
 import Breadcrumbs from './Breadcrumbs'
 import {StyleSheet,css} from 'aphrodite'
@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
 
 class Header extends React.Component {
   setMode(mode){
-    loadMode(mode)
+    app.loadMode(mode)
     window.scrollTo(0, 0)
   }
 

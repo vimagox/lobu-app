@@ -1,5 +1,5 @@
 import React from 'react'
-import {upToXS, upToSM, upToMD, upToLG, upToXL} from '../../constants/Media'
+// import {upToXS, upToSM, upToMD, upToLG, upToXL} from '../../constants/Media'
 import {StyleSheet,css} from 'aphrodite'
 
 

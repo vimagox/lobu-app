@@ -1,13 +1,17 @@
 import { createStore, applyMiddleware } from 'redux'
 import { routerMiddleware } from 'react-router-redux'
+import { createEpicMiddleware } from 'redux-observable'
 import { createLogger } from 'redux-logger'
-import thunk from 'redux-thunk'
+// import thunk from 'redux-thunk'
 import {reducers} from './reducers'
+import {epics} from './epics'
+
+const epicMiddleware = createEpicMiddleware(epics)
 
 const middleware = applyMiddleware(
   createLogger(),
   routerMiddleware(),
-  thunk
+  epicMiddleware
 )
 
 export const store = createStore(

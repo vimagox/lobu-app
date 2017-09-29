@@ -2,8 +2,8 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {withRouter} from 'react-router-dom'
 import {colors} from '../../constants/Colors'
-import Template from './Template'
-import {upToXS, upToSM, upToMD, upToLG, upToXL} from '../../constants/Media'
+// import Template from './Template'
+import {upToSM, upToMD} from '../../constants/Media'
 import {StyleSheet,css} from 'aphrodite'
 
 
@@ -23,7 +23,6 @@ const styles = StyleSheet.create({
     zIndex: -1,
     overflow: 'hidden',
     backgroundSize: 'cover',
-    overflow: 'hidden',
     minWidth: '390px',
     height:'170px',
     [upToMD]: {

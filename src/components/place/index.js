@@ -1,7 +1,6 @@
 import React from 'react'
 import {StyleSheet,css} from 'aphrodite'
 import {upToSmall} from '../../constants/Media'
-import {loadRegions} from '../../actions'
 import DesktopPlace from './Desktop'
 import MobilePlace from './mobile'
 

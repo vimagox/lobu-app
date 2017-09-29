@@ -1,15 +1,15 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-import {resetRegion, resetCity} from '../../../actions'
+import {region, city} from '../../../actions'
 
 export default class Breadcrumbs extends React.Component {
   unloadCity(){
-    resetCity()
+    city.reset()
     window.scrollTo(0, 0)
   }
-  
+
   unloadRegion(){
-    resetRegion()
+    region.reset()
     window.scrollTo(0, 0)
   }
 

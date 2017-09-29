@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {colors} from '../../constants/Colors'
+// import {colors} from '../../constants/Colors'
 import {upToSM} from '../../constants/Media'
 import {StyleSheet,css} from 'aphrodite'
 

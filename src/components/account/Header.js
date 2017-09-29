@@ -1,6 +1,5 @@
 import React from 'react'
-import {connect} from 'react-redux'
-import {colors} from '../../constants/Colors'
+// import {connect} from 'react-redux'
 import Section from './HeaderSection'
 import {upToSM} from '../../constants/Media'
 import {StyleSheet,css} from 'aphrodite'
@@ -26,9 +25,8 @@ const styles = StyleSheet.create({
   },
 })
 
-class Header extends React.Component {
+export default class Header extends React.Component {
   render() {
-    const stage = this.props.stage
     return (
     <div className={css(styles.section)}>
       <div className="container d-flex">
@@ -44,14 +42,3 @@ class Header extends React.Component {
     )
   }
 }
-
-const mapStateToProps = (store) => {
-  return {
-    stage: store.account.stage
-  }
-}
-
-export default connect(mapStateToProps)(Header)
-
-
-  // {title: 'Publish', subtitle: '4. Publish your lobu site'},

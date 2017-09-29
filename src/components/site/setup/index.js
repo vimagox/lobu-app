@@ -1,16 +1,18 @@
 import React from 'react'
 import FontAwesome from 'react-fontawesome'
+import SitePage from './Page'
+import {form} from '../../../actions'
 
 export default class SiteSetup extends React.Component {
   setStage(value) {
-
+    form.setField('stage', value)
   }
 
   render() {
     return (
       <div>
         <div className="container">
-          <SiteSetup/>
+          <SitePage/>
         </div>
         <div className="text-right" style={{
               backgroundColor: '#000'

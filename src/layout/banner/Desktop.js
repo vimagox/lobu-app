@@ -1,7 +1,7 @@
 import React from 'react'
 import {StyleSheet,css} from 'aphrodite'
 import {colors} from '../../constants/Colors'
-import {hideBanner} from '../../actions'
+import {app} from '../../actions'
 
 const styles = StyleSheet.create({
   sphere: {
@@ -35,10 +35,6 @@ const styles = StyleSheet.create({
 
 export default class Desktop extends React.Component {
 
-  removeBanner() {
-    hideBanner()
-  }
-
   render() {
     return (
       <div id="home-banner-wrapper" className="main-wrapper g-bg-white home-two g-z-index-1"
@@ -52,7 +48,7 @@ export default class Desktop extends React.Component {
                     <h1>Welcome to</h1>
                     <h2>lo<span style={{color: colors[8]}}>B</span>u.<span style={{color:colors[2]}}>us</span></h2>
                     <button
-                      onClick={this.removeBanner.bind(this)}
+                      onClick={app.hideBanner}
                       className="btn btn-primary"
                       style={{letterSpacing: '9px',
                           padding: '1em 2em',
@@ -62,7 +58,7 @@ export default class Desktop extends React.Component {
               </div>
               <div className="hidden-xs hidden-sm col-md-6 "
               style={{height: '100%'}}>
-                <div onClick={this.removeBanner.bind(this)}
+                <div onClick={app.hideBanner}
                     className={css(styles.sphere)}>
                   <div className={css(styles.text)}>
                     <div className={css(styles.b)}>B</div>

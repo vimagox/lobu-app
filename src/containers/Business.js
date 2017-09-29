@@ -2,7 +2,7 @@ import React from 'react'
 import {withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
 import Biz from '../components/business/Page'
-import {loadBusiness} from '../actions'
+import {place} from '../actions'
 import Spinner from '../components/Spinner'
 
 
@@ -97,14 +97,14 @@ class Business extends React.Component {
     // if(!this.props.business) {
       if(this.props.location.pathname === '/casa') {
         this.setState({biz: biz1})
-        loadBusiness(biz1)
+        place.loadBusiness(biz1)
       }
       else if(this.props.location.pathname === '/rainbow') {
         this.setState({biz: biz2})
-        loadBusiness(biz2)
+        place.loadBusiness(biz2)
       // }
     }else {
-      loadBusiness(biz1)
+      place.loadBusiness(biz1)
     }
 
     window.scrollTo(0, 0)

@@ -1,13 +1,13 @@
 import React from 'react'
-import {connect} from 'react-redux'
-import FontAwesome from 'react-fontawesome'
-import Checkbox from '../form/Checkbox'
-import BusinessCover from '../business/Cover'
-import {upToXS, upToSM, upToMD, upToLG, upToXL} from '../../constants/Media'
+// import {connect} from 'react-redux'
+// import FontAwesome from 'react-fontawesome'
+// import Checkbox from '../form/Checkbox'
+// import BusinessCover from '../business/Cover'
+import {upToSM, upToMD, upToLG, upToXL} from '../../constants/Media'
 import {StyleSheet,css} from 'aphrodite'
-import {colors} from '../../constants/Colors'
-import Template from '../business/Template'
-import Modal from '../Modal'
+// import {colors} from '../../constants/Colors'
+// import Template from '../business/Template'
+// import Modal from '../Modal'
 
 const styles = StyleSheet.create({
   template: {
@@ -64,7 +64,6 @@ const styles = StyleSheet.create({
     zIndex: -1,
     overflow: 'hidden',
     backgroundSize: 'cover',
-    overflow: 'hidden',
     minWidth: '390px',
     height:'170px',
     [upToXL]: {
@@ -188,10 +187,6 @@ export default class AccountSettings extends React.Component {
   }
 
   render() {
-    const b = {color: 1, name: this.state.name || 'Rainbow',
-        title: this.state.category || 'Face Painting',
-        uid: this.state.uid || 'rainbow'}
-    const bgImg = 'url(/img-temp/400x270/img1.jpg)'
     const option = 0
 
     return (

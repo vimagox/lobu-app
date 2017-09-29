@@ -4,7 +4,7 @@ import {withRouter} from 'react-router-dom'
 import {StyleSheet,css} from 'aphrodite'
 import {colors} from '../../constants/Colors'
 import {upToSM} from '../../constants/Media'
-import {loadCity} from '../../actions'
+import {city} from '../../actions'
 
 const styles = StyleSheet.create({
   item: {
@@ -35,7 +35,7 @@ class RegionItem extends React.Component {
     if(!this.props.region) {
       this.props.history.push('/'+r.uid)
     } else {
-      loadCity('/'+this.props.region.uid, r.uid)
+      city.load('/'+this.props.region.uid, r.uid)
     }
     window.scrollTo(0, 0)
   }

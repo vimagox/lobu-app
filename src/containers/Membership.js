@@ -1,7 +1,7 @@
 import React from 'react'
 import CustomerSignup from '../components/signup/Customer'
 import {StyleSheet,css} from 'aphrodite'
-import {upToSmall} from '../constants/Media'
+// import {upToSmall} from '../constants/Media'
 
 const styles = StyleSheet.create({
   section: {

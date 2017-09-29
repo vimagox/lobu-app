@@ -1,7 +1,7 @@
 import React from 'react'
 import {StyleSheet,css} from 'aphrodite'
 import {colors} from '../../constants/Colors'
-import {hideBanner} from '../../actions'
+import {app} from '../../actions'
 
 const styles = StyleSheet.create({
   sphere: {
@@ -34,10 +34,6 @@ const styles = StyleSheet.create({
 
 export default class Mobile extends React.Component {
 
-  removeBanner() {
-    hideBanner()
-  }
-
   render() {
     return (
     <div id="home-banner-wrapper" className="main-wrapper home-two g-pt-40">
@@ -45,7 +41,7 @@ export default class Mobile extends React.Component {
         <div className="row">
           <div className="col-sm-12"
             style={{textAlign: 'center'}}>
-            <div onClick={this.removeBanner.bind(this)}
+            <div onClick={app.hideBanner}
                   className={css(styles.sphere)}>
               <div className={css(styles.text)}>
                 <div className={css(styles.b)}>B</div>
@@ -60,7 +56,7 @@ export default class Mobile extends React.Component {
                 <h3 style={{margin:'2.25em 0 0 -.25em', padding: 0}}>LOCAL BUSINESSES</h3>
 
                 <button
-                  onClick={this.removeBanner.bind(this)}
+                  onClick={app.hideBanner}
                   className="btn btn-primary"
                   style={{letterSpacing: '2px',
                       padding: '1em 2em',

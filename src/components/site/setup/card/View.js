@@ -3,8 +3,8 @@ import {connect} from 'react-redux'
 import FontAwesome from 'react-fontawesome'
 import {StyleSheet,css} from 'aphrodite'
 import {colors} from '../../../../constants/Colors'
-import {upToXS, upToSM, upToMD, upToLG, upToXL} from '../../../../constants/Media'
-import {Image, CloudinaryContext, Transformation} from 'cloudinary-react'
+import {upToSM, upToMD, upToLG, upToXL} from '../../../../constants/Media'
+// import {Image, CloudinaryContext, Transformation} from 'cloudinary-react'
 
 const styles = StyleSheet.create({
   template: {
@@ -50,7 +50,6 @@ const styles = StyleSheet.create({
     zIndex: -1,
     overflow: 'hidden',
     backgroundSize: 'cover',
-    overflow: 'hidden',
     minWidth: '390px',
     height:'170px',
     [upToXL]: {
@@ -154,9 +153,9 @@ class CardView extends React.Component {
   render() {
     const name = this.props.name
     const category = this.props.category
-    const domain = this.props.domain
+    // const domain = this.props.domain
     const color = this.props.color
-    const bgImg = this.props.image || '/images/test/4.jpg'// 'url(/img-temp/400x270/img1.jpg)'
+    // const bgImg = this.props.image || '/images/test/4.jpg'// 'url(/img-temp/400x270/img1.jpg)'
     return (
     <div className="g-pos-fix--sm">
       <div className="g-pa-0" style={{marginTop: 0}}>
@@ -190,8 +189,8 @@ class CardView extends React.Component {
                 <div className="entry-title">
                   <h2 className={css(styles.title)}>{name || 'Business Name'}</h2>
                   <div className={css(styles.subtitle)}>{category || 'Business Category'}</div>
-                  <div className={css(styles.uri)} style={{color: colors[color]}}>/
-                    {domain || 'your-lobu-domain'}
+                  <div className={css(styles.uri)} style={{
+                      height: '2em', color: colors[color]}}>
                   </div>
                   <div className={css(styles.footer)}>{'Your City'}</div>
                 </div>
@@ -239,3 +238,8 @@ export default connect(mapStateToProps)(CardView)
 //     <Transformation width="400" height="270" crop="scale"/>
 //   </Image>
 // </CloudinaryContext>
+
+
+// <div className={css(styles.uri)} style={{color: colors[color]}}>/
+//   {domain || 'your-lobu-domain'}
+// </div>

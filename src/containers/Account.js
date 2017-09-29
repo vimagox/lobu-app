@@ -1,26 +1,24 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import FontAwesome from 'react-fontawesome'
+// import FontAwesome from 'react-fontawesome'
 
-import {loadStage, loadModal} from '../actions'
-import {colors} from '../constants/Colors'
+// import {colors} from '../constants/Colors'
 // import Modal from '../components/Modal'
 // import Popup from 'react-popup'
 // import Accordion from '../components/Accordion'
 // import Products from '../components/Products'
 // import Menu from '../components/Menu'
-import Spinner from '../components/Spinner'
-import AccountSettings from '../components/account/AccountSettings'
+// import Spinner from '../components/Spinner'
+// import AccountSettings from '../components/account/AccountSettings'
 import CardSetup from '../components/site/setup/card'
 import SiteSetup from '../components/site/setup'
 import SitePreview from '../components/site/preview'
-import AccountNav from '../components/account/Nav'
+// import AccountNav from '../components/account/Nav'
 import {StyleSheet,css} from 'aphrodite'
 import AccountHeader from '../components/account/Header'
-import BusinessPage from '../components/business/Page'
+// import BusinessPage from '../components/business/Page'
 import {upToSM} from '../constants/Media'
-import {loadBusiness, loadRegion, loadCity, setField} from '../actions'
-
+import {place, form} from '../actions'
 
 const biz1 = {
   name: 'Casa Furniture',
@@ -90,15 +88,15 @@ const styles = StyleSheet.create({
 })
 
 
-const menuItems = ['Business', 'Site', 'Account']
+// const menuItems = ['Business', 'Site', 'Account']
 
 class Account extends React.Component {
 
   async setStage(value) {
     if(value===2) {
-      loadBusiness(biz1)
+      place.loadBusiness(biz1)
     }
-    setField('stage', value)
+    form.setField('stage', value)
   }
 
   render() {

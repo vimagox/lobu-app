@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import InputComponent from '../form/InputComponent'
-import FormComponent from '../form/FormComponent'
+import InputComponent from '../../../form/InputComponent'
+import FormComponent from '../../../form/FormComponent'
 
 class ContactForm extends React.Component {
   render() {

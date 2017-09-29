@@ -1,5 +1,5 @@
 import React from 'react'
-import {loadField} from '../../actions'
+import {form} from '../../actions'
 
 
 export default class TextAreaComponent extends React.Component {
@@ -14,7 +14,7 @@ export default class TextAreaComponent extends React.Component {
     })
     localStorage.setItem('lobu'+event.target.id, event.target.value)
     if(this.props.field) {
-      loadField(this.props.field, event.target.value)
+      form.loadField(this.props.field, event.target.value)
     }
   }
 
