@@ -22,7 +22,7 @@ class Home extends React.Component {
 
 const mapStateToProps = (store) => {
   return {
-    regions: store.location.regions,
+    regions: store.place.regions,
   }
 }
 

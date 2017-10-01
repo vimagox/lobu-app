@@ -3,20 +3,18 @@ import * as types from '../constants/ActionTypes'
 
 const setProduct = (product) => ({type: types.ADD_PRODUCT, product: product})
 const setService = (service) => ({type: types.ADD_SERVICE, service: service})
+const setStage   = (stage)   => ({type: types.SET_STAGE, stage: stage})
+const setErrors  = (errors)  => ({type: types.SET_ERRORS, errors: errors})
 
+function loadErrors(errors)  {store.dispatch(setErrors(errors))}
+function loadStage(stage)    {store.dispatch(setStage(stage))}
+function addProduct(product) {store.dispatch(setProduct(product))}
+function addService(service) {store.dispatch(setService(service))}
 
-function loadStage(stage) {
-  store.dispatch({type: 'SET_ACCOUNT_STAGE', stage: stage})
-}
-
-function addProduct(product) {
-  store.dispatch(setProduct(product))
-}
-
-function addService(service) {
-  store.dispatch(setService(service))
+function setField(field, value) {
+  store.dispatch({type: 'SET_'+field.toUpperCase(), value: value})
 }
 
 export default {
-  loadStage, addProduct, addService
+  setField, loadStage, loadErrors, addProduct, addService
 }

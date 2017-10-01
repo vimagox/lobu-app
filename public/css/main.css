@@ -2539,3 +2539,12 @@ a, #contact-section li a i:hover,
 
   .u-accordion-brd-white .u-accordion__header [aria-expanded="true"] {
     border-color: #fff !important; }
+
+
+
+form {
+  display: block;
+  borderRadius: 3px;
+  border: 1px solid #ddd;
+  padding: 1em;
+}

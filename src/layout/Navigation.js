@@ -2,10 +2,10 @@ import React from 'react'
 import {withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
-import {store} from '../store'
 import Logo from '../components/Logo'
 import {StyleSheet,css} from 'aphrodite'
 import {upToSmall} from '../constants/Media'
+import {place} from '../actions'
 
 const styles = StyleSheet.create({
   section: {
@@ -18,10 +18,6 @@ const styles = StyleSheet.create({
 })
 
 class Navigation extends React.Component {
-  resetCountry(){ store.dispatch({type: 'RESET_COUNTRY'}) }
-  resetRegion(){ store.dispatch({type: 'RESET_REGION'}) }
-  resetCity(){ store.dispatch({type: 'RESET_CITY'}) }
-  resetBiz(){ store.dispatch({type: 'RESET_BUSINESS'}) }
 
   render() {
     const region = this.props.region
@@ -49,19 +45,18 @@ class Navigation extends React.Component {
               <nav id="mainmenu" >
                 <ul className="nav navbar-nav">
                   <li className="scroll">
-                    <Link onClick={this.resetCountry.bind(this)} to="/">United States</Link>
+                    <Link onClick={place.resetRegion} to="/">United States</Link>
                   </li>
-
                   { region &&
                   <li className={"scroll "+ (city ? '' : 'current')}>
-                    <Link onClick={this.resetCity.bind(this)}
+                    <Link onClick={place.resetCity}
                           to={"/"+region.uid}>
                           {region.name}
                     </Link>
                   </li>}
                   { city &&
                   <li className={"scroll "+ (biz ? '' : 'current')}>
-                    <Link onClick={this.resetBiz.bind(this)}
+                    <Link onClick={place.resetBusiness}
                           to={"/"+region.uid}>
                       {city.name}
                     </Link>
@@ -79,8 +74,8 @@ class Navigation extends React.Component {
 
 const mapStateToProps = (store) => {
   return {
-    region: store.location.region,
-    city: store.location.city,
+    region: store.place.region,
+    city: store.place.city,
     business: store.app.business
   }
 }

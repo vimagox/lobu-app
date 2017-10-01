@@ -1,8 +1,8 @@
 import React from 'react'
 import {withRouter} from 'react-router-dom'
-import {store} from '../store'
 import {StyleSheet,css} from 'aphrodite'
 import {upToSmall, upToMedium, upToMediumBig} from '../constants/Media'
+import {country} from '../actions'
 
 const styles = StyleSheet.create({
   section: {
@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
 
 class Logo extends React.Component {
   resetCountry() {
-    store.dispatch({type: 'RESET_COUNTRY'})
+    country.reset()
     this.props.history.push('/')
   }
 

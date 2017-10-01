@@ -57,9 +57,9 @@ class Header extends React.Component {
 
 const mapStateToProps = (store) => {
   return {
-    mode: store.location.mode,
-    region: store.location.region,
-    city: store.location.city
+    mode: store.place.mode,
+    region: store.place.region,
+    city: store.place.city
   }
 }
 

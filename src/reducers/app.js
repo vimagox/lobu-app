@@ -1,6 +1,6 @@
 import * as types from '../constants/ActionTypes'
 
-export const appReducer = (state = {
+export default (state = {
     banner: true,
     modal: true,
     tempImage: null,

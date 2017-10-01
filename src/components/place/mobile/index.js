@@ -51,8 +51,8 @@ class Home extends React.Component {
 
 const mapStateToProps = (store) => {
   return {
-    mode: store.location.mode,
-    region: store.location.region
+    mode: store.place.mode,
+    region: store.place.region
   }
 }
 

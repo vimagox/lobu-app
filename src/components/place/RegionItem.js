@@ -53,7 +53,7 @@ class RegionItem extends React.Component {
 
 const mapStateToProps = (store) => {
   return {
-    region: store.location.region
+    region: store.place.region
   }
 }
 

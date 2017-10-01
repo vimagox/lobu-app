@@ -1,4 +1,6 @@
-export const serviceReducer =(state={
+import * as types from '../constants/ActionTypes'
+
+export default(state={
   sectionTitle: '',
   sectionSubtitle: '',
   title: '',
@@ -6,17 +8,16 @@ export const serviceReducer =(state={
   description: '',
   price: '',
   services: [],
-
 }, action) => {
   switch (action.type) {
-    case 'SET_SECTIONTITLE': return {...state, sectionTitle: action.value}
-    case 'SET_SECTIONSUBTITLE': return {...state, sectionSubtitle: action.value}
-    case 'SET_TITLE': return {...state, title: action.value}
-    case 'SET_SUBTITLE': return {...state, subtitle: action.value}
-    case 'SET_DESCRIPTION': return {...state, description: action.value}
-    case 'SET_PRICE': return {...state, price: action.value}
-    case 'ADD_SERVICE': return {...state, services: [...state.services, action.service]}
-    case 'REMOVE_SERVICE': return {...state, services: [...state.services.slice(0, action.idx)]}
+    case types.SET_SECTION_TITLE: return {...state, sectionTitle: action.value}
+    case types.SET_SECTION_SUBTITLE: return {...state, sectionSubtitle: action.value}
+    case types.SET_TITLE: return {...state, title: action.value}
+    case types.SET_SUBTITLE: return {...state, subtitle: action.value}
+    case types.SET_DESCRIPTION: return {...state, description: action.value}
+    case types.SET_PRICE: return {...state, price: action.value}
+    case types.ADD_ITEM: return {...state, services: [...state.services, action.service]}
+    case types.REMOVE_ITEM: return {...state, services: [...state.services.slice(0, action.idx)]}
 
     default: return state
   }

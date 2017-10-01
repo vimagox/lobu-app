@@ -8,7 +8,7 @@ const setCities = cities => ({type: types.SET_CITIES, cities: cities})
 
 function reset(){
   // hideBanner()
-  store.dispatch({type: 'RESET_REGION'})
+  store.dispatch({type: types.RESET_REGION})
 }
 
 async function load(path) {

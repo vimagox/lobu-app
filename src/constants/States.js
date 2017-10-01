@@ -51,6 +51,7 @@ export const states = [
   {id: 've', name: 'Vermont'},
   {id: 'va', name: 'Virginia'},
   {id: 'vi', name: 'Virgin Islands'},
+  {id: 'vt', name: 'Vermont'},
   {id: 'wa', name: 'Washington'},
   {id: 'wv', name: 'West Virginia'},
   {id: 'wi', name: 'Wisconsin'},

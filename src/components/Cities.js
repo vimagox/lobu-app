@@ -31,8 +31,8 @@ class Cities extends React.Component {
 
 const mapStateToProps = store => {
   return {
-    region: store.location.region,
-    cities: store.location.cities
+    region: store.place.region,
+    cities: store.place.cities
   }
 }
 

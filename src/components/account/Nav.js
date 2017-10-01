@@ -1,68 +1,53 @@
 import React from 'react'
+import {connect} from 'react-redux'
 import {StyleSheet,css} from 'aphrodite'
+import {upToSM} from '../../constants/Media'
 
 const styles = StyleSheet.create({
   section: {
-    position: 'fixed',
-    zIndex: 200,
-    right: '-1.2em',
-    top: '8em',
-    width: '20em',
-  }
+    marginBottom: '30px',
+    display: 'flex', flexFlow: 'row',
+    justifyContent: 'flex-start', alignItems: 'center',
+    paddingTop: '1em',
+    backgroundColor: '#000',
+    marginTop: '0',
+    [upToSM]: {
+      marginTop: '-.9em',
+      width: '100%'
+    }
+  },
 })
 
-export default class Nav extends React.Component {
+
+class Nav extends React.Component {
   render() {
+    const active = this.props.stage === this.props.idx
+    const style = {color: active ? '#fff' : '#666'}
     return (
     <div className={css(styles.section)}>
-      <div id="navigation" className="menu-one">
-        <div className="navbar" style={{width: '100%'}}>
-        <nav id="mainmenu" className="collapse navbar-collapse">
-          <ul className="nav navbar-nav">
-              <li className="scroll current dropdown"><a href="#home-banner">
-                  <span><i className="fa fa-home" aria-hidden="true"></i>Account</span></a>
-              </li>
-              <li className="scroll"><a href="#about">
-                  <span><i className="fa fa-picture-o" aria-hidden="true"></i>Business</span></a>
-              </li>
-              <li className="scroll"><a href="#contact">
-                  <span><i className="fa fa-volume-control-phone" aria-hidden="true"></i>Contact</span></a>
-              </li>
-              <li className="scroll"><a href="#blog">
-                  <span><i className="fa fa-file-text-o" aria-hidden="true"></i>Links</span></a>
-              </li>
-              <li className="scroll"><a href="#blog">
-                  <span><i className="fa fa-file-text-o" aria-hidden="true"></i>Products</span></a>
-              </li>
-              <li className="scroll"><a href="#exprience">
-                  <span><i className="fa fa-briefcase" aria-hidden="true"></i>Services</span></a>
-              </li>
-              <li className="scroll"><a href="#skill">
-                  <span><i className="fa fa-sliders" aria-hidden="true"></i>Site</span></a>
-               </li>
-          </ul>
-        </nav>
+      <div className="u-heading-v2-1--bottom g-mb-0">
+        <h2 style={style}
+           className="u-heading-v2__title">
+            {this.props.title}
+        </h2>
+        <div className={css(styles.subtitle)}>
+        <h4 style={{marginTop:'-1em', color: active ? '#fff' : '#666'}}
+            className="g-font-weight-200 g-font-size-14 g-">
+            <span style={{fontSize: '2em'}}>{this.props.idx+1}.</span>
+            {this.props.subtitle}
+        </h4>
         </div>
       </div>
-    </div>
+      </div>
     )
   }
 }
-// <li className="scroll"><a href="#exprience">
-//     <span><i className="fa fa-briefcase" aria-hidden="true"></i>Experience</span></a>
-// </li>
-// <li className="scroll"><a href="#education">
-//     <span><i className="fa fa-leanpub" aria-hidden="true"></i>Education</span></a>
-// </li>
-// <li className="scroll"><a href="#portfolio">
-//     <span><i className="fa fa-picture-o" aria-hidden="true"></i>Portfolio</span></a>
-// </li>
-// <li className="scroll"><a href="#contact">
-//     <span><i className="fa fa-volume-control-phone" aria-hidden="true"></i>Contact</span></a>
-// </li>
-// <li className="scroll"><a href="#blog">
-//     <span><i className="fa fa-file-text-o" aria-hidden="true"></i>Blog</span></a>
-// </li>
-// <li className="scroll"><a href="#profile">
-//     <span><i className="fa fa-floppy-o" aria-hidden="true"></i>My Resume.pdf</span></a>
-// </li>
+
+
+const mapStateToProps = (store) => {
+  return {
+    stage: store.account.stage
+  }
+}
+
+export default connect(mapStateToProps)(Nav)

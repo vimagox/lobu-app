@@ -121,9 +121,9 @@ class Page extends React.Component {
 
 const mapStateToProps = store => {
   return {
-    b: store.location.business,
-    region: store.location.region,
-    city: store.location.city
+    b: store.place.business,
+    region: store.place.region,
+    city: store.place.city
   }
 }
 
