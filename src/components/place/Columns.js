@@ -4,6 +4,9 @@ import {upToXS, upToSM, upToMD, upToLG, upToXL} from '../../constants/Media'
 
 
 const styles = StyleSheet.create({
+  section: {
+
+  },
   columns: {
     columnCount: 6,
     // border: '1px solid black',
@@ -33,7 +36,7 @@ export default class Columns extends React.Component {
   render() {
     const items = this.props.totalItems
     return (
-      <div>
+      <div className={css(styles.section)}>
         {items < 10 && <div style={{columnCount: 1}}>
           {this.props.children}
         </div>}

@@ -12,7 +12,7 @@ class Home extends React.Component {
   render() {
     const regions = this.props.regions
     return (
-      <div>
+      <div style={{zIndex: 0}}>
         {!regions && <Spinner/>}
         {regions && <Place regions={regions}/>}
       </div>

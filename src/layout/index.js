@@ -33,7 +33,7 @@ class Layout extends React.Component {
     return (
       <div className="main-wrapper home-two">
         <div className={css(styles.section)}>
-          {showBanner && <Banner/>}
+          {showBanner && <div style={{flexGrow: 1}}><Banner/></div>}
 
           {!showBanner && <div style={{flexGrow: 1}}>
             <Navigation/>
@@ -42,6 +42,7 @@ class Layout extends React.Component {
                 {this.props.children}
               </div>
             </div>}
+
           {path !== '/account' && <div className={css(styles.footer)}>
             <Footer/>
           </div> }

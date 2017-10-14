@@ -12,7 +12,7 @@ export default class CustomerSignup extends React.Component {
             <span className="g-color-white"> LOBU PROFILE?</span>
           </h2>
 
-          <form>
+          <form style={{border: 'none', padding: 0, margin: 0}}>
             <div className="form-group g-mb-10">
               <div className="row">
                 <div className="col-sm-6"><input className="form-control g-color-white g-bg-black-opacity-0_4 g-brd-black-opacity-0_4 g-brd-primary--focus rounded-0 g-pa-15" type="email" placeholder="First Name"/></div>

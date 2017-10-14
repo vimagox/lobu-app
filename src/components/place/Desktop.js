@@ -5,11 +5,12 @@ import RegionItem from './RegionItem'
 import BusinessList from '../business/List'
 import Columns from './Columns'
 import {upToXS, upToSM, upToMD, upToLG, upToXL} from '../../constants/Media'
+import {colors} from '../../constants/Colors'
 
 const styles = StyleSheet.create( {
   page: {
     // border: '1px solid #ddd',
-    marginTop: '1.5em',
+    marginTop: '1em',
     [upToXL]: {
       marginTop: '1em',
       // border: '1px solid blue',
@@ -34,15 +35,16 @@ const styles = StyleSheet.create( {
   regions: {
     display: 'flex',
     flexFlow: 'row',
+    backgroundColor: '#eee',
+    padding: '.5em 1em',
     [upToXS]: {
       display: 'none'
     }
   },
   title: {
     fontSize: '1.4em',
-    color: '#d6d6d6',
-    borderBottom: '1px solid #ddd',
-    margin: '1em 0',
+    color: colors[1],
+    margin: '-1em 0 0 0',
     [upToXS]: {
       display: 'none'
     }
@@ -59,11 +61,12 @@ class DesktopPlace extends React.Component {
     const city = this.props.city
     const title = city ? city.name + ', '+region.name : region ? region.name : 'United States'
     return (
-      <div className="container">
+    <div className="container">
       <div className={css(styles.page)}>
 
-        {!city &&  regionsLen > 1 &&
-          <div className={css(styles.title)}>{title}</div>
+        {(city || region) &&
+          <div className={css(styles.title)}
+            style={{borderBottom: city ? '1px solid #ddd' : 'none'}}>{title}</div>
         }
 
         {!city && regionsLen > 1 && <div className={css(styles.regions)}>
@@ -73,12 +76,11 @@ class DesktopPlace extends React.Component {
               ))}
             </Columns>
           </div>}
-
-        <div className={css(styles.title)}>{title} Businesses</div>
-
-        <BusinessList/>
+        <div style={{marginTop: '1.5em'}}>
+          <BusinessList/>
+        </div>
       </div>
-      </div>
+    </div>
     )
   }
 }
@@ -90,3 +92,5 @@ const mapStateToProps = (store) => {
   }
 }
 export default connect(mapStateToProps)(DesktopPlace)
+
+// <div className={css(styles.title)}>{title} Businesses</div>

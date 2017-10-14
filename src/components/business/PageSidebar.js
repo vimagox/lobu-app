@@ -8,7 +8,7 @@ export default class PageSidebar extends React.Component {
     return (
       <div id="sidebar" className="col-sm-12" style={{padding: 0}}>
         <aside id="sidebar" className="widget-area" style={{}}>
-          <div className="widget widget_categories" style={{marginTop: '-1em'}}>
+          <div className="widget widget_categories" style={{marginTop: '1em'}}>
             <h3 className="widget_title">Contact</h3>
             <div>
               <div>{b.contact.name}</div>
@@ -19,7 +19,7 @@ export default class PageSidebar extends React.Component {
             </div>
           </div>
           {b.services && <div className="widget widget_categories" style={{marginTop: '4em'}}>
-            <h3 className="widget_title">Services</h3>
+            <h3 className="widget_title">Amenities</h3>
             {b.services.freeDelivery && <div>
               <i style={{transform: 'scale(-1, 1)', padding: '0 0 0 1em'}} className="fa fa-truck" aria-hidden="true"></i>
               Free delivery
@@ -37,6 +37,17 @@ export default class PageSidebar extends React.Component {
               </a>
             </div> }
           </div>}
+
+          <section className="g-color-white g-pa-20" style={{backgroundColor: colors[b.color], margin: '2em 0', xmaxWidth: '17em'}}>
+            <div className="text-center">
+              <p className=" g-font-weight-400 g-mr-20--md g-mb-15 g-mb-0--md">Subscribe to receive special offers and announcements.</p>
+            </div>
+            <div className="text-center g-pt-20">
+              <a className="btn btn-lg u-btn-white g-min-width-200 text-uppercase g-font-weight-600 g-font-size-12" target="_blank">Subscribe Now</a>
+            </div>
+          </section>
+
+
         </aside>
       </div>
     )

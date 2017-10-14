@@ -18,7 +18,7 @@ class BusinessSignup extends React.Component {
             <span className="g-color-primary"> Business?</span>
           </h2>
 
-          <form>
+          <form style={{border: 'none', padding: 0, margin: 0, marginLeft: '-5px'}}>
             <div className="form-group g-mb-10">
               <input className="form-control g-color-white g-bg-black-opacity-0_4 g-brd-black-opacity-0_4 g-brd-primary--focus rounded-0 g-pa-15" type="text" placeholder="Business Name"/>
             </div>

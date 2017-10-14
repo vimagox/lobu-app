@@ -2,8 +2,20 @@ import React from 'react'
 import {StyleSheet,css} from 'aphrodite'
 import {colors} from '../../constants/Colors'
 import {app} from '../../actions'
+import {upToLG, upToXL} from '../../constants/Media'
 
 const styles = StyleSheet.create({
+  section: {
+    // border: '1px solid red',
+    [upToXL]: {
+      // border: '1px solid magenta'
+    },
+    [upToLG]: {
+      // border: '1px solid cyan',
+      marginTop: '-30em',
+      marginBottom: '10em'
+    }
+  },
   sphere: {
     backgroundColor: colors[8],
     width: '30em',
@@ -39,7 +51,7 @@ export default class Desktop extends React.Component {
     return (
       <div id="home-banner-wrapper" className="main-wrapper g-bg-white home-two g-z-index-1"
             style={{overflow: 'hidden', marginBottom:0,paddingBottom:0}}>
-        <div id="home-banner">
+        <div xid="home-banner" className={css(styles.section)}>
           <div className="container" style={{height: '100%'}}>
             <div className="row" style={{height: '100%'}}>
               <div className="col-sm-12 col-md-6">

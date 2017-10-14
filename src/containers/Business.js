@@ -11,6 +11,8 @@ const biz1 = {
   title: 'Wholesale Bedroom Sets',
   subtitle: 'High quality and modern bedroom sets at wholesale prices. Contact us today with your business inquiries.',
   logo: 'cf.png',
+  logofit: 'contain',
+  logoposition: '0% 100%',
   imgHeight: '11em',
   contact: {
     name: "Victor Gómez",
@@ -52,6 +54,8 @@ const biz2 = {
   title: 'Face Painting',
   subtitle: "Face painting is a fun addition to any kids' party. Hire Sasha today.",
   logo: 'rainbow.jpg',
+  logofit: 'cover',
+  logoposition: '50% 50%',
   imgHeight: '25em',
   contact: {
     name: "Sasha Gómez",
@@ -116,7 +120,7 @@ class Business extends React.Component {
     const city = this.props.city
     const bizFound = region && city && biz
     return (
-      <div className="container">
+      <div className="container" style={{zIndex: 0}}>
         {!bizFound && <Spinner/>}
         {bizFound && <Biz b={biz}/>}
       </div>

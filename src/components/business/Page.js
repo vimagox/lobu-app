@@ -8,17 +8,27 @@ import {StyleSheet,css} from 'aphrodite'
 import {upToSM, upToMD} from '../../constants/Media'
 import Spinner from '../Spinner'
 
+
 const styles = StyleSheet.create({
   logo: {
-    margin: '2em 0 0 0',
-    height: 'auto',
-    width: '240px',
+    margin: '3.5em 0 0 0',
+    height: '12em',
+    textAlign: 'left',
+    // border: '1px solid red',
     [upToSM]: {
       textAlign: 'center',
       margin: '1em auto'
     }
   },
+  logoImg: {
+    height: '100%',
+    width: '100%',
+    // borderRadius: '1em',
+    // objectFit: 'contain',
+    // objectPosition: '50% 50%'
+  },
   title: {
+    fontSize: '4em',
     [upToMD]: {
       fontSize:  '2em'
     },
@@ -30,6 +40,7 @@ const styles = StyleSheet.create({
   subtitle: {
     fontWeight: 'normal',
     color: '#ccc',
+    marginTop: '-.5em',
     [upToSM]: {
       display: 'none'
     }
@@ -73,12 +84,14 @@ const styles = StyleSheet.create({
 
 
 class Page extends React.Component {
+
   render() {
     const b = this.props.b
     const region = this.props.region
     const city = this.props.city
     return (
-    <div id="portfolio" className="portfolio-section">
+    <div id="portfolio" className="portfolio-section"
+        style={{marginTop: '-3em'}}>
       {!(region && city) && <Spinner/>}
       {region && city &&
         <div className="container">
@@ -89,19 +102,20 @@ class Page extends React.Component {
           <div className="row">
             <div className="col-sm-4">
               <div className={css(styles.logo)}>
-                <img alt={b.name} src={"images/test/"+b.logo}
-                          style={{height: '100%', width: '100%', borderRadius: '1em'}}/>
+                <img alt={b.name}
+                  style={{objectFit: b.logofit || 'contain', objectPosition: b.logoposition}}
+                  src={"images/test/"+b.logo} className={css(styles.logoImg)}/>
               </div>
-
-              <div className="section-title g-pt-20">
+              <div className="g-pt-0">
                 <h1 className={css(styles.title)} style={{color: colors[b.color]}}>{b.name}</h1>
                 <h4 className={css(styles.subtitle)}>El Paso, TX</h4>
                 <h4 className={css(styles.mobileSubtitle)}>{b.title}</h4>
               </div>
+
               <BizSidebar b={b}/>
             </div>
             <div className="col-sm-8" style={{marginTop: '2em'}}>
-              <div className="text-info">
+              <div className="text-info" style={{clear: 'both'}}>
                 <h4 className={css(styles.pageTitle)}>{b.title}</h4>
                 <p>{b.subtitle}</p>
               </div>

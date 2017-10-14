@@ -4,7 +4,7 @@ import {StyleSheet,css} from 'aphrodite'
 import {default as UI} from '../../ui'
 import {colors} from '../../../constants/Colors'
 import {upToSM, upToMD, upToLG, upToXL} from '../../../constants/Media'
-import {account, card} from '../../../actions'
+import {account} from '../../../actions'
 
 
 const styles = StyleSheet.create({

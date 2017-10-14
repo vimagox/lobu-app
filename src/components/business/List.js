@@ -59,11 +59,6 @@ class Businesses extends React.Component {
           <Ad/>
           <Item time={1} b={bizs[0]}/>
           <Item time={2} b={bizs[1]}/>
-          <Item time={1} b={bizs[0]}/>
-          <Item time={2} b={bizs[1]}/>
-          <Item time={1} b={bizs[0]}/>
-          <Item time={2} b={bizs[1]}/>
-          <Item time={2} b={bizs[1]}/>
           <ItemSpacer/>
           <ItemSpacer/>
           <ItemSpacer/>

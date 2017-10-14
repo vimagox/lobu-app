@@ -41,6 +41,9 @@ body {
     overflow-x:hidden;
     -webkit-font-smoothing: antialiased;
     color: #2d3038;
+    -webkit-column-break-inside: avoid;
+    break-inside:avoid;
+    page-break-inside:avoid;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -2475,21 +2478,21 @@ a, #contact-section li a i:hover,
   top: 2px; }
 
 .u-accordion-color-primary .u-accordion__header [aria-expanded="true"] {
-  color: #72c02c !important; }
+  color: #3c70b4 !important; }
 
 .u-accordion-color-white .u-accordion__header [aria-expanded="true"] {
   color: #fff !important; }
 
 .u-accordion-bg-primary .u-accordion__header [aria-expanded="true"] {
-  background-color: #72c02c !important;
-  border-color: #72c02c !important; }
+  background-color: #3c70b4 !important;
+  border-color: #3c70b4 !important; }
 
 .u-accordion-bg-white .u-accordion__header [aria-expanded="true"] {
   background-color: #fff !important;
   border-color: #fff !important; }
 
 .u-accordion-brd-primary .u-accordion__header [aria-expanded="true"] {
-  border-color: #72c02c !important; }
+  border-color: #3c70b4 !important; }
 
 .u-accordion-brd-white .u-accordion__header [aria-expanded="true"] {
   border-color: #fff !important; }
@@ -2521,21 +2524,21 @@ a, #contact-section li a i:hover,
     top: 2px; }
 
   .u-accordion-color-primary .u-accordion__header [aria-expanded="true"] {
-    color: #72c02c !important; }
+    color: #3c70b4 !important; }
 
   .u-accordion-color-white .u-accordion__header [aria-expanded="true"] {
     color: #fff !important; }
 
   .u-accordion-bg-primary .u-accordion__header [aria-expanded="true"] {
-    background-color: #72c02c !important;
-    border-color: #72c02c !important; }
+    background-color: #3c70b4 !important;
+    border-color: #3c70b4 !important; }
 
   .u-accordion-bg-white .u-accordion__header [aria-expanded="true"] {
     background-color: #fff !important;
     border-color: #fff !important; }
 
   .u-accordion-brd-primary .u-accordion__header [aria-expanded="true"] {
-    border-color: #72c02c !important; }
+    border-color: #3c70b4 !important; }
 
   .u-accordion-brd-white .u-accordion__header [aria-expanded="true"] {
     border-color: #fff !important; }

@@ -2,12 +2,15 @@ import React from 'react'
 import {withRouter, Link} from 'react-router-dom'
 import {colors} from '../constants/Colors'
 
+const re = /^(\/account|\/signup|\/login|\/forgot)$/
+
 class Footer extends React.Component {
   render() {
-    const showMain = this.props.location.pathname !== '/account'
+    const showMain = !re.test(this.props.location.pathname)
+
     return (
     <section className="g-z-index-minus-1 g-bottom-0 g-width-100vw">
-      <footer className="g-bg-black-opacity-0_9 g-color-white-opacity-0_8">
+      <footer className="g-bg-black g-color-white-opacity-0_8">
 
       {showMain && <div className="container g-pt-40 g-pb-20">
         <div className="row">
@@ -21,14 +24,6 @@ class Footer extends React.Component {
           <div className="row">
             <div className="col-sm-12">
               <ul className="list-unstyled g-mb-30 g-mb-0--md">
-                <li className="d-flex g-mb-10">
-                  <i className="fa fa-circle g-color-primary g-font-size-5 g-mt-10 g-mr-8"></i>
-                  <Link to="/business" className="g-color-white-opacity-0_8 g-color-primary--hover">Sign up your Business</Link>
-                </li>
-                <li className="d-flex g-mb-10">
-                  <i className="fa fa-circle g-color-primary g-font-size-5 g-mt-10 g-mr-8"></i>
-                  <Link to="/customer" className="g-color-white-opacity-0_8 g-color-primary--hover">Create Lobu Profile</Link>
-                </li>
                 <li className="d-flex g-mb-10">
                   <i className="fa fa-circle g-color-primary g-font-size-5 g-mt-10 g-mr-8"></i>
                   <a href="https://xmunicipio.com" target="_blank" rel="noopener noreferrer"
@@ -50,11 +45,11 @@ class Footer extends React.Component {
 
         <div className="col-md-6 col-lg-4">
           <h2 className="h6 g-color-white text-uppercase g-font-weight-700 g-mb-20">Have a Question or Suggestion?</h2>
-            <form>
+            <form style={{border: 'none', padding: 0, margin: 0, marginLeft: '-5px'}}>
               <div className="form-group g-mb-15">
-                <textarea className="form-control g-bg-black g-bg-black--focus g-color-white g-brd-white-opacity-0_1 g-brd-primary--focus g-resize-none rounded-0 g-py-12 g-px-15" rows="4" placeholder="Message"></textarea>
+                <textarea className="form-control g-bg-white g-color-black g-brd-white-opacity-0_1 g-brd-primary--focus g-resize-none rounded-0 g-py-12 g-px-15" rows="4" placeholder="Message"></textarea>
               </div>
-              <button className="btn btn-lg u-btn-brown text-uppercase g-font-size-14 rounded-0" type="submit">Send Message</button>
+              <button className="btn btn-lg u-btn-indigo text-uppercase g-font-size-14 rounded-0" type="submit">Send Message</button>
             </form>
           </div>
         </div>
@@ -75,3 +70,13 @@ class Footer extends React.Component {
   }
 }
 export default withRouter(Footer)
+
+
+// <li className="d-flex g-mb-10">
+//   <i className="fa fa-circle g-color-primary g-font-size-5 g-mt-10 g-mr-8"></i>
+//   <Link to="/business" className="g-color-white-opacity-0_8 g-color-primary--hover">Sign up your Business</Link>
+// </li>
+// <li className="d-flex g-mb-10">
+//   <i className="fa fa-circle g-color-primary g-font-size-5 g-mt-10 g-mr-8"></i>
+//   <Link to="/customer" className="g-color-white-opacity-0_8 g-color-primary--hover">Create Lobu Profile</Link>
+// </li>

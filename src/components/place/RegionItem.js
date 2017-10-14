@@ -10,6 +10,7 @@ const styles = StyleSheet.create({
   item: {
     minWidth: '12em',
     marginBottom: '3px',
+    display: 'inline-block',
     [upToSM]: {
       width: '100%'
     }

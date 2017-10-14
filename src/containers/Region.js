@@ -20,7 +20,7 @@ class Region extends React.Component {
     const region = this.props.region
     const cities = this.props.cities
     return (
-      <div>
+      <div style={{zIndex: 0}}>
         {!(region && cities) && <Spinner/>}
         {region && cities && <Place regions={cities}/>}
       </div>
