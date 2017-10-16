@@ -14,25 +14,12 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexGrow: 1,
     margin: '0',
-    // maxWidth: '360px',
     maxWidth: '220px',
-    // height: '22.5em',
-    // [upToXL]: {
-    //   maxWidth: '294px',
-    //   // height: '23em',
-    // },
-    // [upToLG]: {
-    //   maxWidth: '220px',
-    // },
     [upToMD]: {
       width: '100%',
       minWidth: '100%',
       marginBottom: '1em'
     },
-    // [upToSM]: {
-    //   maxWidth: '100%',
-    //   marginBottom: '2em'
-    // },
     ':hover': {
       opacity: 1
     }
@@ -94,7 +81,7 @@ class Ad extends React.Component {
           onClick={this.signup.bind(this)}>
 
         <div className={css(styles.content)}>
-          <div className="entry-title g-mt-70">
+          <div className="entry-title g-mt-50">
             <h2 className={css(styles.title1)}>Sign up your</h2>
             <h2 className={css(styles.title2)}>Local Business</h2>
             <div className={css(styles.subtitle)}>FREE TRIAL</div>

@@ -1,9 +1,8 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {StyleSheet,css} from 'aphrodite'
-import RegionItem from './RegionItem'
 import BusinessList from '../business/List'
-import Columns from './Columns'
+import RegionList  from './RegionList'
 import {upToXS, upToSM, upToMD, upToLG, upToXL} from '../../constants/Media'
 import {colors} from '../../constants/Colors'
 
@@ -12,16 +11,16 @@ const styles = StyleSheet.create( {
     // border: '1px solid #ddd',
     marginTop: '0',
     [upToXL]: {
-      marginTop: '1em',
+      marginTop: '-1.5em',
       // border: '1px solid blue',
     },
     [upToLG]: {
-      marginTop: '1.5em',
-      // border: '1px solid orange',
+      // marginTop: '1.5em',
+      border: '1px solid orange',
     },
     [upToMD]: {
-      marginTop: '1em',
-      // border: '1px solid cyan',
+      // marginTop: '1em',
+      border: '1px solid cyan',
     },
     [upToSM]: {
       // border: '1px solid magenta',
@@ -30,15 +29,6 @@ const styles = StyleSheet.create( {
     [upToXS]: {
       width: '100%',
       padding: 0
-    }
-  },
-  regions: {
-    display: 'flex',
-    flexFlow: 'row',
-    backgroundColor: '#eee',
-    padding: '.5em 1em',
-    [upToXS]: {
-      display: 'none'
     }
   },
   title: {
@@ -57,28 +47,13 @@ class DesktopPlace extends React.Component {
     const regions = this.props.regions
     const regionKeys = Object.keys(regions)
     const regionsLen = regionKeys.length
-    const region = this.props.region
     const city = this.props.city
-    const title = city ? city.name + ', '+region.name : region ? region.name : 'United States'
+
     return (
     <div className="container">
       <div className={css(styles.page)}>
-
-        {(city || region) &&
-          <div className={css(styles.title)}
-            style={{borderBottom: city ? '1px solid #ddd' : 'none'}}>{title}</div>
-        }
-
-        {!city && regionsLen > 1 && <div className={css(styles.regions)}>
-            <Columns totalItems={regionsLen}>
-              {regionKeys.map((k,i) => (
-                <RegionItem key={'region'+i} r={regions[k]}/>
-              ))}
-            </Columns>
-          </div>}
-        <div style={{marginTop: '2.5em'}}>
-          <BusinessList/>
-        </div>
+        {!city && regionsLen > 1 && <RegionList regions={regions}/>}
+        <div style={{marginTop: '1.75em'}}><BusinessList/></div>
       </div>
     </div>
     )
@@ -94,3 +69,9 @@ const mapStateToProps = (store) => {
 export default connect(mapStateToProps)(DesktopPlace)
 
 // <div className={css(styles.title)}>{title} Businesses</div>
+    // const region = this.props.region
+    // const title = city ? city.name + ', '+region.name : region ? region.name : 'United States'
+// {(city || region) &&
+//   <div className={css(styles.title)}
+//     style={{borderBottom: city ? '1px solid #ddd' : 'none'}}>{title}</div>
+// }
