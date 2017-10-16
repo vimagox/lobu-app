@@ -62,7 +62,7 @@ export default class Desktop extends React.Component {
                     <button
                       onClick={app.hideBanner}
                       className="btn btn-primary"
-                      style={{letterSpacing: '9px',
+                      style={{letterSpacing: '7px',
                           padding: '1em 2em',
                           marginTop: '.75em'}}>SUPPORT LOCAL BUSINESSES</button>
                   </div>

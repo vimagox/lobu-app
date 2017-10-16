@@ -20,11 +20,7 @@ const applinks = async () => {
 }
 
 const load = async (key, uri) => {
-  console.log(await applinks())
   const url = (await applinks())[key] + (uri || '')
-  console.log('=============================')
-  console.log(url)
-  console.log('=============================')
   const response = await fetch(url)
   return await response.json()
 }

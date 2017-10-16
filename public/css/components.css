@@ -21223,6 +21223,12 @@ pre[class*="language-"] .toolbar-item a {
   border: none;
   outline: none; }
 
+
+  .btn.disabled {
+    background-color: red !important;
+    border-color: red;
+  }
+
 /* Add here all your css styles (customizations) */
 
 /*.btn-primary {

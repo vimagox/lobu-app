@@ -10,7 +10,7 @@ import {colors} from '../../constants/Colors'
 const styles = StyleSheet.create( {
   page: {
     // border: '1px solid #ddd',
-    marginTop: '1em',
+    marginTop: '0',
     [upToXL]: {
       marginTop: '1em',
       // border: '1px solid blue',
@@ -76,7 +76,7 @@ class DesktopPlace extends React.Component {
               ))}
             </Columns>
           </div>}
-        <div style={{marginTop: '1.5em'}}>
+        <div style={{marginTop: '2.5em'}}>
           <BusinessList/>
         </div>
       </div>

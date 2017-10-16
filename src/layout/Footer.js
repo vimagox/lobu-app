@@ -1,10 +1,12 @@
 import React from 'react'
 import {withRouter, Link} from 'react-router-dom'
 import {colors} from '../constants/Colors'
+import SuggestionForm from './SuggestionForm'
 
 const re = /^(\/account|\/signup|\/login|\/forgot)$/
 
 class Footer extends React.Component {
+
   render() {
     const showMain = !re.test(this.props.location.pathname)
 
@@ -45,14 +47,9 @@ class Footer extends React.Component {
 
         <div className="col-md-6 col-lg-4">
           <h2 className="h6 g-color-white text-uppercase g-font-weight-700 g-mb-20">Have a Question or Suggestion?</h2>
-            <form style={{border: 'none', padding: 0, margin: 0, marginLeft: '-5px'}}>
-              <div className="form-group g-mb-15">
-                <textarea className="form-control g-bg-white g-color-black g-brd-white-opacity-0_1 g-brd-primary--focus g-resize-none rounded-0 g-py-12 g-px-15" rows="4" placeholder="Message"></textarea>
-              </div>
-              <button className="btn btn-lg u-btn-indigo text-uppercase g-font-size-14 rounded-0" type="submit">Send Message</button>
-            </form>
-          </div>
+            <SuggestionForm/>
         </div>
+      </div>
       </div> }
 
         <hr className="g-brd-white-opacity-0_1 g-mt-70 g-mb-30"/>
