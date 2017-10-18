@@ -16,17 +16,26 @@ class ServiceForm extends React.Component {
 
   render() {
     return (
-      <form>
-        <legend className="g-font-size-default">Add Service</legend>
-  <UI.Input id="serviceTitle" placeholder="Title (optional)" field="serviceTitle"/>
-  <UI.Input id="serviceSubtitle" placeholder="Subtitle (optional)" field="serviceSubtitle"/>
-  <UI.TextArea id="serviceDescription" placeholder="Description (optional)" field="serviceDescription"/>
-  <div className="d-flex justify-content-end">
-    <UI.Price id="servicePrice" placeholder="Price (optional)" field="servicePrice"/>
-  </div>
-  <UI.Button onClick={this.handleAddService.bind(this)}
-      text="Add Service"/>
-</form>
+    <form>
+      <legend className="g-font-size-default">Add Service</legend>
+      <div style={{marginBottom: '.75em'}}>
+        <label className="custom-file" style={{width: '100%'}}>
+          <input type="file" id="file" className="custom-file-input"/>
+          <span className="custom-file-control">
+            Select service image...
+          </span>
+        </label>
+      </div>
+
+      <UI.Input id="serviceTitle" placeholder="Title" field="serviceTitle"/>
+      <UI.Input id="serviceSubtitle" placeholder="Subtitle (optional)" field="serviceSubtitle"/>
+      <UI.TextArea id="serviceDescription" placeholder="Description (optional)" field="serviceDescription"/>
+      <div className="d-flex justify-content-end">
+        <UI.Price id="servicePrice" placeholder="Price (optional)" field="servicePrice"/>
+      </div>
+      <UI.Button onClick={this.handleAddService.bind(this)}
+        text="Add Service"/>
+    </form>
     )
   }
 }

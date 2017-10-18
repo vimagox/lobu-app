@@ -138,32 +138,49 @@ class CardForm extends React.Component {
     return (
       <form>
         <legend className="g-font-size-default">Business Card</legend>
+        <div style={{marginBottom: '.75em'}}>
+          <label className="custom-file" style={{width: '100%'}}>
+            <input type="file" id="file" className="custom-file-input"/>
+            <span className="custom-file-control">
+              Select business card image...
+            </span>
+          </label>
+        </div>
         <UI.Input
-            id="name" field="name" handleChange={this.handleChange}
+            id="name"
+            field="name"
+            handleChange={this.handleChange}
             value={this.props.name}
             placeholder={"Business Name. ie: Rainbow"}/>
         {errors.name && <UI.Error text={errors.name}/>}
         <UI.Input
-            id="category" field="category" handleChange={this.handleChange}
+            id="category"
+            field="category"
+            handleChange={this.handleChange}
             value={this.props.category}
             placeholder={"Business Category. ie: Face Painting"}/>
         {errors.category && <UI.Error text={errors.category}/>}
         <div>
           <div style={{display: 'flex', flexFlow: 'row', justifyContent: 'flex-start', marginLeft: '-1em'}}>
-            <UI.Checkbox id="card" field="card" label="Credit Cards Ok" handleCheck={this.handleCheck}/>
+            <UI.Checkbox id="cards" field="cards" label="Credit Cards Ok" handleCheck={this.handleCheck}/>
             <UI.Checkbox id="bitcoin" field="bitcoin" label="Bitcoin Ok" handleCheck={this.handleCheck}/>
             <UI.Checkbox id="delivery" field="delivery" label="Delivery Service" handleCheck={this.handleCheck}/>
           </div>
         </div>
 
         <div className="form-group g-mt-12">
+          <div style={{color: '#000'}}><strong>Main Business Color</strong></div>
+          <div style={{marginLeft: '-.5em'}}>
           {[0,1,2,3,4,5,6,7,8,9,10].map((c, i) => (
             <div key={"color"+i}
                 onClick={this.handleColor.bind(this, i)}
                 className={css(styles.color)}
-                style={{backgroundColor: colors[i],
-                border: "4px solid " + (color === i ? '#000' : '#fff') }}/>
+                style={{
+                    backgroundColor: colors[i],
+                    border: "4px solid " + (color === i ? '#000' : '#fff')
+                }}/>
           ))}
+          </div>
         </div>
       </form>
     )

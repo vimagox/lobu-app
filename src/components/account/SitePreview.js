@@ -17,7 +17,7 @@ export default class SitePreview extends React.Component {
           {this.props.b && <Business/>}
         </div>
         <div className="text-right" style={{
-              backgroundColor: '#000'
+              backgroundColor: '#333'
             }}>
           <div className="container">
             <div style={{
@@ -36,10 +36,10 @@ export default class SitePreview extends React.Component {
               padding: '.5em 1em',
               margin: '1.25em 0 1.25em 0',
               height: '3em',
-              width: '9em'}}
+              width: '11em'}}
               onClick={this.setStage.bind(this, 1)}
               className="g-cursor-pointer g-color-white">
-                <div style={{display: 'inline-block', padding: '0 0 0 2em'}}>Setup Site</div>
+                <div style={{display: 'inline-block', padding: '0 0 0 2em'}}>2. Setup Site</div>
                 <FontAwesome name="arrow-left" size="2x"
                   style={{position: 'absolute', left: '7px', top: '5px'}}/>
             </div>

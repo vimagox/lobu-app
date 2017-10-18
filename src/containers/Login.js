@@ -1,11 +1,23 @@
 import React from 'react'
 import FontAwesome from 'react-fontawesome'
 import {Link} from 'react-router-dom'
+import LoaderButton from '../components/LoaderButton'
+import {app} from '../actions'
 
 export default class Login extends React.Component {
-  constructor(props){
-    super(props)
-    this.state = {keepSigned: true}
+  state = {
+    keepSigned: true,
+    username: '',
+    password: ''
+  }
+
+  handleChange = e => {
+    this.setState({[e.target.name]: e.target.value})
+  }
+
+  handleSubmit = e => {
+    app.login(this.state)
+    this.setState({username: '', password: ''})
   }
 
   toggleKeepSigned() {
@@ -23,13 +35,21 @@ export default class Login extends React.Component {
                 <h2 className="h2 g-color-black g-font-weight-600">Login</h2>
               </header>
 
-              <form className="g-py-15" style={{border: 'none'}}>
+              <form onSubmit={this.handleSubmit} className="g-py-15" style={{border: 'none'}}>
                 <div className="mb-4">
-                  <input className="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v4 g-brd-primary--hover rounded g-py-15 g-px-15" type="email" placeholder="Email"/>
+                  <input name="username"
+                         onChange={this.handleChange}
+                         className="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v4 g-brd-primary--hover rounded g-py-15 g-px-15"
+                         type="email"
+                         placeholder="Email"/>
                 </div>
 
                 <div className="g-mb-15 g-mt-10">
-                  <input className="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v4 g-brd-primary--hover rounded g-py-15 g-px-15 mb-3" type="password" placeholder="Password"/>
+                  <input name="password"
+                         onChange={this.handleChange}
+                         className="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v4 g-brd-primary--hover rounded g-py-15 g-px-15 mb-3"
+                         type="password"
+                         placeholder="Password"/>
                   <div className="row justify-content-between">
                     <div className="col align-self-center">
                       <label onClick={this.toggleKeepSigned.bind(this)}
@@ -49,7 +69,13 @@ export default class Login extends React.Component {
                 </div>
 
                 <div className="mb-4">
-                  <button className="btn btn-md btn-block u-btn-primary g-py-13" type="button">Login</button>
+                  <LoaderButton
+                      type="submit"
+                      className="btn btn-md btn-block u-btn-primary g-py-13"
+                      text="Login"
+                      isLoading=""
+                      loadingText=""
+                      />
                 </div>
               </form>
               <footer className="text-center">

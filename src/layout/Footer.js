@@ -3,7 +3,7 @@ import {withRouter, Link} from 'react-router-dom'
 import {colors} from '../constants/Colors'
 import SuggestionForm from './SuggestionForm'
 
-const re = /^(\/account|\/signup|\/login|\/forgot)$/
+const re = /^(\/account|\/signup|\/login|\/forgot|\/business)$/
 
 class Footer extends React.Component {
 

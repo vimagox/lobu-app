@@ -19,11 +19,11 @@ class CardSetup extends React.Component {
     if(empty(this.props.category)){
       errors.category = 'Enter your business category'
     }
-    if(!errors) {
+    // if(!errors) {
       account.loadStage(value)
-    }else {
-      account.loadErrors(errors)
-    }
+    // }else {
+    //   account.loadErrors(errors)
+    // }
   }
 
   render() {
@@ -44,7 +44,7 @@ class CardSetup extends React.Component {
 
         <div className="text-right" style={{
               marginTop: '2em',
-              backgroundColor: '#000',
+              backgroundColor: '#333',
             }}>
           <div className="container">
             <div style={{
@@ -54,10 +54,10 @@ class CardSetup extends React.Component {
               padding: '.5em 1em',
               margin: '1.25em 0 1.25em 0',
               height: '3em',
-              width: '9em'}}
+              width: '10em'}}
               onClick={this.setStage.bind(this, 1)}
               className="g-cursor-pointer g-color-white">
-                <div style={{display: 'inline-block', padding: '0 2em 0 0'}}>Setup Site</div>
+                <div style={{display: 'inline-block', padding: '0 2em 0 0'}}>2. Setup Site</div>
                 <FontAwesome name="arrow-right" size="2x"
                   style={{position: 'absolute', right: '7px', top: '5px'}}/>
             </div>

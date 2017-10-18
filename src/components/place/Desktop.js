@@ -9,18 +9,18 @@ import {colors} from '../../constants/Colors'
 const styles = StyleSheet.create( {
   page: {
     // border: '1px solid #ddd',
-    marginTop: '0',
+    marginTop: '-.5em',
     [upToXL]: {
       marginTop: '-1.5em',
       // border: '1px solid blue',
     },
     [upToLG]: {
       // marginTop: '1.5em',
-      border: '1px solid orange',
+      // border: '1px solid orange',
     },
     [upToMD]: {
       // marginTop: '1em',
-      border: '1px solid cyan',
+      // border: '1px solid cyan',
     },
     [upToSM]: {
       // border: '1px solid magenta',
@@ -53,7 +53,7 @@ class DesktopPlace extends React.Component {
     <div className="container">
       <div className={css(styles.page)}>
         {!city && regionsLen > 1 && <RegionList regions={regions}/>}
-        <div style={{marginTop: '1.75em'}}><BusinessList/></div>
+        <div style={{marginTop: city ? '0' : '1.75em'}}><BusinessList/></div>
       </div>
     </div>
     )

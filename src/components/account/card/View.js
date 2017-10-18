@@ -165,13 +165,6 @@ class CardView extends React.Component {
 
             <div style={{height: '170px', overflow: 'hidden', cursor: 'pointer', position: 'relative',
                 backgroundColor: '#000'}}>
-              <div style={{position: 'absolute', top: '1em', left: '1em', color: '#fff', fontSize: '1.2em'}}>
-                Click here to upload an image that best describes your business.
-                ie: store front, logo, main product, etc.
-              </div>
-              <div style={{position: 'absolute', bottom: '1em', right: '1em', cursor: 'pointer'}}>
-                <FontAwesome name="upload" size="3x" style={{color: '#fff', backgroundColor: '#000', padding: '.25em', borderRadius: '4px'}}/>
-              </div>
             </div>
 
 
@@ -242,4 +235,13 @@ export default connect(mapStateToProps)(CardView)
 
 // <div className={css(styles.uri)} style={{color: colors[color]}}>/
 //   {domain || 'your-lobu-domain'}
+// </div>
+
+
+// <div style={{position: 'absolute', top: '1em', left: '1em', color: '#fff', fontSize: '1.2em'}}>
+//   Click here to upload an image that best describes your business.
+//   ie: store front, logo, main product, etc.
+// </div>
+// <div style={{position: 'absolute', bottom: '1em', right: '1em', cursor: 'pointer'}}>
+//   <FontAwesome name="upload" size="3x" style={{color: '#fff', backgroundColor: '#000', padding: '.25em', borderRadius: '4px'}}/>
 // </div>

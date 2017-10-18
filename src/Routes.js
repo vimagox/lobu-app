@@ -22,7 +22,7 @@ export default ( ) => (
     <Route component={Terms} path="/terms" exact/>
     <Route component={Forgot} path="/forgot" exact/>
     <Route component={Signup} path="/signup" exact/>
-    <Route component={Signup} path="/business" exact/>
+    <Route component={Account} path="/business" exact/>
     <Route component={Membership} path="/customer" exact/>
     <Route component={Faq} path="/faq" exact/>
     <Route component={Account} path="/account" exact/>

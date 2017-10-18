@@ -1,12 +1,27 @@
 import React from 'react'
 import FontAwesome from 'react-fontawesome'
-import {Link} from 'react-router-dom'
+import {withRouter, Link} from 'react-router-dom'
+import LoaderButton from '../components/LoaderButton'
+import {app} from '../actions'
 
 
-export default class Signup extends React.Component {
-  constructor(props){
-    super(props)
-    this.state = {iaccept: true}
+class Signup extends React.Component {
+  state = {
+    iaccept: true,
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: '',
+    confirmPassword: ''
+  }
+
+  handleChange = e => {
+    this.setState({[e.target.name]: e.target.value})
+  }
+
+  handleSubmit = e => {
+    app.signup(this.state)
+    this.props.history.push('/account')
   }
 
   toggleIaccept(){
@@ -24,28 +39,48 @@ export default class Signup extends React.Component {
                 <h2 className="h2 g-color-black g-font-weight-600">Signup</h2>
               </header>
 
-              <form className="g-py-15" style={{border: 'none'}}>
+              <form onSubmit={this.handleSubmit} className="g-py-15" style={{border: 'none'}}>
                 <div className="row">
                   <div className="col-xs-12 col-sm-6 mb-4">
-                    <input className="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v4 g-brd-primary--hover rounded g-py-15 g-px-15" type="email" placeholder="First Name"/>
+                    <input name="firstName"
+                          onChange={this.handleChange}
+                          className="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v4 g-brd-primary--hover rounded g-py-15 g-px-15"
+                          type="email"
+                          placeholder="First Name"/>
                   </div>
 
                   <div className="col-xs-12 col-sm-6 mb-4">
-                    <input className="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v4 g-brd-primary--hover rounded g-py-15 g-px-15" type="tel" placeholder="Last Name"/>
+                    <input name="lastName"
+                           onChange={this.handleChange}
+                           className="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v4 g-brd-primary--hover rounded g-py-15 g-px-15"
+                           type="text"
+                           placeholder="Last Name"/>
                   </div>
                 </div>
 
                 <div className="g-mb-20  g-mt-20">
-                  <input className="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v4 g-brd-primary--hover rounded g-py-15 g-px-15" type="email" placeholder="Email"/>
+                  <input name="email"
+                         onChange={this.handleChange}
+                         className="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v4 g-brd-primary--hover rounded g-py-15 g-px-15"
+                         type="email"
+                         placeholder="Email"/>
                 </div>
 
                 <div className="row">
                   <div className="col-xs-12 col-sm-6 mb-4">
-                    <input className="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v4 g-brd-primary--hover rounded g-py-15 g-px-15" type="password" placeholder="Password"/>
+                    <input name="password"
+                           onChange={this.handleChange}
+                           className="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v4 g-brd-primary--hover rounded g-py-15 g-px-15"
+                           type="password"
+                           placeholder="Password"/>
                   </div>
 
                   <div className="col-xs-12 col-sm-6 mb-4">
-                    <input className="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v4 g-brd-primary--hover rounded g-py-15 g-px-15" type="password" placeholder="Confirm Password"/>
+                    <input name="confirmPassword"
+                           onChange={this.handleChange}
+                           className="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v4 g-brd-primary--hover rounded g-py-15 g-px-15"
+                           type="password"
+                           placeholder="Confirm Password"/>
                   </div>
                 </div>
 
@@ -59,7 +94,10 @@ export default class Signup extends React.Component {
                     <span style={{userSelect: 'none', margin: '5px'}}>I accept the <Link to="/terms">Terms and Conditions</Link></span>
                   </label>
                 </div>
-                <button className="btn btn-md btn-block u-btn-primary g-py-13 mb-4" type="button">Signup</button>
+                <LoaderButton
+                    className="btn btn-md btn-block u-btn-primary g-py-13 mb-4"
+                    text="Signup"
+                    type="submit"/>
               </form>
 
               <footer className="text-center">
@@ -73,3 +111,5 @@ export default class Signup extends React.Component {
     )
   }
 }
+
+export default withRouter(Signup)

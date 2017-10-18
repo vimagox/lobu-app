@@ -13,13 +13,6 @@ class ProductsView extends React.Component {
         <div className="exprience" style={{margin: 0, padding: 0}}>
             <div className="exprience-image" style={{position: 'relative'}}>
               <img className="img-responsive" src="/images/blog/1.jpg" alt="product"/>
-              <div style={{position: 'absolute', top: 0, left: 0,
-                    backgroundColor: '#000',
-                    color: '#fff', opacity:  1, fontWeight: 'bold',
-                    fontSize: '.85em', padding: '1em'}}>
-                    <span style={{fontSize: '1.4em'}}>Product Image.</span><br/>
-                    Click here to upload.
-              </div>
             </div>
             <div className="exprience-info">
                 <h3>{title || 'Product Title'}</h3>
@@ -53,3 +46,11 @@ export default connect(mapStateToProps)(ProductsView)
 //   <p>{this.props.productsSubtitle || 'Products Subtitle'}</p>
 // </div>
 // <hr/>
+
+// <div style={{position: 'absolute', top: 0, left: 0,
+//       backgroundColor: '#000',
+//       color: '#fff', opacity:  1, fontWeight: 'bold',
+//       fontSize: '.85em', padding: '1em'}}>
+//       <span style={{fontSize: '1.4em'}}>Product Image.</span><br/>
+//       Click here to upload.
+// </div>

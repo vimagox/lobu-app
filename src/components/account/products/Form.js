@@ -18,7 +18,16 @@ class ProductForm extends React.Component {
     return (
       <form>
         <legend className="g-font-size-default">Add Product</legend>
-        <UI.Input id="title" placeholder="Title (optional)" field="productTitle"/>
+        <div style={{marginBottom: '.75em'}}>
+          <label className="custom-file" style={{width: '100%'}}>
+            <input type="file" id="file" className="custom-file-input"/>
+            <span className="custom-file-control">
+              Select product image...
+            </span>
+          </label>
+        </div>
+
+        <UI.Input id="title" placeholder="Title" field="productTitle"/>
         <UI.Input id="subtitle" placeholder="Subtitle (optional)" field="productSubtitle"/>
         <UI.TextArea id="description" placeholder="Description (optional)" field="productDescription"/>
         <div className="d-flex justify-content-end">

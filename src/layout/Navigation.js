@@ -35,8 +35,10 @@ class Navigation extends React.Component {
         {loggedIn && <div style={{float:'right', color: '#fff', margin: '1.25em 0'}}>
           <div style={{position: 'fixed', zIndex:9999}}><FontAwesome name="user" size="2x"/></div>
         </div>}
-        {!loggedIn && !loginPath && <div style={{float:'right', color: '#fff', margin: '1.5em 1em'}}>
-          <Link to="/login" style={{color: '#fff', zIndex:9999, position: 'fixed', cursor: 'pointer'}}>Login</Link>
+        {!loggedIn && !loginPath && <div style={{float:'right', color: '#fff', margin: '1.5em 3em'}}>
+          <Link to="/login" style={{color: '#fff', zIndex:9999, position: 'fixed', cursor: 'pointer'}}>
+            Login
+          </Link>
         </div>}
 
         <div id="navigation"

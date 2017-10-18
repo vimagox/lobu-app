@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexFlow: 'row',
     backgroundColor: '#eee',
-    padding: '.5em 1em',
+    padding: '1em',
     [upToXS]: {
       display: 'none'
     }

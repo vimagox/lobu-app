@@ -24,9 +24,27 @@ async function sendMessage(msg) {
   }
 }
 
+async function signup(fields) {
+  const url = config.api
+  await post(url, fields)
+}
+
+async function login(fields) {
+  const url = config.api
+  await post(url, fields)
+}
+
+async function resetPassword(email) {
+  const url = config.api
+  await post(url, email)
+}
+
 export default {
   loadModal,
   hideBanner,
   loadMode,
-  sendMessage
+  sendMessage,
+  signup,
+  login,
+  resetPassword
 }
