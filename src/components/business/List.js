@@ -4,6 +4,7 @@ import {StyleSheet,css} from 'aphrodite'
 import Item from './Item'
 import ItemSpacer from './ItemSpacer'
 import Ad from './Ad'
+import {place} from '../../actions'
 
 const styles = StyleSheet.create({
   regions: {
@@ -22,34 +23,12 @@ const styles = StyleSheet.create({
   }
 })
 
-const businesses = (region, city) => {
-  // if(region.uid === 'tx' && city.uid === 'el') {
-    return [
-      {
-        uid: 'casa',
-        name: 'Casa Furniture',
-        title: 'Wholesale Bedroom Sets',
-        site: 'casafurniture.com',
-        phone: '(915) 320 2836',
-        pic: '1.jpg',
-        color: 1
-      },
-      {
-        uid: 'rainbow',
-        name: 'Rainbow',
-        title: 'Face Painting',
-        phone: '(915) 320 2811',
-        pic: 'rainbow2.jpg',
-        color: 5
-      },
-    ]
-}
-
 class Businesses extends React.Component {
+
   render() {
     const city = this.props.city
     const region = this.props.region
-    const bizs = businesses(region, city)
+    const bizs = this.props.bizs
     const more = false
     return (
 
@@ -57,8 +36,9 @@ class Businesses extends React.Component {
       style={{marginTop: 0, paddingTop: 0}}>
         <div className={css(styles.regions)}>
           <Ad/>
-          <Item time={1} b={bizs[0]}/>
-          <Item time={2} b={bizs[1]}/>
+          {bizs && bizs.map((b, i) => (
+            <Item time={i} b={b}/>
+          ))}
           <ItemSpacer/>
           <ItemSpacer/>
           <ItemSpacer/>
@@ -76,7 +56,8 @@ class Businesses extends React.Component {
 const mapStateToProps = store => {
   return {
     region: store.place.region,
-    city: store.place.city
+    city: store.place.city,
+    bizs: store.place.businesses
   }
 }
 

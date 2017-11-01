@@ -5,10 +5,6 @@ import Spinner from '../components/Spinner'
 import {country} from '../actions'
 
 class Home extends React.Component {
-  componentWillMount() {
-    country.loadRegions()
-  }
-
   render() {
     const regions = this.props.regions
     return (

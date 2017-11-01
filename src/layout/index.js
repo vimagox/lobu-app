@@ -24,8 +24,6 @@ const styles = StyleSheet.create({
   }
 })
 
-// const re = /(\/business|\/customer|\/faq)/
-
 class Layout extends React.Component {
   render() {
     const path = this.props.location.pathname

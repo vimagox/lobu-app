@@ -17,6 +17,7 @@ export const SET_CITIES           = 'SET_CITIES'
 export const SET_CITY             = 'SET_CITY'
 
 export const SET_BUSINESS         = 'SET_BUSINESS'
+export const SET_BUSINESSES       = 'SET_BUSINESSES'
 export const SET_LOCATION         = 'SET_LOCATION'
 export const SET_STEP             = 'SET_STEP'
 

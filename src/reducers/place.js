@@ -6,6 +6,7 @@ export default (state = {
   region: null,
   cities: null,
   city: null,
+  businesses: [],
   business: null,
   mode: 'bizs',
 }, action) => {
@@ -15,7 +16,7 @@ export default (state = {
       country: {id: 'us', name: 'United States'},
       region: null,
       city: null,
-      business: null,
+      business: null,      
       scrolled: true
     }
     case types.SET_REGIONS: return { ...state, regions: action.regions}
@@ -53,6 +54,7 @@ export default (state = {
       business: action.business,
       region: action.region,
       city: action.city}
+    case types.SET_BUSINESSES: return { ...state, businesses: action.businesses}
 
     default: return state
   }

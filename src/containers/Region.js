@@ -8,12 +8,7 @@ import Spinner from '../components/Spinner'
 class Region extends React.Component {
 
   async componentWillMount() {
-    if(!this.props.region) {
-      await region.load(this.props.location.pathname)
-      if(!this.props.cities) {
-        region.loadCities(this.props.location.pathname)
-      }
-    }
+    await region.load(this.props.location.pathname.slice(1))
   }
 
   render() {

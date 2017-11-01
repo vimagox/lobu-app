@@ -11,14 +11,18 @@ function reset(){
   store.dispatch({type: types.RESET_REGION})
 }
 
-async function load(path) {
-  const region = (await api.getRegion(path))['state']
+async function load(regionUid) {
+  const region = (await api.getRegion('/'+regionUid))['state']
+  console.log('--------------------')
+  console.log(regionUid)
+  console.log(region)
+  console.log('--------------------')
   store.dispatch(setRegion(region))
   return region
 }
 
-async function loadCities(path) {
-  let cities = await api.getCities(path)
+async function loadCities(region) {
+  let cities = await api.getCities('/'+region.uid)
   store.dispatch(setCities(cities))
   return cities
 }
